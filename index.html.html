@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brechtland — Websites That Win Customers for Local Service Businesses</title>
+  <meta name="description" content="Brechtland designs, builds, hosts, and maintains websites for local service businesses. Flat monthly subscription starting at $149/mo. No contracts required." />
+  <link rel="canonical" href="https://brechtland.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0A0E1A',
+            'navy-light': '#111827',
+            'navy-card': '#0F1629',
+            'navy-border': '#1E293B',
+            blue: '#2B5CE6',
+            'blue-hover': '#3B6FF0',
+            purple: '#7C3AED',
+            'purple-light': '#A78BFA',
+            orange: '#F97316',
+            green: '#22C55E',
+            yellow: '#FACC15',
+            red: '#EF4444',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- EmailJS SDK -->
+  <script>
+    // Form submission — sends to tyler@brechtland.com via FormSubmit
+    const FORM_ENDPOINT = 'https://formspree.io/f/meelwrne';
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: 'Inter', sans-serif; background: #0A0E1A; color: #E2E8F0; overflow-x: hidden; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0A0E1A; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+    /* Hero gradient background */
+    .hero-gradient {
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43, 92, 230, 0.12) 0%, rgba(124, 58, 237, 0.06) 40%, transparent 70%);
+    }
+
+    /* Rotating text animation */
+    .trade-text {
+      display: inline-block;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card border glow */
+    .card-border {
+      border: 1px solid rgba(30, 41, 59, 0.8);
+      transition: border-color 0.3s ease;
+    }
+    .card-border:hover {
+      border-color: rgba(43, 92, 230, 0.4);
+    }
+
+    /* Portfolio card top accent */
+    .portfolio-roofing { border-top: 3px solid #2B5CE6; }
+    .portfolio-plumbing { border-top: 3px solid #22C55E; }
+    .portfolio-contractor { border-top: 3px solid #22C55E; }
+    .portfolio-electrical { border-top: 3px solid #7C3AED; }
+
+    /* FAQ accordion */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-answer.open { max-height: 300px; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-icon.open { transform: rotate(45deg); }
+
+    /* Trust badge pills */
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      color: #94A3B8;
+    }
+    .trust-pill::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #22C55E;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Browser mockup */
+    .mockup-shadow {
+      box-shadow: 0 25px 80px -12px rgba(0, 0, 0, 0.6), 0 0 60px rgba(43, 92, 230, 0.08);
+    }
+
+    /* Section fade-in */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating notification animation */
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateX(30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .float-in { animation: floatIn 0.8s ease 1.5s forwards; opacity: 0; }
+
+    /* Nav mobile menu */
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .mobile-menu.open { max-height: 400px; }
+
+    /* Subtle grid background */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(30, 41, 59, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Pricing card glow */
+    .pricing-glow {
+      box-shadow: 0 0 80px rgba(43, 92, 230, 0.1), 0 25px 60px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Step connector line */
+    .step-connector {
+      position: relative;
+    }
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      right: -50%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(43, 92, 230, 0.4), rgba(124, 58, 237, 0.4));
+      z-index: 0;
+    }
+    .step-connector:last-child::after { display: none; }
+
+    /* Coming soon badge */
+    .coming-soon-badge {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22C55E;
+    }
+
+    /* Stat badge styles */
+    .stat-badge-red { color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.08); }
+    .stat-badge-green { color: #22C55E; border: 1px solid rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.08); }
+    .stat-badge-orange { color: #F97316; border: 1px solid rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); }
+    .stat-badge-purple { color: #A78BFA; border: 1px solid rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
+
+    /* Button styles */
+    .btn-primary {
+      background: #2B5CE6;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: #3B6FF0; transform: translateY(-1px); }
+
+    .btn-outline {
+      color: #E2E8F0;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.2s ease;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .btn-outline:hover { color: #fff; }
+
+    .btn-small {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn-small-filled { background: #E2E8F0; color: #0A0E1A; }
+    .btn-small-filled:hover { background: #fff; }
+    .btn-small-ghost { background: transparent; color: #94A3B8; border: 1px solid #334155; }
+    .btn-small-ghost:hover { border-color: #64748B; color: #E2E8F0; }
+
+    /* Form input styles */
+    .form-input {
+      background: rgba(15, 22, 41, 0.8);
+      border: 1px solid #1E293B;
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #E2E8F0;
+      font-size: 0.9375rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s ease;
+      width: 100%;
+    }
+    .form-input::placeholder { color: #64748B; }
+    .form-input:focus { outline: none; border-color: #2B5CE6; }
+
+    /* Section label */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Star rating */
+    .stars { color: #FACC15; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================== -->
+  <!-- NAVIGATION                     -->
+  <!-- ============================== -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(10, 14, 26, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[72px]">
+        <!-- Logo -->
+        <a href="#" class="text-white text-xl font-bold tracking-tight">brechtland<span class="text-blue">.</span></a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors">How It Works</a>
+          <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
+          <a href="#work" class="text-sm text-gray-400 hover:text-white transition-colors">Work</a>
+          <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-colors">FAQ</a>
+        </div>
+
+        <!-- CTA -->
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white bg-transparent border border-gray-600 hover:border-gray-400 rounded-full px-5 py-2.5 transition-colors">
+          Get Started
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button id="mobile-toggle" class="md:hidden text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="pb-6 flex flex-col gap-4">
+          <a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors mobile-link">How It Works</a>
+          <a href="#pricing" class="text-gray-400 hover:text-white transition-colors mobile-link">Pricing</a>
+          <a href="#work" class="text-gray-400 hover:text-white transition-colors mobile-link">Work</a>
+          <a href="#faq" class="text-gray-400 hover:text-white transition-colors mobile-link">FAQ</a>
+          <a href="#contact" class="btn-primary text-center mt-2 mobile-link">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================== -->
+  <!-- HERO SECTION                   -->
+  <!-- ============================== -->
+  <section class="hero-gradient pt-36 pb-16 md:pt-44 md:pb-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-navy-light border border-navy-border rounded-full px-5 py-2 mb-10">
+        <span class="w-2 h-2 bg-green rounded-full"></span>
+        <span class="text-sm text-gray-400">Built exclusively for local service businesses</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+        A website that wins<br />customers for <span id="trade-rotate" class="trade-text text-purple">Roofers</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        We design, build, host, and maintain your site — you just answer the calls.<br class="hidden sm:block" />
+        Flat monthly subscription. No contracts required. No tech headaches.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <a href="#pricing" class="btn-primary text-base px-8 py-3.5">
+          See pricing
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+        <a href="#work" class="btn-outline text-base">View example sites</a>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-16 md:mb-24">
+        <span class="trust-pill">Custom Design</span>
+        <span class="trust-pill">Hosting Included</span>
+        <span class="trust-pill">Unlimited Edits</span>
+        <span class="trust-pill">SEO Optimized</span>
+        <span class="trust-pill">Lead Capture Forms</span>
+        <span class="trust-pill">Domain Included</span>
+      </div>
+
+      <!-- ============================== -->
+      <!-- BROWSER MOCKUP                 -->
+      <!-- ============================== -->
+      <div class="max-w-5xl mx-auto">
+        <div class="mockup-shadow rounded-2xl overflow-hidden border border-navy-border bg-navy-card">
+          <!-- Browser chrome -->
+          <div class="flex items-center gap-2 px-5 py-3.5 bg-[#111827] border-b border-navy-border">
+            <span class="w-3 h-3 rounded-full bg-red"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow"></span>
+            <span class="w-3 h-3 rounded-full bg-green"></span>
+            <div class="flex-1 mx-4">
+              <div class="bg-[#1E293B] rounded-lg px-4 py-1.5 text-xs text-gray-500 max-w-md mx-auto text-center">premieroofingco.com</div>
+            </div>
+          </div>
+
+          <!-- Mockup website content -->
+          <div class="relative">
+            <!-- Nav bar -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-navy-border">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-blue flex items-center justify-center text-xs font-bold text-white">P</div>
+                <span class="text-white font-semibold text-sm">Premier Roofing Co.</span>
+              </div>
+              <div class="hidden sm:flex items-center gap-6 text-xs text-gray-400">
+                <span>Services</span>
+                <span>Gallery</span>
+                <span>Reviews</span>
+                <span>About</span>
+              </div>
+              <div class="bg-orange text-white text-xs font-semibold rounded-full px-4 py-2 flex items-center gap-1.5">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                (555) 210-4400
+              </div>
+            </div>
+
+            <!-- Hero area of mockup -->
+            <div class="relative px-6 py-12 md:py-16" style="background-image: linear-gradient(135deg, rgba(10,14,26,0.75), rgba(10,14,26,0.55)), url('images/image1.png'); background-size: cover; background-position: center;">
+              <div class="max-w-md">
+                <div class="flex items-center gap-1 text-xs mb-2">
+                  <span class="stars text-sm">★★★★★</span>
+                  <span class="text-gray-400">4.9 · 312 Google reviews</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Tampa's Most Trusted<br /><span class="text-orange">Roofing Contractor</span></h2>
+                <p class="text-gray-400 text-sm mb-1">Storm damage? Hurricane season ready? We respond same-day.</p>
+                <p class="text-gray-500 text-xs mb-5">Licensed · Insured · 15-Year Workmanship Warranty</p>
+
+                <div class="flex flex-wrap gap-3 mb-5">
+                  <a href="#" class="bg-orange text-white text-xs font-semibold rounded-lg px-5 py-2.5">Get Free Inspection →</a>
+                  <a href="#" class="bg-transparent border border-gray-500 text-white text-xs font-medium rounded-lg px-5 py-2.5">View Our Work</a>
+                </div>
+
+                <div class="flex flex-wrap gap-3 text-xs text-gray-400">
+                  <span class="flex items-center gap-1"><span class="text-yellow">⚡</span> Same-Day Response</span>
+                  <span class="flex items-center gap-1"><span>🏆</span> BBB A+ Rated</span>
+                  <span class="flex items-center gap-1"><span class="text-green">📋</span> Free Estimates</span>
+                </div>
+              </div>
+
+              <!-- Floating elements (desktop only) -->
+              <div class="hidden md:block absolute top-8 right-8">
+                <div class="bg-white rounded-xl px-4 py-2.5 flex items-center gap-2 shadow-lg">
+                  <div class="w-6 h-6 rounded-full bg-green flex items-center justify-center text-xs font-bold text-white">G</div>
+                  <div>
+                    <div class="text-xs font-semibold text-gray-900">#1 Roofer in Tampa</div>
+                    <div class="stars text-xs">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden md:block absolute bottom-8 right-8 float-in">
+                <div class="bg-white rounded-xl px-4 py-3 shadow-lg max-w-[200px]">
+                  <div class="text-xs font-semibold text-gray-900 mb-0.5">New Quote Request</div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-5 h-5 rounded bg-blue flex items-center justify-center">
+                      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-500">Mike T. · Tampa · just now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- HOW IT WORKS                   -->
+  <!-- ============================== -->
+  <section id="how-it-works" class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-blue mb-4 block">THE PROCESS</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">From zero to booked solid</h2>
+        <p class="text-gray-400 text-lg">We handle every step. You just run your business.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+        <!-- Step 1 -->
+        <div class="text-center relative step-connector">
+          <div class="relative inline-block mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
+              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">01</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">We find you</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We seek out local service businesses with no website or a poor one. If we reached out, it's because we see real potential in your area.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center relative step-connector">
+          <div class="relative inline-block mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
+              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+            </div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">02</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">We build it</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">A custom-designed website, tailored to your trade and built to convert visitors into calls. Up and live in 7–10 days.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center relative step-connector">
+          <div class="relative inline-block mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
+              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+            </div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">03</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">You start getting leads</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Your site goes live with SEO, lead capture forms, and a Google Business integration so locals find you fast.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center relative step-connector">
+          <div class="relative inline-block mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
+              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            </div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">04</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">We keep it perfect</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Unlimited content edits, security updates, and performance monitoring. Your site always looks its best — hands-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- FEATURES / EVERYTHING INCLUDED -->
+  <!-- ============================== -->
+  <section class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-purple mb-4 block">EVERYTHING INCLUDED</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">One price. Everything you need.</h2>
+        <p class="text-gray-400 text-lg">No surprise invoices. No à la carte fees. Just results.</p>
+      </div>
+
+      <!-- Features grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <!-- Feature 1 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Custom Website Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">No templates. Built from scratch to match your brand and trade.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Domain & Hosting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We handle registration, DNS, and blazing-fast hosting.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Unlimited Content Edits</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Need to update pricing, add a photo, or swap text? Just ask.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Local SEO</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Optimized to rank in Google for your city and trade keywords.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Lead Capture Forms</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Every visitor gets nudged to call or submit a quote request.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Security & Updates</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">SSL, automatic security patches, and uptime monitoring.</p>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Speed Optimized</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Fast-loading pages keep visitors from bouncing — and help with SEO.</p>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="card-border rounded-2xl bg-navy-card p-6">
+          <div class="w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">No Tech Headaches</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">You'll never touch code, deal with a host, or stress about it.</p>
+        </div>
+      </div>
+
+      <!-- Comparison bar -->
+      <div class="grid grid-cols-1 md:grid-cols-3 rounded-2xl overflow-hidden border border-navy-border">
+        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border">
+          <span class="section-label text-gray-500 block mb-3">TRADITIONAL WEB AGENCY</span>
+          <span class="text-2xl md:text-3xl font-extrabold text-red">$3,000–$15,000 upfront</span>
+          <p class="text-gray-500 text-sm mt-2">+ ongoing retainer</p>
+        </div>
+        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border">
+          <span class="section-label text-gray-500 block mb-3">DIY WEBSITE BUILDER</span>
+          <span class="text-2xl md:text-3xl font-extrabold text-yellow">Cheap but generic</span>
+          <p class="text-gray-500 text-sm mt-2">Takes weeks of your time</p>
+        </div>
+        <div class="p-8 text-center bg-[#111827]">
+          <span class="section-label text-gray-500 block mb-3">BRECHTLAND</span>
+          <span class="text-2xl md:text-3xl font-extrabold text-green">From $149/mo</span>
+          <p class="text-gray-500 text-sm mt-2">All-inclusive. We do everything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- PRICING                        -->
+  <!-- ============================== -->
+  <section id="pricing" class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="section-label text-blue mb-4 block">PRICING</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Starting at just $149/mo</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">No setup fees. No surprise bills. Exact pricing depends on your business — let's find the right fit on a quick call.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div class="pricing-glow card-border rounded-3xl bg-navy-card p-8 md:p-12 flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+          <!-- Left: features list -->
+          <div class="flex-1">
+            <span class="section-label text-blue mb-6 block">EVERYTHING INCLUDED</span>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Custom website design</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Domain + hosting included</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Unlimited content edits</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Local SEO setup</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Lead capture forms</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">SSL security</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Mobile-optimized</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Google Business optimization</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Click-to-call button</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
+                <span class="text-gray-300 text-sm">Priority support</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: price + CTA -->
+          <div class="w-full md:w-auto flex-shrink-0 text-center md:text-left">
+            <div class="bg-[#111827] rounded-2xl p-8 border border-navy-border">
+              <span class="text-gray-400 text-sm">Starting from</span>
+              <div class="text-5xl md:text-6xl font-extrabold text-white mt-2 mb-1">$149</div>
+              <span class="text-gray-400 text-sm">/mo · exact pricing on your call</span>
+              <p class="text-gray-400 text-sm mt-6 mb-8 max-w-[280px] mx-auto md:mx-0">Every business is different. We'll walk you through options and pricing that make sense for your trade, your area, and your goals.</p>
+              <a href="#contact" class="btn-primary w-full justify-center text-base py-4">
+                Book a free call
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+              <p class="text-gray-500 text-xs mt-4">No obligation · Takes 15 minutes</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-gray-500 text-sm mt-6">All plans include domain, hosting, SSL, and full-service design. Flexible agreement terms available.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- PORTFOLIO / OUR WORK           -->
+  <!-- ============================== -->
+  <section id="work" class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-blue mb-4 block">OUR WORK</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Sites built to convert</h2>
+        <p class="text-gray-400 text-lg">Every site we build is custom-designed for the trade and location — no cookie-cutter templates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="card-border portfolio-roofing rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('images/image2.png'); background-size: cover; background-position: center;">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">Roofing · Austin, TX</span>
+          <h3 class="text-white font-bold text-lg mt-1 mb-3">Premier Roofing Co.</h3>
+          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Roof Repairs That Last</p>
+          <p class="text-gray-400 text-sm mb-6">Licensed & Insured · Free Estimates · 10-Year Warranty</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="btn-small btn-small-filled">Get a Quote</button>
+            <button class="btn-small btn-small-ghost">Our Work</button>
+            <span class="stat-badge-red text-xs font-medium px-3 py-1.5 rounded-full ml-auto">+340% calls in 60 days</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-border portfolio-plumbing rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('images/image3.png'); background-size: cover; background-position: center;">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">Plumbing · Nashville, TN</span>
+          <h3 class="text-white font-bold text-lg mt-1 mb-3">Delta Plumbing</h3>
+          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Same-Day Plumbing Service</p>
+          <p class="text-gray-400 text-sm mb-6">Emergency Repairs · Water Heaters · Drain Cleaning</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="btn-small btn-small-filled">Get a Quote</button>
+            <button class="btn-small btn-small-ghost">Our Work</button>
+            <span class="stat-badge-green text-xs font-medium px-3 py-1.5 rounded-full ml-auto">Ranked #1 in local maps</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-border portfolio-contractor rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900'); background-size: cover; background-position: center;">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">General Contractor · Denver, CO</span>
+          <h3 class="text-white font-bold text-lg mt-1 mb-3">Apex Contracting</h3>
+          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Built Right. Built to Last.</p>
+          <p class="text-gray-400 text-sm mb-6">Remodels · Additions · Commercial Buildouts</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="btn-small btn-small-filled">Get a Quote</button>
+            <button class="btn-small btn-small-ghost">Our Work</button>
+            <span class="stat-badge-orange text-xs font-medium px-3 py-1.5 rounded-full ml-auto">Booked 3 months out</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card-border portfolio-electrical rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900'); background-size: cover; background-position: center;">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">Electrical · Phoenix, AZ</span>
+          <h3 class="text-white font-bold text-lg mt-1 mb-3">Swift Electric</h3>
+          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Fast, Safe, Affordable</p>
+          <p class="text-gray-400 text-sm mb-6">Residential & Commercial · 24/7 Emergency</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button class="btn-small btn-small-filled">Get a Quote</button>
+            <button class="btn-small btn-small-ghost">Our Work</button>
+            <span class="stat-badge-purple text-xs font-medium px-3 py-1.5 rounded-full ml-auto">20+ new leads/month</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-8">These are example designs. Your site will be custom-built for your business.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- COMING SOON / THE PLATFORM     -->
+  <!-- ============================== -->
+  <section class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-purple mb-4 block">THE PLATFORM</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">More than just a website</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">We're building a complete growth platform for service businesses. Here's what's in the pipeline.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Reception AI -->
+        <div class="card-border rounded-2xl bg-navy-card p-8">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#1E293B] flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            </div>
+            <span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Coming Soon
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Reception AI</h3>
+          <p class="text-gray-400 text-sm mb-5">A virtual receptionist that answers calls, qualifies leads, and books appointments — 24/7, even while you're on the job.</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>AI call answering</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Lead qualification</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Appointment booking</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>SMS follow-ups</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Call transcripts</div>
+          </div>
+        </div>
+
+        <!-- Built-in CRM -->
+        <div class="card-border rounded-2xl bg-navy-card p-8">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#1E293B] flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            </div>
+            <span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Coming Soon
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Built-in CRM</h3>
+          <p class="text-gray-400 text-sm mb-5">Track leads, manage client relationships, and keep your whole team on the same page — all in one place.</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Lead pipeline</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Client profiles</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Team collaboration</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Service agreements</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- TESTIMONIALS                   -->
+  <!-- ============================== -->
+  <section class="py-24 md:py-32 fade-section">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-blue mb-4 block">REVIEWS</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white">Trades love working with us</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Review 1 -->
+        <div class="card-border rounded-2xl bg-navy-card p-7">
+          <div class="stars text-lg mb-5">★★★★★</div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"I had zero web presence. Within two months of launching with Brechtland, I'm getting 4–5 new calls a week. I don't touch anything — they handle it all."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue flex items-center justify-center text-white font-bold text-sm">M</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Marcus T.</div>
+              <div class="text-gray-500 text-xs">Roofing Contractor · Austin, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="card-border rounded-2xl bg-navy-card p-7">
+          <div class="stars text-lg mb-5">★★★★★</div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"I was skeptical about a monthly fee but it's honestly cheaper than what I was wasting trying to manage my own site. The leads are real and the site looks incredible."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-orange flex items-center justify-center text-white font-bold text-sm">S</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Sandra R.</div>
+              <div class="text-gray-500 text-xs">Plumber · Nashville, TN</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="card-border rounded-2xl bg-navy-card p-7">
+          <div class="stars text-lg mb-5">★★★★★</div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"What sold me was that they do everything. I gave them some photos and my info — two weeks later I had a site ranking in Google. Highly recommend."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-light border border-navy-border flex items-center justify-center text-white font-bold text-sm">J</div>
+            <div>
+              <div class="text-white font-semibold text-sm">James C.</div>
+              <div class="text-gray-500 text-xs">General Contractor · Denver, CO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- FAQ                            -->
+  <!-- ============================== -->
+  <section id="faq" class="py-24 md:py-32 fade-section">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-label text-blue mb-4 block">FAQ</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white">Questions? We've got answers.</h2>
+      </div>
+
+      <div class="space-y-3" id="faq-list">
+        <!-- FAQ items populated by JS -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- CONTACT CTA                    -->
+  <!-- ============================== -->
+  <section id="contact" class="py-24 md:py-32 fade-section">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="card-border rounded-3xl bg-navy-card p-8 md:p-12 text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center bg-blue/10 border border-blue/30 text-blue text-sm font-semibold rounded-full px-5 py-2 mb-8">
+          Book a free 15-minute call
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Stop losing customers<br />to your competitor's website</h2>
+        <p class="text-gray-400 mb-10 max-w-lg mx-auto">Leave your details and we'll reach out to schedule a quick call. We'll show you exactly what we'd build — and what it costs — no pressure.</p>
+
+        <!-- Contact form -->
+        <form id="contact-form" class="max-w-lg mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <input type="text" name="name" placeholder="Your name" required class="form-input" />
+            <input type="text" name="business" placeholder="Business name" class="form-input" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <input type="email" name="email" placeholder="Email address" required class="form-input" />
+            <input type="tel" name="phone" placeholder="Phone number" class="form-input" required />
+          </div>
+          <button type="submit" id="submit-btn" class="btn-primary w-full justify-center text-base py-4">
+            <span id="submit-text">Let's talk</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </button>
+          <div id="form-status" class="mt-4 text-sm hidden"></div>
+        </form>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 text-sm text-gray-500">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            tyler@brechtland.com
+          </span>
+          <span class="hidden sm:inline">·</span>
+          <span>No pressure. We'll call you within 1 business day.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================== -->
+  <!-- FOOTER                         -->
+  <!-- ============================== -->
+  <footer class="border-t border-navy-border py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="#" class="text-white text-lg font-bold tracking-tight">brechtland<span class="text-blue">.</span></a>
+      <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+        <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+        <a href="#work" class="hover:text-white transition-colors">Work</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <span class="text-gray-600 text-sm">&copy; 2026 Brechtland. All rights reserved.</span>
+    </div>
+  </footer>
+
+
+  <!-- ============================== -->
+  <!-- JAVASCRIPT                     -->
+  <!-- ============================== -->
+  <script>
+    // ================================
+    // ROTATING TRADE TEXT
+    // ================================
+    const trades = ['Roofers', 'Plumbers', 'Contractors', 'Handymen', 'Electricians', 'HVAC Pros'];
+    const tradeColors = ['#7C3AED', '#2B5CE6', '#22C55E', '#F97316', '#FACC15', '#EF4444'];
+    let tradeIndex = 0;
+    const tradeEl = document.getElementById('trade-rotate');
+
+    setInterval(() => {
+      tradeIndex = (tradeIndex + 1) % trades.length;
+      tradeEl.style.opacity = '0';
+      tradeEl.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        tradeEl.textContent = trades[tradeIndex];
+        tradeEl.style.color = tradeColors[tradeIndex];
+        tradeEl.style.opacity = '1';
+        tradeEl.style.transform = 'translateY(0)';
+      }, 300);
+    }, 2500);
+
+
+    // ================================
+    // MOBILE MENU
+    // ================================
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+
+    mobileToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+
+    // ================================
+    // FAQ ACCORDION
+    // ================================
+    const faqData = [
+      {
+        q: 'Do I need to have a website already?',
+        a: 'Nope. Most of our clients come to us with no website at all. We build everything from scratch — domain, design, hosting, the works.'
+      },
+      {
+        q: 'What do I have to do to get started?',
+        a: 'Just hop on a quick 15-minute call with us. We\'ll learn about your business, your area, and your goals — then we handle everything from there. You\'ll have a live website in 7–10 days.'
+      },
+      {
+        q: 'Can I make changes to my site?',
+        a: 'Absolutely. Unlimited content edits are included in every plan. Need to update pricing, add photos, or change your phone number? Just send us a message and we\'ll take care of it — usually within 24 hours.'
+      },
+      {
+        q: 'How long until my site goes live?',
+        a: 'Most sites are designed, built, and live within 7–10 business days. We work fast because we know every day without a website is a day you\'re missing leads.'
+      },
+      {
+        q: 'Do I own the website?',
+        a: 'The website is built and maintained as part of your subscription. While you\'re an active subscriber, the site is yours to use. If you cancel, we can discuss transferring the design assets to you.'
+      },
+      {
+        q: 'What if I\'m not happy with the design?',
+        a: 'We work closely with you during the design process and offer revisions until you\'re thrilled with the result. Our goal is a site you\'re proud to show off.'
+      },
+      {
+        q: 'Is there a setup fee?',
+        a: 'No setup fees whatsoever. Your monthly subscription covers everything — design, development, hosting, domain, SSL, and ongoing maintenance.'
+      },
+      {
+        q: 'What trades do you work with?',
+        a: 'We specialize in local service businesses: roofers, plumbers, electricians, HVAC pros, general contractors, handymen, painters, landscapers, and more. If you serve local customers, we can help.'
+      },
+    ];
+
+    const faqList = document.getElementById('faq-list');
+    faqData.forEach((item, i) => {
+      const faqItem = document.createElement('div');
+      faqItem.className = 'card-border rounded-xl bg-navy-card overflow-hidden';
+      faqItem.innerHTML = `
+        <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(${i})">
+          <span class="text-white font-medium text-sm pr-4">${item.q}</span>
+          <span class="faq-icon text-gray-400 text-xl flex-shrink-0" id="faq-icon-${i}">+</span>
+        </button>
+        <div class="faq-answer px-5" id="faq-answer-${i}">
+          <p class="text-gray-400 text-sm leading-relaxed pb-5">${item.a}</p>
+        </div>
+      `;
+      faqList.appendChild(faqItem);
+    });
+
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      const isOpen = answer.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.classList.add('open');
+      }
+    }
+
+
+    // ================================
+    // SCROLL FADE-IN
+    // ================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+
+
+    // ================================
+    // NAV BACKGROUND ON SCROLL
+    // ================================
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.borderBottom = '1px solid rgba(30, 41, 59, 0.5)';
+      } else {
+        nav.style.borderBottom = 'none';
+      }
+    });
+
+
+    // ================================
+    // CONTACT FORM (EmailJS)
+    // ================================
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const formStatus = document.getElementById('form-status');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Disable button
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending...';
+
+      // Prepare form data
+      const formData = {
+        name: contactForm.name.value,
+        business: contactForm.business.value,
+        email: contactForm.email.value,
+        phone: contactForm.phone.value,
+        _subject: 'New lead from brechtland.com',
+      };
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          formStatus.classList.remove('hidden');
+          formStatus.className = 'mt-4 text-sm text-green';
+          formStatus.textContent = "We got your info! We'll be in touch within 1 business day.";
+          contactForm.reset();
+          submitText.textContent = "Let's talk";
+          submitBtn.disabled = false;
+        })
+        .catch((error) => {
+          formStatus.classList.remove('hidden');
+          formStatus.className = 'mt-4 text-sm text-red';
+          formStatus.textContent = 'Something went wrong. Please email tyler@brechtland.com directly.';
+          submitText.textContent = "Let's talk";
+          submitBtn.disabled = false;
+          console.error('Form submission error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
