@@ -36,290 +36,107 @@
     };
   </script>
 
-  <!-- EmailJS SDK -->
   <script>
-    // Form submission — sends to tyler@brechtland.com via FormSubmit
     const FORM_ENDPOINT = 'https://formspree.io/f/meelwrne';
   </script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { font-family: 'Inter', sans-serif; background: #0A0E1A; color: #E2E8F0; overflow-x: hidden; }
-
-    /* Scrollbar */
+    body { font-family: 'Inter', sans-serif; background-color: #0A0E1A; background-image: linear-gradient(rgba(43, 92, 230, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(43, 92, 230, 0.03) 1px, transparent 1px); background-size: 80px 80px; color: #E2E8F0; overflow-x: hidden; }
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0A0E1A; }
-    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #334155; }
-
-    /* Hero gradient background */
-    .hero-gradient {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43, 92, 230, 0.12) 0%, rgba(124, 58, 237, 0.06) 40%, transparent 70%);
-    }
-
-    /* Rotating text animation */
-    .trade-text {
-      display: inline-block;
-      animation: fadeInUp 0.5s ease forwards;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Card border glow */
-    .card-border {
-      border: 1px solid rgba(30, 41, 59, 0.8);
-      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-    }
-    .card-border:hover {
-      border-color: rgba(43, 92, 230, 0.4);
-      box-shadow: 0 0 20px rgba(43, 92, 230, 0.1), 0 8px 30px -10px rgba(0,0,0,0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Portfolio card top accent + neon glow on hover */
-    .portfolio-roofing { border-top: 3px solid #2B5CE6; }
-    .portfolio-plumbing { border-top: 3px solid #22C55E; }
-    .portfolio-contractor { border-top: 3px solid #22C55E; }
-    .portfolio-electrical { border-top: 3px solid #7C3AED; }
-    .portfolio-roofing:hover { border-color: rgba(43, 92, 230, 0.5); border-top-color: #2B5CE6; box-shadow: 0 0 25px rgba(43, 92, 230, 0.15), 0 0 60px rgba(43, 92, 230, 0.05); }
-    .portfolio-plumbing:hover { border-color: rgba(34, 197, 94, 0.5); border-top-color: #22C55E; box-shadow: 0 0 25px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05); }
-    .portfolio-contractor:hover { border-color: rgba(34, 197, 94, 0.5); border-top-color: #22C55E; box-shadow: 0 0 25px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05); }
-    .portfolio-electrical:hover { border-color: rgba(124, 58, 237, 0.5); border-top-color: #7C3AED; box-shadow: 0 0 25px rgba(124, 58, 237, 0.15), 0 0 60px rgba(124, 58, 237, 0.05); }
-
-    /* Step icon box glow on hover */
-    .step-icon-box {
-      transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
-    }
-    .step-icon-box:hover {
-      border-color: rgba(43, 92, 230, 0.5);
-      box-shadow: 0 0 20px rgba(43, 92, 230, 0.25), 0 0 50px rgba(43, 92, 230, 0.08);
-      transform: scale(1.08);
-    }
-
-    /* Feature icon box glow on parent card hover */
-    .feature-icon-box {
-      transition: box-shadow 0.4s ease, background 0.4s ease;
-    }
-    .card-border:hover .feature-icon-box {
-      box-shadow: 0 0 15px rgba(43, 92, 230, 0.2);
-      background: rgba(43, 92, 230, 0.12);
-    }
-
-    /* Stat badge glow on hover */
-    .stat-badge-red, .stat-badge-green, .stat-badge-orange, .stat-badge-purple {
-      transition: box-shadow 0.3s ease;
-    }
-    .stat-badge-red:hover { box-shadow: 0 0 12px rgba(239, 68, 68, 0.35); }
-    .stat-badge-green:hover { box-shadow: 0 0 12px rgba(34, 197, 94, 0.35); }
-    .stat-badge-orange:hover { box-shadow: 0 0 12px rgba(249, 115, 22, 0.35); }
-    .stat-badge-purple:hover { box-shadow: 0 0 12px rgba(167, 139, 250, 0.35); }
-
-    /* FAQ accordion */
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; border: 1px solid rgba(43, 92, 230, 0.2); }
+    ::-webkit-scrollbar-thumb:hover { background: #3B6FF0; box-shadow: 0 0 10px #3B6FF0; }
+    .hero-gradient { position: relative; background: radial-gradient(ellipse 90% 70% at 50% -10%, rgba(43, 92, 230, 0.25) 0%, rgba(124, 58, 237, 0.15) 30%, transparent 70%); }
+    .hero-gradient::after { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.05) 0%, transparent 40%); pointer-events: none; }
+    .trade-text { display: inline-block; animation: fadeInUp 0.5s ease forwards; transition: text-shadow 0.3s ease; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); filter: blur(4px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+    .card-border { background: linear-gradient(180deg, rgba(15, 22, 41, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%); border: 1px solid rgba(30, 41, 59, 0.8); position: relative; transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease; backdrop-filter: blur(10px); }
+    .card-border::before { content: ''; position: absolute; top: -1px; left: 15%; right: 15%; height: 2px; background: linear-gradient(90deg, transparent, rgba(43, 92, 230, 0.8), transparent); opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; z-index: 1; }
+    .card-border:hover { border-color: rgba(43, 92, 230, 0.5); box-shadow: 0 0 25px rgba(43, 92, 230, 0.15), 0 10px 40px -10px rgba(0,0,0,0.6), inset 0 0 20px rgba(43, 92, 230, 0.05); transform: translateY(-4px); }
+    .card-border:hover::before { opacity: 1; transform: scaleX(1.3); box-shadow: 0 2px 15px 1px rgba(43, 92, 230, 0.6); }
+    .portfolio-roofing { border-top: 3px solid #2B5CE6; box-shadow: inset 0 20px 40px -20px rgba(43, 92, 230, 0.2); }
+    .portfolio-plumbing { border-top: 3px solid #22C55E; box-shadow: inset 0 20px 40px -20px rgba(34, 197, 94, 0.2); }
+    .portfolio-contractor { border-top: 3px solid #F97316; box-shadow: inset 0 20px 40px -20px rgba(249, 115, 22, 0.2); }
+    .portfolio-electrical { border-top: 3px solid #7C3AED; box-shadow: inset 0 20px 40px -20px rgba(124, 58, 237, 0.2); }
+    .portfolio-roofing:hover { border-color: rgba(43, 92, 230, 0.7); box-shadow: 0 0 35px rgba(43, 92, 230, 0.25), 0 0 80px rgba(43, 92, 230, 0.1), inset 0 0 30px rgba(43, 92, 230, 0.1); }
+    .portfolio-plumbing:hover { border-color: rgba(34, 197, 94, 0.7); box-shadow: 0 0 35px rgba(34, 197, 94, 0.25), 0 0 80px rgba(34, 197, 94, 0.1), inset 0 0 30px rgba(34, 197, 94, 0.1); }
+    .portfolio-contractor:hover { border-color: rgba(249, 115, 22, 0.7); box-shadow: 0 0 35px rgba(249, 115, 22, 0.25), 0 0 80px rgba(249, 115, 22, 0.1), inset 0 0 30px rgba(249, 115, 22, 0.1); }
+    .portfolio-electrical:hover { border-color: rgba(124, 58, 237, 0.7); box-shadow: 0 0 35px rgba(124, 58, 237, 0.25), 0 0 80px rgba(124, 58, 237, 0.1), inset 0 0 30px rgba(124, 58, 237, 0.1); }
+    .step-icon-box { background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 22, 41, 0.8)); transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.3s ease, background 0.4s ease; }
+    .step-icon-box:hover { background: linear-gradient(135deg, rgba(43, 92, 230, 0.2), rgba(124, 58, 237, 0.1)); border-color: rgba(43, 92, 230, 0.7); box-shadow: 0 0 25px rgba(43, 92, 230, 0.4), 0 0 50px rgba(124, 58, 237, 0.2), inset 0 0 10px rgba(43, 92, 230, 0.2); transform: scale(1.1); }
+    .step-icon-box svg { filter: drop-shadow(0 0 5px currentColor); }
+    .feature-icon-box { transition: box-shadow 0.4s ease, background 0.4s ease, transform 0.4s ease; }
+    .card-border:hover .feature-icon-box { box-shadow: 0 0 20px rgba(43, 92, 230, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05); background: rgba(43, 92, 230, 0.15); transform: translateY(-3px); }
+    .feature-icon-box svg { filter: drop-shadow(0 0 4px currentColor); }
+    .stat-badge-red, .stat-badge-green, .stat-badge-orange, .stat-badge-purple { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+    .stat-badge-red:hover { box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); border-color: #EF4444; }
+    .stat-badge-green:hover { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); border-color: #22C55E; }
+    .stat-badge-orange:hover { box-shadow: 0 0 15px rgba(249, 115, 22, 0.5); border-color: #F97316; }
+    .stat-badge-purple:hover { box-shadow: 0 0 15px rgba(167, 139, 250, 0.5); border-color: #A78BFA; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease; }
     .faq-answer.open { max-height: 300px; }
-    .faq-icon { transition: transform 0.3s ease; }
-    .faq-icon.open { transform: rotate(45deg); }
-
-    /* Trust badge pills */
-    .trust-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8125rem;
-      color: #94A3B8;
-    }
-    .trust-pill::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: #22C55E;
-      border-radius: 50%;
-      flex-shrink: 0;
-      box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
-    }
-
-    /* Browser mockup — 3D perspective tilt + hover lift */
-    .mockup-container {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 100px rgba(59, 130, 246, 0.1);
-      transform: perspective(1000px) rotateX(2deg);
-      transition: transform 0.5s ease;
-    }
-    .mockup-container:hover {
-      transform: perspective(1000px) rotateX(0deg) translateY(-5px);
-    }
-
-    /* Section fade-in */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Floating notification animation */
-    @keyframes floatIn {
-      0% { opacity: 0; transform: translateX(30px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    .float-in { animation: floatIn 0.8s ease 1.5s forwards; opacity: 0; }
-
-    /* Nav mobile menu */
-    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-icon { transition: transform 0.4s ease, color 0.3s ease, text-shadow 0.3s ease; }
+    .faq-icon.open { transform: rotate(45deg); color: #2B5CE6; text-shadow: 0 0 10px #2B5CE6; }
+    .trust-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; color: #94A3B8; background: rgba(30, 41, 59, 0.3); padding: 4px 12px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+    .trust-pill:hover { background: rgba(30, 41, 59, 0.6); border-color: rgba(34, 197, 94, 0.3); color: #E2E8F0; }
+    .trust-pill::before { content: ''; width: 6px; height: 6px; background: #22C55E; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 8px rgba(34, 197, 94, 0.9), 0 0 15px rgba(34, 197, 94, 0.4); }
+    @keyframes ambient-pulse { 0% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 60px rgba(43, 92, 230, 0.1); } 100% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 100px rgba(124, 58, 237, 0.25); } }
+    .mockup-container { border: 1px solid rgba(124, 58, 237, 0.3); transform: perspective(1000px) rotateX(2deg); transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.4s ease; animation: ambient-pulse 4s infinite alternate; position: relative; }
+    .mockup-container::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 20px rgba(43, 92, 230, 0.2); pointer-events: none; }
+    .mockup-container:hover { transform: perspective(1000px) rotateX(0deg) translateY(-8px); border-color: rgba(43, 92, 230, 0.6); animation-play-state: paused; box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.9), 0 0 120px rgba(43, 92, 230, 0.3); }
+    .fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .fade-section.visible { opacity: 1; transform: translateY(0); }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .mobile-menu.open { max-height: 400px; }
-
-    /* Subtle grid background */
-    .bg-grid {
-      background-image:
-        linear-gradient(rgba(30, 41, 59, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 41, 59, 0.15) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* Pricing card glow */
-    .pricing-glow {
-      box-shadow: 0 0 80px rgba(43, 92, 230, 0.1), 0 25px 60px -12px rgba(0, 0, 0, 0.5);
-      transition: box-shadow 0.4s ease;
-    }
-    .pricing-glow:hover {
-      box-shadow: 0 0 100px rgba(43, 92, 230, 0.18), 0 0 40px rgba(124, 58, 237, 0.08), 0 25px 60px -12px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Step connector line */
-    .step-connector {
-      position: relative;
-    }
-    .step-connector::after {
-      content: '';
-      position: absolute;
-      top: 32px;
-      right: -50%;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(43, 92, 230, 0.4), rgba(124, 58, 237, 0.4));
-      filter: drop-shadow(0 0 4px rgba(43, 92, 230, 0.3));
-      z-index: 0;
-    }
+    .pricing-glow { box-shadow: 0 0 80px rgba(43, 92, 230, 0.15), 0 25px 60px -12px rgba(0, 0, 0, 0.6); border-color: rgba(124, 58, 237, 0.4); transition: box-shadow 0.5s ease, border-color 0.5s ease; position: relative; }
+    .pricing-glow::after { content: ''; position: absolute; inset: -2px; border-radius: 24px; background: linear-gradient(135deg, rgba(43, 92, 230, 0.4), rgba(124, 58, 237, 0.4), rgba(34, 197, 94, 0.1)); z-index: -1; opacity: 0; filter: blur(15px); transition: opacity 0.5s ease; }
+    .pricing-glow:hover { border-color: rgba(43, 92, 230, 0.7); box-shadow: 0 0 120px rgba(43, 92, 230, 0.25), 0 0 50px rgba(124, 58, 237, 0.15), 0 25px 60px -12px rgba(0, 0, 0, 0.7); }
+    .pricing-glow:hover::after { opacity: 1; }
+    .step-connector { position: relative; }
+    .step-connector::after { content: ''; position: absolute; top: 32px; right: -50%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(43, 92, 230, 0.8), rgba(124, 58, 237, 0.8), transparent); box-shadow: 0 0 10px rgba(43, 92, 230, 0.6), 0 0 20px rgba(124, 58, 237, 0.4); z-index: 0; }
     .step-connector:last-child::after { display: none; }
-
-    /* Coming soon badge */
-    .coming-soon-badge {
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #22C55E;
-      box-shadow: 0 0 8px rgba(34, 197, 94, 0.15);
-    }
-
-    /* Stat badge styles */
-    .stat-badge-red { color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.08); }
-    .stat-badge-green { color: #22C55E; border: 1px solid rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.08); }
-    .stat-badge-orange { color: #F97316; border: 1px solid rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); }
-    .stat-badge-purple { color: #A78BFA; border: 1px solid rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
-
-    /* Button styles */
-    .btn-primary {
-      background: #2B5CE6;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.9375rem;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover { background: #3B6FF0; transform: translateY(-1px); box-shadow: 0 0 20px rgba(43, 92, 230, 0.4), 0 4px 15px rgba(43, 92, 230, 0.25); }
-
-    .btn-outline {
-      color: #E2E8F0;
-      padding: 12px 28px;
-      border-radius: 9999px;
-      font-weight: 500;
-      font-size: 0.9375rem;
-      transition: color 0.2s ease;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-    .btn-outline:hover { color: #fff; }
-
-    .btn-small {
-      padding: 8px 18px;
-      border-radius: 9999px;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    .btn-small-filled { background: #E2E8F0; color: #0A0E1A; }
-    .btn-small-filled:hover { background: #fff; }
-    .btn-small-ghost { background: transparent; color: #94A3B8; border: 1px solid #334155; }
-    .btn-small-ghost:hover { border-color: #64748B; color: #E2E8F0; }
-
-    /* Form input styles */
-    .form-input {
-      background: rgba(15, 22, 41, 0.8);
-      border: 1px solid #1E293B;
-      border-radius: 12px;
-      padding: 14px 18px;
-      color: #E2E8F0;
-      font-size: 0.9375rem;
-      font-family: 'Inter', sans-serif;
-      transition: border-color 0.2s ease;
-      width: 100%;
-    }
+    @keyframes badge-pulse { 0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.2); } 50% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); } }
+    .coming-soon-badge { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.5); color: #4ADE80; animation: badge-pulse 2s infinite ease-in-out; text-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+    .stat-badge-red { color: #F87171; border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
+    .stat-badge-green { color: #4ADE80; border: 1px solid rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.1); }
+    .stat-badge-orange { color: #FB923C; border: 1px solid rgba(249, 115, 22, 0.4); background: rgba(249, 115, 22, 0.1); }
+    .stat-badge-purple { color: #C084FC; border: 1px solid rgba(167, 139, 250, 0.4); background: rgba(167, 139, 250, 0.1); }
+    .btn-primary { background: linear-gradient(135deg, #2B5CE6, #6366F1); color: #fff; padding: 12px 28px; border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 20px rgba(43, 92, 230, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+    .btn-primary:hover { background: linear-gradient(135deg, #3B6FF0, #7C3AED); transform: translateY(-2px); box-shadow: 0 0 30px rgba(43, 92, 230, 0.6), 0 0 50px rgba(124, 58, 237, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4); border-color: rgba(124, 58, 237, 0.6); }
+    .btn-primary svg { filter: drop-shadow(0 0 2px rgba(255,255,255,0.5)); }
+    .btn-outline { color: #E2E8F0; padding: 12px 28px; border-radius: 9999px; font-weight: 500; font-size: 0.9375rem; transition: all 0.3s ease; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.03); }
+    .btn-outline:hover { color: #fff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); }
+    .btn-small { padding: 8px 18px; border-radius: 9999px; font-size: 0.8125rem; font-weight: 500; transition: all 0.3s ease; }
+    .btn-small-filled { background: #E2E8F0; color: #0A0E1A; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    .btn-small-filled:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5); transform: translateY(-1px); }
+    .btn-small-ghost { background: rgba(15, 22, 41, 0.5); color: #94A3B8; border: 1px solid #334155; backdrop-filter: blur(4px); }
+    .btn-small-ghost:hover { border-color: #3B6FF0; color: #fff; box-shadow: 0 0 15px rgba(43, 92, 230, 0.3); background: rgba(43, 92, 230, 0.1); }
+    .form-input { background: rgba(10, 14, 26, 0.6); border: 1px solid #1E293B; border-radius: 12px; padding: 14px 18px; color: #E2E8F0; font-size: 0.9375rem; font-family: 'Inter', sans-serif; transition: all 0.3s ease; width: 100%; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); }
     .form-input::placeholder { color: #64748B; }
-    .form-input:focus { outline: none; border-color: #2B5CE6; }
-
-    /* Section label */
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    /* Star rating */
-    .stars { color: #FACC15; }
+    .form-input:focus { outline: none; border-color: #2B5CE6; background: rgba(15, 22, 41, 0.9); box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.2), inset 0 2px 4px rgba(0,0,0,0.1); }
+    .section-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 0 15px currentColor; }
+    .stars { color: #FACC15; text-shadow: 0 0 8px rgba(250, 204, 21, 0.6); }
   </style>
 </head>
 <body>
 
-  <!-- ============================== -->
-  <!-- NAVIGATION                     -->
-  <!-- ============================== -->
-  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(10, 14, 26, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(10, 14, 26, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.03);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-[72px]">
-        <!-- Logo -->
-        <a href="#" class="text-white text-xl font-bold tracking-tight">brechtland<span class="text-blue">.</span></a>
-
-        <!-- Desktop links -->
+        <a href="#" class="text-white text-xl font-bold tracking-tight hover:text-blue transition-colors duration-300" style="text-shadow: 0 0 20px rgba(43, 92, 230, 0.4);">brechtland<span class="text-blue" style="text-shadow: 0 0 10px #2B5CE6;">.</span></a>
         <div class="hidden md:flex items-center gap-8">
-          <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors">How It Works</a>
-          <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
-          <a href="#work" class="text-sm text-gray-400 hover:text-white transition-colors">Work</a>
-          <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-colors">FAQ</a>
+          <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-all">How It Works</a>
+          <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition-all">Pricing</a>
+          <a href="#work" class="text-sm text-gray-400 hover:text-white transition-all">Work</a>
+          <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all">FAQ</a>
         </div>
-
-        <!-- CTA -->
-        <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white bg-transparent border border-gray-600 hover:border-gray-400 rounded-full px-5 py-2.5 transition-colors">
-          Get Started
-        </a>
-
-        <!-- Mobile hamburger -->
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white bg-transparent border border-gray-600 hover:border-blue hover:text-blue rounded-full px-5 py-2.5 transition-all duration-300">Get Started</a>
         <button id="mobile-toggle" class="md:hidden text-white" aria-label="Toggle menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
       </div>
-
-      <!-- Mobile menu -->
       <div id="mobile-menu" class="mobile-menu md:hidden">
         <div class="pb-6 flex flex-col gap-4">
           <a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors mobile-link">How It Works</a>
@@ -332,40 +149,24 @@
     </div>
   </nav>
 
-
-  <!-- ============================== -->
-  <!-- HERO SECTION                   -->
-  <!-- ============================== -->
   <section class="hero-gradient pt-36 pb-16 md:pt-44 md:pb-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-navy-light border border-navy-border rounded-full px-5 py-2 mb-10">
-        <span class="w-2 h-2 bg-green rounded-full"></span>
-        <span class="text-sm text-gray-400">Built exclusively for local service businesses</span>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-navy/50 backdrop-blur-md border border-navy-border rounded-full px-5 py-2 mb-10 transition-shadow cursor-default" style="box-shadow: 0 0 20px rgba(34,197,94,0.1);">
+        <span class="w-2 h-2 bg-green rounded-full" style="box-shadow: 0 0 10px #22C55E;"></span>
+        <span class="text-sm text-gray-300 font-medium">Built exclusively for local service businesses</span>
       </div>
-
-      <!-- Headline -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-        A website that wins<br />customers for <span id="trade-rotate" class="trade-text text-purple">Roofers</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+        A website that wins<br />customers for <span id="trade-rotate" class="trade-text text-purple" style="text-shadow: 0 0 25px rgba(124, 58, 237, 0.6);">Roofers</span>
       </h1>
-
-      <!-- Subtitle -->
-      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
         We design, build, host, and maintain your site — you just answer the calls.<br class="hidden sm:block" />
         Flat monthly subscription. No contracts required. No tech headaches.
       </p>
-
-      <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-        <a href="#pricing" class="btn-primary text-base px-8 py-3.5">
-          See pricing
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-        </a>
+        <a href="#pricing" class="btn-primary text-base px-8 py-3.5">See pricing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
         <a href="#work" class="btn-outline text-base">View example sites</a>
       </div>
-
-      <!-- Trust badges -->
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-16 md:mb-24">
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16 md:mb-24">
         <span class="trust-pill">Custom Design</span>
         <span class="trust-pill">Hosting Included</span>
         <span class="trust-pill">Unlimited Edits</span>
@@ -373,13 +174,8 @@
         <span class="trust-pill">Lead Capture Forms</span>
         <span class="trust-pill">Domain Included</span>
       </div>
-
-      <!-- ============================== -->
-      <!-- BROWSER MOCKUP                 -->
-      <!-- ============================== -->
       <div class="max-w-5xl mx-auto">
-        <div class="mockup-container rounded-2xl overflow-hidden border border-navy-border bg-navy-card" style="cursor:pointer;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          <!-- Clean image slideshow — no overlays, no text, just the screenshots -->
+        <div class="mockup-container rounded-2xl overflow-hidden bg-navy-card" style="cursor:pointer;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           <div style="position:relative; overflow:hidden; background:#0A0E1A;">
             <img id="hero-slide-img" src="https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled.png" alt="Example website" style="display:block; width:100%; height:auto; transition:opacity 2s ease;" />
             <div id="hero-slide-curtain" style="position:absolute;top:0;left:0;right:0;bottom:0;background:#0A0E1A;opacity:0;transition:opacity 2s ease;pointer-events:none;"></div>
@@ -389,62 +185,43 @@
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- HOW IT WORKS                   -->
-  <!-- ============================== -->
-  <section id="how-it-works" class="py-24 md:py-32 fade-section">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="how-it-works" class="py-24 md:py-32 fade-section relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0E1A] to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16">
         <span class="section-label text-blue mb-4 block">THE PROCESS</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">From zero to booked solid</h2>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">From zero to booked solid</h2>
         <p class="text-gray-400 text-lg">We handle every step. You just run your business.</p>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
-        <!-- Step 1 -->
         <div class="text-center relative step-connector">
           <div class="relative inline-block mb-6">
-            <div class="step-icon-box w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
-              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-            </div>
-            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">01</span>
+            <div class="step-icon-box w-16 h-16 rounded-2xl border border-navy-border flex items-center justify-center mx-auto relative z-10"><svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-white bg-blue border border-blue rounded-full w-6 h-6 flex items-center justify-center z-20" style="box-shadow: 0 0 15px rgba(43,92,230,0.6);">01</span>
           </div>
           <h3 class="text-white font-bold text-lg mb-3">We find you</h3>
           <p class="text-gray-400 text-sm leading-relaxed">We seek out local service businesses with no website or a poor one. If we reached out, it's because we see real potential in your area.</p>
         </div>
-
-        <!-- Step 2 -->
         <div class="text-center relative step-connector">
           <div class="relative inline-block mb-6">
-            <div class="step-icon-box w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
-              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-            </div>
-            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">02</span>
+            <div class="step-icon-box w-16 h-16 rounded-2xl border border-navy-border flex items-center justify-center mx-auto relative z-10"><svg class="w-7 h-7 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg></div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-white bg-purple border border-purple rounded-full w-6 h-6 flex items-center justify-center z-20" style="box-shadow: 0 0 15px rgba(124,58,237,0.6);">02</span>
           </div>
           <h3 class="text-white font-bold text-lg mb-3">We build it</h3>
           <p class="text-gray-400 text-sm leading-relaxed">A custom-designed website, tailored to your trade and built to convert visitors into calls. Up and live in 7–10 days.</p>
         </div>
-
-        <!-- Step 3 -->
         <div class="text-center relative step-connector">
           <div class="relative inline-block mb-6">
-            <div class="step-icon-box w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
-              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-            </div>
-            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">03</span>
+            <div class="step-icon-box w-16 h-16 rounded-2xl border border-navy-border flex items-center justify-center mx-auto relative z-10"><svg class="w-7 h-7 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-white bg-green border border-green rounded-full w-6 h-6 flex items-center justify-center z-20" style="box-shadow: 0 0 15px rgba(34,197,94,0.6);">03</span>
           </div>
           <h3 class="text-white font-bold text-lg mb-3">You start getting leads</h3>
           <p class="text-gray-400 text-sm leading-relaxed">Your site goes live with SEO, lead capture forms, and a Google Business integration so locals find you fast.</p>
         </div>
-
-        <!-- Step 4 -->
         <div class="text-center relative step-connector">
           <div class="relative inline-block mb-6">
-            <div class="step-icon-box w-16 h-16 rounded-2xl bg-navy-card border border-navy-border flex items-center justify-center mx-auto relative z-10">
-              <svg class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-            </div>
-            <span class="absolute -top-2 -right-2 text-xs font-bold text-blue bg-navy-card border border-navy-border rounded-full w-6 h-6 flex items-center justify-center z-20">04</span>
+            <div class="step-icon-box w-16 h-16 rounded-2xl border border-navy-border flex items-center justify-center mx-auto relative z-10"><svg class="w-7 h-7 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg></div>
+            <span class="absolute -top-2 -right-2 text-xs font-bold text-white bg-orange border border-orange rounded-full w-6 h-6 flex items-center justify-center z-20" style="box-shadow: 0 0 15px rgba(249,115,22,0.6);">04</span>
           </div>
           <h3 class="text-white font-bold text-lg mb-3">We keep it perfect</h3>
           <p class="text-gray-400 text-sm leading-relaxed">Unlimited content edits, security updates, and performance monitoring. Your site always looks its best — hands-free.</p>
@@ -453,433 +230,133 @@
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- FEATURES / EVERYTHING INCLUDED -->
-  <!-- ============================== -->
-  <section class="py-24 md:py-32 fade-section">
+  <section class="py-24 md:py-32 fade-section relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="section-label text-purple mb-4 block">EVERYTHING INCLUDED</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">One price. Everything you need.</h2>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">One price. Everything you need.</h2>
         <p class="text-gray-400 text-lg">No surprise invoices. No à la carte fees. Just results.</p>
       </div>
-
-      <!-- Features grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-        <!-- Feature 1 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Custom Website Design</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">No templates. Built from scratch to match your brand and trade.</p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Domain & Hosting</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">We handle registration, DNS, and blazing-fast hosting.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Unlimited Content Edits</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Need to update pricing, add a photo, or swap text? Just ask.</p>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Local SEO</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Optimized to rank in Google for your city and trade keywords.</p>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Lead Capture Forms</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Every visitor gets nudged to call or submit a quote request.</p>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Security & Updates</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">SSL, automatic security patches, and uptime monitoring.</p>
-        </div>
-
-        <!-- Feature 7 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">Speed Optimized</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Fast-loading pages keep visitors from bouncing — and help with SEO.</p>
-        </div>
-
-        <!-- Feature 8 -->
-        <div class="card-border rounded-2xl bg-navy-card p-6">
-          <div class="feature-icon-box w-11 h-11 rounded-xl bg-[#1E293B] flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold mb-2">No Tech Headaches</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">You'll never touch code, deal with a host, or stress about it.</p>
-        </div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(43,92,230,0.1)] border border-[rgba(43,92,230,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></div><h3 class="text-white font-semibold mb-2">Custom Website Design</h3><p class="text-gray-400 text-sm leading-relaxed">No templates. Built from scratch to match your brand and trade.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div><h3 class="text-white font-semibold mb-2">Domain & Hosting</h3><p class="text-gray-400 text-sm leading-relaxed">We handle registration, DNS, and blazing-fast hosting.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></div><h3 class="text-white font-semibold mb-2">Unlimited Content Edits</h3><p class="text-gray-400 text-sm leading-relaxed">Need to update pricing, add a photo, or swap text? Just ask.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(250,204,21,0.1)] border border-[rgba(250,204,21,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></div><h3 class="text-white font-semibold mb-2">Local SEO</h3><p class="text-gray-400 text-sm leading-relaxed">Optimized to rank in Google for your city and trade keywords.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(43,92,230,0.1)] border border-[rgba(43,92,230,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div><h3 class="text-white font-semibold mb-2">Lead Capture Forms</h3><p class="text-gray-400 text-sm leading-relaxed">Every visitor gets nudged to call or submit a quote request.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div><h3 class="text-white font-semibold mb-2">Security & Updates</h3><p class="text-gray-400 text-sm leading-relaxed">SSL, automatic security patches, and uptime monitoring.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(249,115,22,0.1)] border border-[rgba(249,115,22,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div><h3 class="text-white font-semibold mb-2">Speed Optimized</h3><p class="text-gray-400 text-sm leading-relaxed">Fast-loading pages keep visitors from bouncing — and help with SEO.</p></div>
+        <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(148,163,184,0.1)] border border-[rgba(148,163,184,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div><h3 class="text-white font-semibold mb-2">No Tech Headaches</h3><p class="text-gray-400 text-sm leading-relaxed">You'll never touch code, deal with a host, or stress about it.</p></div>
       </div>
-
-      <!-- Comparison bar -->
-      <div class="grid grid-cols-1 md:grid-cols-3 rounded-2xl overflow-hidden border border-navy-border">
-        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border">
-          <span class="section-label text-gray-500 block mb-3">TRADITIONAL WEB AGENCY</span>
-          <span class="text-2xl md:text-3xl font-extrabold text-red">$3,000–$15,000 upfront</span>
-          <p class="text-gray-500 text-sm mt-2">+ ongoing retainer</p>
-        </div>
-        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border">
-          <span class="section-label text-gray-500 block mb-3">DIY WEBSITE BUILDER</span>
-          <span class="text-2xl md:text-3xl font-extrabold text-yellow">Cheap but generic</span>
-          <p class="text-gray-500 text-sm mt-2">Takes weeks of your time</p>
-        </div>
-        <div class="p-8 text-center bg-[#111827]">
-          <span class="section-label text-gray-500 block mb-3">BRECHTLAND</span>
-          <span class="text-2xl md:text-3xl font-extrabold text-green">From $149/mo</span>
-          <p class="text-gray-500 text-sm mt-2">All-inclusive. We do everything.</p>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 rounded-2xl overflow-hidden border border-navy-border" style="box-shadow: 0 15px 30px -15px rgba(0,0,0,0.5);">
+        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border bg-[rgba(15,22,41,0.6)]" style="backdrop-filter: blur(10px);"><span class="section-label text-gray-500 block mb-3">TRADITIONAL WEB AGENCY</span><span class="text-2xl md:text-3xl font-extrabold text-red" style="text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);">$3,000–$15,000 upfront</span><p class="text-gray-500 text-sm mt-2">+ ongoing retainer</p></div>
+        <div class="p-8 text-center border-b md:border-b-0 md:border-r border-navy-border bg-[rgba(15,22,41,0.6)]" style="backdrop-filter: blur(10px);"><span class="section-label text-gray-500 block mb-3">DIY WEBSITE BUILDER</span><span class="text-2xl md:text-3xl font-extrabold text-yellow" style="text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);">Cheap but generic</span><p class="text-gray-500 text-sm mt-2">Takes weeks of your time</p></div>
+        <div class="p-8 text-center bg-gradient-to-b from-[rgba(17,24,39,0.9)] to-[rgba(15,22,41,0.9)] border-t-[3px] border-green relative overflow-hidden"><div class="absolute inset-0 bg-green opacity-5 filter blur-2xl"></div><span class="section-label text-gray-500 block mb-3 relative z-10">BRECHTLAND</span><span class="text-2xl md:text-3xl font-extrabold text-green relative z-10" style="text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);">From $149/mo</span><p class="text-gray-400 text-sm mt-2 relative z-10 font-medium">All-inclusive. We do everything.</p></div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- PRICING                        -->
-  <!-- ============================== -->
-  <section id="pricing" class="py-24 md:py-32 fade-section">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="pricing" class="py-24 md:py-32 fade-section relative">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(43,92,230,0.05) 0%, transparent 60%);"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="text-center mb-12">
         <span class="section-label text-blue mb-4 block">PRICING</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Starting at just $149/mo</h2>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Starting at just $149/mo</h2>
         <p class="text-gray-400 text-lg max-w-2xl mx-auto">No setup fees. No surprise bills. Exact pricing depends on your business — let's find the right fit on a quick call.</p>
       </div>
-
       <div class="max-w-3xl mx-auto">
-        <div class="pricing-glow card-border rounded-3xl bg-navy-card p-8 md:p-12 flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-          <!-- Left: features list -->
+        <div class="pricing-glow rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-10 md:gap-16 items-start bg-[rgba(10,14,26,0.85)] border border-[rgba(124,58,237,0.3)]" style="backdrop-filter: blur(20px);">
           <div class="flex-1">
             <span class="section-label text-blue mb-6 block">EVERYTHING INCLUDED</span>
             <div class="space-y-4">
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Custom website design</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Domain + hosting included</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Unlimited content edits</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Local SEO setup</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Lead capture forms</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">SSL security</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Mobile-optimized</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Google Business optimization</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Click-to-call button</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg>
-                <span class="text-gray-300 text-sm">Priority support</span>
-              </div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Custom website design</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Domain + hosting included</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Unlimited content edits</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Local SEO setup</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Lead capture forms</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">SSL security</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Mobile-optimized</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Google Business optimization</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Click-to-call button</span></div>
+              <div class="flex items-center gap-3"><svg class="w-5 h-5 text-green flex-shrink-0" style="filter: drop-shadow(0 0 5px rgba(34,197,94,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /><circle cx="12" cy="12" r="10" stroke-width="1.5" /></svg><span class="text-gray-300 text-sm font-medium">Priority support</span></div>
             </div>
           </div>
-
-          <!-- Right: price + CTA -->
-          <div class="w-full md:w-auto flex-shrink-0 text-center md:text-left">
-            <div class="bg-[#111827] rounded-2xl p-8 border border-navy-border">
+          <div class="w-full md:w-auto flex-shrink-0 text-center md:text-left relative">
+            <div class="bg-gradient-to-b from-[#111827] to-[#0A0E1A] rounded-2xl p-8 border border-navy-border shadow-inner relative z-10">
               <span class="text-gray-400 text-sm">Starting from</span>
-              <div class="text-5xl md:text-6xl font-extrabold text-white mt-2 mb-1">$149</div>
+              <div class="text-5xl md:text-6xl font-extrabold text-white mt-2 mb-1" style="filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));">$149</div>
               <span class="text-gray-400 text-sm">/mo · exact pricing on your call</span>
               <p class="text-gray-400 text-sm mt-6 mb-8 max-w-[280px] mx-auto md:mx-0">Every business is different. We'll walk you through options and pricing that make sense for your trade, your area, and your goals.</p>
-              <a href="#contact" class="btn-primary w-full justify-center text-base py-4">
-                Book a free call
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </a>
+              <a href="#contact" class="btn-primary w-full justify-center text-base py-4">Book a free call <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
               <p class="text-gray-500 text-xs mt-4">No obligation · Takes 15 minutes</p>
             </div>
           </div>
         </div>
-
-        <p class="text-center text-gray-500 text-sm mt-6">All plans include domain, hosting, SSL, and full-service design. Flexible agreement terms available.</p>
+        <p class="text-center text-gray-500 text-sm mt-8">All plans include domain, hosting, SSL, and full-service design. Flexible agreement terms available.</p>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- PORTFOLIO / OUR WORK           -->
-  <!-- ============================== -->
   <section id="work" class="py-24 md:py-32 fade-section">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="section-label text-blue mb-4 block">OUR WORK</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Sites built to convert</h2>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Sites built to convert</h2>
         <p class="text-gray-400 text-lg">Every site we build is custom-designed for the trade and location — no cookie-cutter templates.</p>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
-        <div class="card-border portfolio-roofing rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/image2.png'); background-size: cover; background-position: center;">
-          <span class="text-xs text-gray-500 uppercase tracking-wider">Roofing · Austin, TX</span>
-          <h3 class="text-white font-bold text-lg mt-1 mb-3">Premier Roofing Co.</h3>
-          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Roof Repairs That Last</p>
-          <p class="text-gray-400 text-sm mb-6">Licensed & Insured · Free Estimates · 10-Year Warranty</p>
-          <div class="flex flex-wrap items-center gap-3">
-            <button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-            <button class="btn-small btn-small-ghost">Our Work</button>
-            <span class="stat-badge-red text-xs font-medium px-3 py-1.5 rounded-full ml-auto">+340% calls in 60 days</span>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card-border portfolio-plumbing rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/image3.png'); background-size: cover; background-position: center;">
-          <span class="text-xs text-gray-500 uppercase tracking-wider">Plumbing · Nashville, TN</span>
-          <h3 class="text-white font-bold text-lg mt-1 mb-3">Delta Plumbing</h3>
-          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Same-Day Plumbing Service</p>
-          <p class="text-gray-400 text-sm mb-6">Emergency Repairs · Water Heaters · Drain Cleaning</p>
-          <div class="flex flex-wrap items-center gap-3">
-            <button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-            <button class="btn-small btn-small-ghost">Our Work</button>
-            <span class="stat-badge-green text-xs font-medium px-3 py-1.5 rounded-full ml-auto">Ranked #1 in local maps</span>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card-border portfolio-contractor rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900'); background-size: cover; background-position: center;">
-          <span class="text-xs text-gray-500 uppercase tracking-wider">General Contractor · Denver, CO</span>
-          <h3 class="text-white font-bold text-lg mt-1 mb-3">Apex Contracting</h3>
-          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Built Right. Built to Last.</p>
-          <p class="text-gray-400 text-sm mb-6">Remodels · Additions · Commercial Buildouts</p>
-          <div class="flex flex-wrap items-center gap-3">
-            <button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-            <button class="btn-small btn-small-ghost">Our Work</button>
-            <span class="stat-badge-orange text-xs font-medium px-3 py-1.5 rounded-full ml-auto">Booked 3 months out</span>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card-border portfolio-electrical rounded-2xl bg-navy-card p-7" style="background-image: linear-gradient(160deg, rgba(15,22,41,0.82), rgba(15,22,41,0.65)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900'); background-size: cover; background-position: center;">
-          <span class="text-xs text-gray-500 uppercase tracking-wider">Electrical · Phoenix, AZ</span>
-          <h3 class="text-white font-bold text-lg mt-1 mb-3">Swift Electric</h3>
-          <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Fast, Safe, Affordable</p>
-          <p class="text-gray-400 text-sm mb-6">Residential & Commercial · 24/7 Emergency</p>
-          <div class="flex flex-wrap items-center gap-3">
-            <button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-            <button class="btn-small btn-small-ghost">Our Work</button>
-            <span class="stat-badge-purple text-xs font-medium px-3 py-1.5 rounded-full ml-auto">20+ new leads/month</span>
-          </div>
-        </div>
+        <div class="card-border portfolio-roofing rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/image2.png'); background-size: cover; background-position: center;"><span class="text-xs text-blue font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(43,92,230,0.8));">Roofing · Austin, TX</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Premier Roofing Co.</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Roof Repairs That Last</p><p class="text-gray-300 text-sm mb-6 font-medium">Licensed & Insured · Free Estimates · 10-Year Warranty</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost">Our Work</button><span class="stat-badge-red text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(239,68,68,0.2);">+340% calls in 60 days</span></div></div>
+        <div class="card-border portfolio-plumbing rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/image3.png'); background-size: cover; background-position: center;"><span class="text-xs text-green font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(34,197,94,0.8));">Plumbing · Nashville, TN</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Delta Plumbing</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Same-Day Plumbing Service</p><p class="text-gray-300 text-sm mb-6 font-medium">Emergency Repairs · Water Heaters · Drain Cleaning</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost">Our Work</button><span class="stat-badge-green text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(34,197,94,0.2);">Ranked #1 in local maps</span></div></div>
+        <div class="card-border portfolio-contractor rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900'); background-size: cover; background-position: center;"><span class="text-xs text-orange font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(249,115,22,0.8));">General Contractor · Denver, CO</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Apex Contracting</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Built Right. Built to Last.</p><p class="text-gray-300 text-sm mb-6 font-medium">Remodels · Additions · Commercial Buildouts</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost">Our Work</button><span class="stat-badge-orange text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(249,115,22,0.2);">Booked 3 months out</span></div></div>
+        <div class="card-border portfolio-electrical rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900'); background-size: cover; background-position: center;"><span class="text-xs text-purple font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(124,58,237,0.8));">Electrical · Phoenix, AZ</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Swift Electric</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Fast, Safe, Affordable</p><p class="text-gray-300 text-sm mb-6 font-medium">Residential & Commercial · 24/7 Emergency</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost">Our Work</button><span class="stat-badge-purple text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(167,139,250,0.2);">20+ new leads/month</span></div></div>
       </div>
-
       <p class="text-center text-gray-500 text-sm mt-8">These are example designs. Your site will be custom-built for your business.</p>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- COMING SOON / THE PLATFORM     -->
-  <!-- ============================== -->
-  <section class="py-24 md:py-32 fade-section">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="section-label text-purple mb-4 block">THE PLATFORM</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">More than just a website</h2>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">We're building a complete growth platform for service businesses. Here's what's in the pipeline.</p>
-      </div>
-
+  <section class="py-24 md:py-32 fade-section relative">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at bottom, rgba(124,58,237,0.05) 0%, transparent 50%);"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16"><span class="section-label text-purple mb-4 block">THE PLATFORM</span><h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">More than just a website</h2><p class="text-gray-400 text-lg max-w-2xl mx-auto">We're building a complete growth platform for service businesses. Here's what's in the pipeline.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <!-- Reception AI -->
-        <div class="card-border rounded-2xl bg-navy-card p-8">
-          <div class="flex items-start justify-between mb-6">
-            <div class="w-12 h-12 rounded-xl bg-[#1E293B] flex items-center justify-center">
-              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-            </div>
-            <span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-              Coming Soon
-            </span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Reception AI</h3>
-          <p class="text-gray-400 text-sm mb-5">A virtual receptionist that answers calls, qualifies leads, and books appointments — 24/7, even while you're on the job.</p>
-          <div class="space-y-2.5">
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>AI call answering</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Lead qualification</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Appointment booking</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>SMS follow-ups</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Call transcripts</div>
-          </div>
-        </div>
-
-        <!-- Built-in CRM -->
-        <div class="card-border rounded-2xl bg-navy-card p-8">
-          <div class="flex items-start justify-between mb-6">
-            <div class="w-12 h-12 rounded-xl bg-[#1E293B] flex items-center justify-center">
-              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-            </div>
-            <span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-              Coming Soon
-            </span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Built-in CRM</h3>
-          <p class="text-gray-400 text-sm mb-5">Track leads, manage client relationships, and keep your whole team on the same page — all in one place.</p>
-          <div class="space-y-2.5">
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Lead pipeline</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Client profiles</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Team collaboration</div>
-            <div class="flex items-center gap-2 text-sm text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-blue"></span>Service agreements</div>
-          </div>
-        </div>
+        <div class="card-border rounded-2xl p-8"><div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center" style="box-shadow: 0 0 15px rgba(124,58,237,0.2);"><svg class="w-6 h-6 text-purple" style="filter: drop-shadow(0 0 5px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div><span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1" style="backdrop-filter: blur(4px);"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Coming Soon</span></div><h3 class="text-xl font-bold text-white mb-3">Reception AI</h3><p class="text-gray-400 text-sm mb-5 leading-relaxed">A virtual receptionist that answers calls, qualifies leads, and books appointments — 24/7, even while you're on the job.</p><div class="space-y-2.5"><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>AI call answering</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Lead qualification</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Appointment booking</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>SMS follow-ups</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Call transcripts</div></div></div>
+        <div class="card-border rounded-2xl p-8"><div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center" style="box-shadow: 0 0 15px rgba(124,58,237,0.2);"><svg class="w-6 h-6 text-purple" style="filter: drop-shadow(0 0 5px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div><span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1" style="backdrop-filter: blur(4px);"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Coming Soon</span></div><h3 class="text-xl font-bold text-white mb-3">Built-in CRM</h3><p class="text-gray-400 text-sm mb-5 leading-relaxed">Track leads, manage client relationships, and keep your whole team on the same page — all in one place.</p><div class="space-y-2.5"><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Lead pipeline</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Client profiles</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Team collaboration</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Service agreements</div></div></div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- TESTIMONIALS                   -->
-  <!-- ============================== -->
   <section class="py-24 md:py-32 fade-section">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="section-label text-blue mb-4 block">REVIEWS</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white">Trades love working with us</h2>
-      </div>
-
+      <div class="text-center mb-16"><span class="section-label text-blue mb-4 block">REVIEWS</span><h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Trades love working with us</h2></div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Review 1 -->
-        <div class="card-border rounded-2xl bg-navy-card p-7">
-          <div class="stars text-lg mb-5">★★★★★</div>
-          <p class="text-gray-300 text-sm leading-relaxed mb-6">"I had zero web presence. Within two months of launching with Brechtland, I'm getting 4–5 new calls a week. I don't touch anything — they handle it all."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-blue flex items-center justify-center text-white font-bold text-sm">M</div>
-            <div>
-              <div class="text-white font-semibold text-sm">Marcus T.</div>
-              <div class="text-gray-500 text-xs">Roofing Contractor · Austin, TX</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="card-border rounded-2xl bg-navy-card p-7">
-          <div class="stars text-lg mb-5">★★★★★</div>
-          <p class="text-gray-300 text-sm leading-relaxed mb-6">"I was skeptical about a monthly fee but it's honestly cheaper than what I was wasting trying to manage my own site. The leads are real and the site looks incredible."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-orange flex items-center justify-center text-white font-bold text-sm">S</div>
-            <div>
-              <div class="text-white font-semibold text-sm">Sandra R.</div>
-              <div class="text-gray-500 text-xs">Plumber · Nashville, TN</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="card-border rounded-2xl bg-navy-card p-7">
-          <div class="stars text-lg mb-5">★★★★★</div>
-          <p class="text-gray-300 text-sm leading-relaxed mb-6">"What sold me was that they do everything. I gave them some photos and my info — two weeks later I had a site ranking in Google. Highly recommend."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-navy-light border border-navy-border flex items-center justify-center text-white font-bold text-sm">J</div>
-            <div>
-              <div class="text-white font-semibold text-sm">James C.</div>
-              <div class="text-gray-500 text-xs">General Contractor · Denver, CO</div>
-            </div>
-          </div>
-        </div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I had zero web presence. Within two months of launching with Brechtland, I'm getting 4–5 new calls a week. I don't touch anything — they handle it all."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-purple-light flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(43,92,230,0.4);">M</div><div><div class="text-white font-semibold text-sm">Marcus T.</div><div class="text-gray-500 text-xs">Roofing Contractor · Austin, TX</div></div></div></div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I was skeptical about a monthly fee but it's honestly cheaper than what I was wasting trying to manage my own site. The leads are real and the site looks incredible."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange to-red flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(249,115,22,0.4);">S</div><div><div class="text-white font-semibold text-sm">Sandra R.</div><div class="text-gray-500 text-xs">Plumber · Nashville, TN</div></div></div></div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"What sold me was that they do everything. I gave them some photos and my info — two weeks later I had a site ranking in Google. Highly recommend."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-[rgba(30,41,59,0.8)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white font-bold text-sm shadow-inner">J</div><div><div class="text-white font-semibold text-sm">James C.</div><div class="text-gray-500 text-xs">General Contractor · Denver, CO</div></div></div></div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- FAQ                            -->
-  <!-- ============================== -->
   <section id="faq" class="py-24 md:py-32 fade-section">
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="section-label text-blue mb-4 block">FAQ</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white">Questions? We've got answers.</h2>
-      </div>
-
-      <div class="space-y-3" id="faq-list">
-        <!-- FAQ items populated by JS -->
-      </div>
+      <div class="text-center mb-16"><span class="section-label text-blue mb-4 block">FAQ</span><h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Questions? We've got answers.</h2></div>
+      <div class="space-y-3" id="faq-list"></div>
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- CONTACT CTA                    -->
-  <!-- ============================== -->
-  <section id="contact" class="py-24 md:py-32 fade-section">
-    <div class="max-w-3xl mx-auto px-6 lg:px-8">
-      <div class="card-border rounded-3xl bg-navy-card p-8 md:p-12 text-center">
-        <!-- Badge -->
-        <div class="inline-flex items-center bg-blue/10 border border-blue/30 text-blue text-sm font-semibold rounded-full px-5 py-2 mb-8">
-          Book a free 15-minute call
-        </div>
-
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Stop losing customers<br />to your competitor's website</h2>
-        <p class="text-gray-400 mb-10 max-w-lg mx-auto">Leave your details and we'll reach out to schedule a quick call. We'll show you exactly what we'd build — and what it costs — no pressure.</p>
-
-        <!-- Contact form -->
-        <form id="contact-form" class="max-w-lg mx-auto">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <input type="text" name="name" placeholder="Your name" required class="form-input" />
-            <input type="text" name="business" placeholder="Business name" class="form-input" />
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <input type="email" name="email" placeholder="Email address" required class="form-input" />
-            <input type="tel" name="phone" placeholder="Phone number" class="form-input" required />
-          </div>
-          <button type="submit" id="submit-btn" class="btn-primary w-full justify-center text-base py-4">
-            <span id="submit-text">Let's talk</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </button>
-          <div id="form-status" class="mt-4 text-sm hidden"></div>
+  <section id="contact" class="py-24 md:py-32 fade-section relative">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="card-border rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, rgba(43,92,230,0.1) 0%, transparent 70%);"></div>
+        <div class="relative inline-flex items-center bg-[rgba(43,92,230,0.15)] border border-[rgba(43,92,230,0.4)] text-blue text-sm font-semibold rounded-full px-5 py-2 mb-8" style="box-shadow: 0 0 15px rgba(43,92,230,0.2);">Book a free 15-minute call</div>
+        <h2 class="relative text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Stop losing customers<br />to your competitor's website</h2>
+        <p class="relative text-gray-400 mb-10 max-w-lg mx-auto font-medium">Leave your details and we'll reach out to schedule a quick call. We'll show you exactly what we'd build — and what it costs — no pressure.</p>
+        <form id="contact-form" class="relative max-w-lg mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"><input type="text" name="name" placeholder="Your name" required class="form-input" /><input type="text" name="business" placeholder="Business name" class="form-input" /></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"><input type="email" name="email" placeholder="Email address" required class="form-input" /><input type="tel" name="phone" placeholder="Phone number" class="form-input" required /></div>
+          <button type="submit" id="submit-btn" class="btn-primary w-full justify-center text-base py-4"><span id="submit-text">Let's talk</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></button>
+          <div id="form-status" class="mt-4 text-sm font-medium hidden"></div>
         </form>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 text-sm text-gray-500">
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-            <a href="/cdn-cgi/l/email-protection#36424f5a534476544453555e425a5758521855595b" class="hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="3145485d5443715343545259455d505f551f525e5c">[email&#160;protected]</span></a>
-          </span>
+        <div class="relative flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 text-sm text-gray-500">
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><a href="mailto:tyler@brechtland.com" class="hover:text-white transition-all">tyler@brechtland.com</a></span>
           <span class="hidden sm:inline">·</span>
           <span>No pressure. We'll call you within 1 business day.</span>
         </div>
@@ -887,259 +364,74 @@
     </div>
   </section>
 
-
-  <!-- ============================== -->
-  <!-- FOOTER                         -->
-  <!-- ============================== -->
-  <footer class="border-t border-navy-border py-10">
+  <footer class="border-t border-navy-border py-10 bg-[rgba(10,14,26,0.95)] relative z-20" style="backdrop-filter: blur(4px);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      <a href="#" class="text-white text-lg font-bold tracking-tight">brechtland<span class="text-blue">.</span></a>
-      <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500">
-        <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
-        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-        <a href="#work" class="hover:text-white transition-colors">Work</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-      </div>
+      <a href="#" class="text-white text-lg font-bold tracking-tight hover:text-blue transition-colors duration-300">brechtland<span class="text-blue" style="text-shadow: 0 0 10px #2B5CE6;">.</span></a>
+      <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500"><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a><a href="#pricing" class="hover:text-white transition-colors">Pricing</a><a href="#work" class="hover:text-white transition-colors">Work</a><a href="#faq" class="hover:text-white transition-colors">FAQ</a><a href="#contact" class="hover:text-white transition-colors">Contact</a></div>
       <span class="text-gray-600 text-sm">&copy; 2026 Brechtland. All rights reserved.</span>
     </div>
   </footer>
 
-
-  <!-- ============================== -->
-  <!-- JAVASCRIPT                     -->
-  <!-- ============================== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ================================
-    // ROTATING TRADE TEXT
-    // ================================
+  <script>
     const trades = ['Roofers', 'Plumbers', 'Contractors', 'Handymen', 'Electricians', 'HVAC Pros'];
     const tradeColors = ['#7C3AED', '#2B5CE6', '#22C55E', '#F97316', '#FACC15', '#EF4444'];
     let tradeIndex = 0;
     const tradeEl = document.getElementById('trade-rotate');
-
     setInterval(() => {
       tradeIndex = (tradeIndex + 1) % trades.length;
-      tradeEl.style.opacity = '0';
-      tradeEl.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        tradeEl.textContent = trades[tradeIndex];
-        tradeEl.style.color = tradeColors[tradeIndex];
-        tradeEl.style.opacity = '1';
-        tradeEl.style.transform = 'translateY(0)';
-      }, 300);
+      tradeEl.style.opacity = '0'; tradeEl.style.transform = 'translateY(20px)'; tradeEl.style.filter = 'blur(4px)';
+      setTimeout(() => { tradeEl.textContent = trades[tradeIndex]; tradeEl.style.color = tradeColors[tradeIndex]; tradeEl.style.textShadow = `0 0 25px ${tradeColors[tradeIndex]}99`; tradeEl.style.opacity = '1'; tradeEl.style.transform = 'translateY(0)'; tradeEl.style.filter = 'blur(0)'; }, 300);
     }, 2500);
 
-
-    // ================================
-    // MOBILE MENU
-    // ================================
     const mobileToggle = document.getElementById('mobile-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     let menuOpen = false;
+    mobileToggle.addEventListener('click', () => { menuOpen = !menuOpen; mobileMenu.classList.toggle('open', menuOpen); });
+    document.querySelectorAll('.mobile-link').forEach(link => { link.addEventListener('click', () => { menuOpen = false; mobileMenu.classList.remove('open'); }); });
 
-    mobileToggle.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle('open', menuOpen);
-    });
-
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuOpen = false;
-        mobileMenu.classList.remove('open');
-      });
-    });
-
-
-    // ================================
-    // FAQ ACCORDION
-    // ================================
     const faqData = [
-      {
-        q: 'Do I need to have a website already?',
-        a: 'Nope. Most of our clients come to us with no website at all. We build everything from scratch — domain, design, hosting, the works.'
-      },
-      {
-        q: 'What do I have to do to get started?',
-        a: 'Just hop on a quick 15-minute call with us. We\'ll learn about your business, your area, and your goals — then we handle everything from there. You\'ll have a live website in 7–10 days.'
-      },
-      {
-        q: 'Can I make changes to my site?',
-        a: 'Absolutely. Unlimited content edits are included in every plan. Need to update pricing, add photos, or change your phone number? Just send us a message and we\'ll take care of it — usually within 24 hours.'
-      },
-      {
-        q: 'How long until my site goes live?',
-        a: 'Most sites are designed, built, and live within 7–10 business days. We work fast because we know every day without a website is a day you\'re missing leads.'
-      },
-      {
-        q: 'Do I own the website?',
-        a: 'The website is built and maintained as part of your subscription. While you\'re an active subscriber, the site is yours to use. If you cancel, we can discuss transferring the design assets to you.'
-      },
-      {
-        q: 'What if I\'m not happy with the design?',
-        a: 'We work closely with you during the design process and offer revisions until you\'re thrilled with the result. Our goal is a site you\'re proud to show off.'
-      },
-      {
-        q: 'Is there a setup fee?',
-        a: 'No setup fees whatsoever. Your monthly subscription covers everything — design, development, hosting, domain, SSL, and ongoing maintenance.'
-      },
-      {
-        q: 'What trades do you work with?',
-        a: 'We specialize in local service businesses: roofers, plumbers, electricians, HVAC pros, general contractors, handymen, painters, landscapers, and more. If you serve local customers, we can help.'
-      },
+      { q: 'Do I need to have a website already?', a: 'Nope. Most of our clients come to us with no website at all. We build everything from scratch — domain, design, hosting, the works.' },
+      { q: 'What do I have to do to get started?', a: 'Just hop on a quick 15-minute call with us. We\'ll learn about your business, your area, and your goals — then we handle everything from there. You\'ll have a live website in 7–10 days.' },
+      { q: 'Can I make changes to my site?', a: 'Absolutely. Unlimited content edits are included in every plan. Need to update pricing, add photos, or change your phone number? Just send us a message and we\'ll take care of it — usually within 24 hours.' },
+      { q: 'How long until my site goes live?', a: 'Most sites are designed, built, and live within 7–10 business days. We work fast because we know every day without a website is a day you\'re missing leads.' },
+      { q: 'Do I own the website?', a: 'The website is built and maintained as part of your subscription. While you\'re an active subscriber, the site is yours to use. If you cancel, we can discuss transferring the design assets to you.' },
+      { q: 'What if I\'m not happy with the design?', a: 'We work closely with you during the design process and offer revisions until you\'re thrilled with the result. Our goal is a site you\'re proud to show off.' },
+      { q: 'Is there a setup fee?', a: 'No setup fees whatsoever. Your monthly subscription covers everything — design, development, hosting, domain, SSL, and ongoing maintenance.' },
+      { q: 'What trades do you work with?', a: 'We specialize in local service businesses: roofers, plumbers, electricians, HVAC pros, general contractors, handymen, painters, landscapers, and more. If you serve local customers, we can help.' },
     ];
-
     const faqList = document.getElementById('faq-list');
-    faqData.forEach((item, i) => {
-      const faqItem = document.createElement('div');
-      faqItem.className = 'card-border rounded-xl bg-navy-card overflow-hidden';
-      faqItem.innerHTML = `
-        <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(${i})">
-          <span class="text-white font-medium text-sm pr-4">${item.q}</span>
-          <span class="faq-icon text-gray-400 text-xl flex-shrink-0" id="faq-icon-${i}">+</span>
-        </button>
-        <div class="faq-answer px-5" id="faq-answer-${i}">
-          <p class="text-gray-400 text-sm leading-relaxed pb-5">${item.a}</p>
-        </div>
-      `;
-      faqList.appendChild(faqItem);
-    });
+    faqData.forEach((item, i) => { const d = document.createElement('div'); d.className = 'card-border rounded-xl overflow-hidden'; d.innerHTML = `<button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(${i})"><span class="text-white font-medium text-sm pr-4">${item.q}</span><span class="faq-icon text-gray-400 text-xl flex-shrink-0" id="faq-icon-${i}">+</span></button><div class="faq-answer px-5" id="faq-answer-${i}"><p class="text-gray-400 text-sm leading-relaxed pb-5">${item.a}</p></div>`; faqList.appendChild(d); });
+    function toggleFaq(index) { const a = document.getElementById(`faq-answer-${index}`); const ic = document.getElementById(`faq-icon-${index}`); const open = a.classList.contains('open'); document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('open')); document.querySelectorAll('.faq-icon').forEach(x => x.classList.remove('open')); if (!open) { a.classList.add('open'); ic.classList.add('open'); } }
 
-    function toggleFaq(index) {
-      const answer = document.getElementById(`faq-answer-${index}`);
-      const icon = document.getElementById(`faq-icon-${index}`);
-      const isOpen = answer.classList.contains('open');
-
-      // Close all
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
-
-      if (!isOpen) {
-        answer.classList.add('open');
-        icon.classList.add('open');
-      }
-    }
-
-
-    // ================================
-    // SCROLL FADE-IN
-    // ================================
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px' });
-
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.05, rootMargin: '0px' });
     document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
 
-
-    // ================================
-    // NAV BACKGROUND ON SCROLL
-    // ================================
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav.style.borderBottom = '1px solid rgba(30, 41, 59, 0.5)';
-      } else {
-        nav.style.borderBottom = 'none';
-      }
-    });
+    window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.style.borderBottomColor = 'rgba(43, 92, 230, 0.2)'; nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)'; } else { nav.style.borderBottomColor = 'rgba(255,255,255,0.03)'; nav.style.boxShadow = 'none'; } });
 
-
-    // ================================
-    // CONTACT FORM (EmailJS)
-    // ================================
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     const submitText = document.getElementById('submit-text');
     const formStatus = document.getElementById('form-status');
-
     contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Disable button
-      submitBtn.disabled = true;
-      submitText.textContent = 'Sending...';
-
-      // Prepare form data
-      const formData = {
-        name: contactForm.name.value,
-        business: contactForm.business.value,
-        email: contactForm.email.value,
-        phone: contactForm.phone.value,
-        _subject: 'New lead from brechtland.com',
-      };
-
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
-      })
+      e.preventDefault(); submitBtn.disabled = true; submitText.textContent = 'Sending...';
+      const formData = { name: contactForm.name.value, business: contactForm.business.value, email: contactForm.email.value, phone: contactForm.phone.value, _subject: 'New lead from brechtland.com' };
+      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(formData) })
         .then(response => response.json())
-        .then(data => {
-          formStatus.classList.remove('hidden');
-          formStatus.className = 'mt-4 text-sm text-green';
-          formStatus.textContent = "We got your info! We'll be in touch within 1 business day.";
-          contactForm.reset();
-          submitText.textContent = "Let's talk";
-          submitBtn.disabled = false;
-        })
-        .catch((error) => {
-          formStatus.classList.remove('hidden');
-          formStatus.className = 'mt-4 text-sm text-red';
-          formStatus.textContent = 'Something went wrong. Please try again or email us directly.';
-          submitText.textContent = "Let's talk";
-          submitBtn.disabled = false;
-        });
+        .then(data => { formStatus.classList.remove('hidden'); formStatus.className = 'mt-4 text-sm text-green font-medium'; formStatus.style.filter = 'drop-shadow(0 0 5px rgba(34,197,94,0.5))'; formStatus.textContent = "We got your info! We'll be in touch within 1 business day."; contactForm.reset(); submitText.textContent = "Let's talk"; submitBtn.disabled = false; })
+        .catch((error) => { formStatus.classList.remove('hidden'); formStatus.className = 'mt-4 text-sm text-red font-medium'; formStatus.style.filter = 'drop-shadow(0 0 5px rgba(239,68,68,0.5))'; formStatus.textContent = 'Something went wrong. Please try again or email us directly.'; submitText.textContent = "Let's talk"; submitBtn.disabled = false; });
     });
 
+    window.addEventListener('load', () => { document.querySelectorAll('.fade-section').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); });
 
-    // ================================
-    // SCROLL FADE-IN
-    // Already defined above — ensure sections already in viewport are visible on load
-    // ================================
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.fade-section').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-          el.classList.add('visible');
-        }
-      });
-    });
-
-    // ================================
-    // HERO MOCKUP SLIDESHOW
-    // 5s display, 2s fade, Untitled.png–Untitled3.png
-    // ================================
     (function() {
-      var images = [
-        'https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled.png',
-        'https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled1.png',
-        'https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled2.png',
-        'https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled3.png'
-      ];
-      var current = 0;
-      var img = document.getElementById('hero-slide-img');
-      var curtain = document.getElementById('hero-slide-curtain');
+      var images = ['https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled1.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled2.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled3.png'];
+      var current = 0; var img = document.getElementById('hero-slide-img'); var curtain = document.getElementById('hero-slide-curtain');
       if (!img || !curtain) return;
-
-      // Preload
       images.forEach(function(s) { var i = new Image(); i.src = s; });
-
-      function swap() {
-        curtain.style.opacity = '1';           // 2s fade to dark
-        setTimeout(function() {
-          current = (current + 1) % images.length;
-          img.src = images[current];
-          curtain.style.opacity = '0';          // 2s fade back in
-        }, 2100);
-      }
-
-      // 5s visible + ~4.2s transition = ~9.2s per cycle
+      function swap() { curtain.style.opacity = '1'; setTimeout(function() { current = (current + 1) % images.length; img.src = images[current]; curtain.style.opacity = '0'; }, 2100); }
       setInterval(swap, 9200);
     })();
-
   </script>
 </body>
 </html>
