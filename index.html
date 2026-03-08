@@ -145,9 +145,9 @@
 
     /* Mockup click affordance */
     @keyframes ring-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(43, 92, 230, 0.4), 0 35px 60px -15px rgba(0,0,0,0.9), 0 0 120px rgba(43,92,230,0.3); } 50% { box-shadow: 0 0 0 8px rgba(43, 92, 230, 0), 0 35px 60px -15px rgba(0,0,0,0.9), 0 0 120px rgba(43,92,230,0.3); } }
-    @keyframes badge-float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-4px); } }
-    .mockup-cta-badge { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #2B5CE6, #7C3AED); color: #fff; font-size: 1.0625rem; font-weight: 800; padding: 14px 36px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 0 25px rgba(43,92,230,0.7), 0 0 50px rgba(124,58,237,0.4), inset 0 1px 1px rgba(255,255,255,0.25); animation: badge-float 2.5s ease-in-out infinite; white-space: nowrap; z-index: 10; pointer-events: none; display: flex; align-items: center; gap: 10px; transition: box-shadow 0.3s ease, transform 0.3s ease;: 0 1px 2px rgba(0,0,0,0.3); letter-spacing: 0.01em; }
-    .mockup-container:hover .mockup-cta-badge { box-shadow: 0 0 20px rgba(43,92,230,1), 0 0 50px rgba(43,92,230,0.8), 0 0 90px rgba(124,58,237,0.6), inset 0 1px 1px rgba(255,255,255,0.4); transform: translateX(-50%) scale(1.06); }
+    @keyframes badge-float { 0%, 100% { transform: translateX(-50%) translateY(0px); } 50% { transform: translateX(-50%) translateY(-5px); } }
+    .mockup-cta-badge { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #2B5CE6, #7C3AED); color: #fff; font-size: 1.0625rem; font-weight: 800; padding: 14px 36px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 0 25px rgba(43,92,230,0.7), 0 0 50px rgba(124,58,237,0.4), inset 0 1px 1px rgba(255,255,255,0.25); animation: badge-float 2.5s ease-in-out infinite; white-space: nowrap; z-index: 20; pointer-events: auto; cursor: pointer; display: flex; align-items: center; gap: 10px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); letter-spacing: 0.01em; transition: box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .mockup-cta-badge:hover { animation-play-state: paused; background: linear-gradient(135deg, #3B6FF0, #9333EA); box-shadow: 0 0 35px rgba(43,92,230,1), 0 0 70px rgba(43,92,230,0.8), 0 0 120px rgba(124,58,237,0.6), inset 0 1px 1px rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.5); }
     .mockup-container { animation: ring-pulse 3s ease-in-out infinite; }
     .mockup-container:hover { animation: none; }
     .compare-red, .compare-yellow, .compare-green { transition: box-shadow 0.4s ease, border-color 0.4s ease; }
@@ -223,10 +223,10 @@
           <div style="position:relative; overflow:hidden; background:#0A0E1A; aspect-ratio: 16/9;">
             <img id="hero-slide-img" src="/Untitled.png" alt="Example website" style="display:block; width:100%; height:auto; transition:opacity 2s ease;" />
             <div id="hero-slide-curtain" style="position:absolute;top:0;left:0;right:0;bottom:0;background:#0A0E1A;opacity:0;transition:opacity 2s ease;pointer-events:none;"></div>
-            <div class="mockup-cta-badge">
+            <button class="mockup-cta-badge" onclick="event.stopPropagation(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
               Get a Quote
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </div>
+            </button>
           </div>
         </div>
       </div>
