@@ -121,6 +121,7 @@
     .step-connector { position: relative; }
     .step-connector::after { content: ''; position: absolute; top: 32px; right: -50%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(43, 92, 230, 0.8), rgba(124, 58, 237, 0.8), transparent); box-shadow: 0 0 10px rgba(43, 92, 230, 0.6), 0 0 20px rgba(124, 58, 237, 0.4); z-index: 0; }
     .step-connector:last-child::after { display: none; }
+    @media (max-width: 767px) { .step-connector::after { display: none; } }
     @keyframes badge-pulse { 0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.2); } 50% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); } }
     .coming-soon-badge { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.5); color: #4ADE80; animation: badge-pulse 2s infinite ease-in-out; text-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
     .stat-badge-red { color: #F87171; border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
@@ -182,22 +183,11 @@
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <!-- Outer glow -->
             <rect x="6" y="6" width="108" height="108" rx="27" fill="none" stroke="url(#navBoxGrad)" stroke-width="1.5" opacity="0.5" filter="url(#boxGlow)"/>
-            <!-- Main box -->
             <rect x="10" y="10" width="100" height="100" rx="23" fill="#0D1120"/>
-            <!-- Gradient border -->
             <rect x="10" y="10" width="100" height="100" rx="23" fill="none" stroke="url(#navBoxGrad)" stroke-width="2" opacity="0.9"/>
-            <!-- Top shine -->
             <rect x="18" y="11" width="84" height="3" rx="2" fill="white" opacity="0.07"/>
-            <!-- BL bold text -->
-            <text x="60" y="78" text-anchor="middle"
-              font-family="Georgia,'Times New Roman',serif"
-              font-weight="900"
-              font-style="italic"
-              font-size="56"
-              fill="url(#navTextGrad)"
-              filter="url(#navGlow)">BL</text>
+            <text x="60" y="78" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="900" font-style="italic" font-size="56" fill="url(#navTextGrad)" filter="url(#navGlow)">BL</text>
           </svg>
           <span class="text-xl font-bold tracking-tight" style="color:#fff; text-shadow: 0 0 20px rgba(43,92,230,0.35);">Brechtland</span>
         </a>
@@ -454,7 +444,7 @@
 
   <footer class="border-t border-navy-border py-10 bg-[rgba(10,14,26,0.95)] relative z-20" style="backdrop-filter: blur(4px);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-      <a href="#" class="text-white text-lg font-bold tracking-tight hover:text-blue transition-colors duration-300">brechtland<span class="text-blue" style="text-shadow: 0 0 10px #2B5CE6;">.</span></a>
+      <a href="#" class="text-white text-lg font-bold tracking-tight hover:text-blue transition-colors duration-300">Brechtland</a>
       <div class="flex flex-wrap items-center gap-6 text-sm text-gray-500"><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a><a href="#pricing" class="hover:text-white transition-colors">Pricing</a><a href="#work" class="hover:text-white transition-colors">Work</a><a href="#faq" class="hover:text-white transition-colors">FAQ</a><a href="#contact" class="hover:text-white transition-colors">Contact</a><a href="tel:9895011397" class="hover:text-white transition-colors flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(989) 501-1397</a></div>
       <span class="text-gray-600 text-sm">&copy; 2026 Brechtland. All rights reserved.</span>
     </div>
