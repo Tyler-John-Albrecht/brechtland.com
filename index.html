@@ -43,7 +43,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { font-family: 'Inter', sans-serif; background-color: #0A0E1A; background-image: linear-gradient(rgba(43, 92, 230, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(43, 92, 230, 0.03) 1px, transparent 1px); background-size: 80px 80px; color: #E2E8F0; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background-color: #0A0E1A; background-image: radial-gradient(ellipse 80% 50% at 15% 20%, rgba(124, 58, 237, 0.07) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 85% 50%, rgba(43, 92, 230, 0.06) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 30% 75%, rgba(34, 197, 94, 0.035) 0%, transparent 50%), radial-gradient(ellipse 80% 45% at 70% 90%, rgba(99, 102, 241, 0.05) 0%, transparent 55%), linear-gradient(rgba(43, 92, 230, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(43, 92, 230, 0.03) 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px, 80px 80px; background-attachment: fixed, fixed, fixed, fixed, local, local; color: #E2E8F0; overflow-x: hidden; }
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0A0E1A; }
     ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; border: 1px solid rgba(43, 92, 230, 0.2); }
@@ -124,9 +124,28 @@
     .compare-red:hover { box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.1), 0 0 30px rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); }
     .compare-yellow:hover { box-shadow: inset 0 0 30px rgba(250, 204, 21, 0.1), 0 0 30px rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.4); }
     .compare-green:hover { box-shadow: inset 0 0 30px rgba(34, 197, 94, 0.15), 0 0 35px rgba(34, 197, 94, 0.2); border-color: rgba(34, 197, 94, 0.5); }
+
+    /* Cursor glow orb */
+    .cursor-glow {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(99, 102, 241, 0.08) 30%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: opacity 0.4s ease;
+      opacity: 0;
+      will-change: left, top;
+    }
+    .cursor-glow.active { opacity: 1; }
   </style>
 </head>
 <body>
+
+  <!-- Cursor glow orb -->
+  <div class="cursor-glow" id="cursor-glow"></div>
 
   <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(10, 14, 26, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.03);">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -362,7 +381,7 @@
           <div id="form-status" class="mt-4 text-sm font-medium hidden"></div>
         </form>
         <div class="relative flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 text-sm text-gray-500">
-          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><a href="mailto:tyler@brechtland.com" class="hover:text-white transition-all">tyler@brechtland.com</a></span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><a href="/cdn-cgi/l/email-protection#3e4a47525b4c7e5c4c5b5d564a525f505a105d5153" class="hover:text-white transition-all"><span class="__cf_email__" data-cfemail="e6929f8a8394a6849483858e928a878882c885898b">[email&#160;protected]</span></a></span>
           <span class="hidden sm:inline">·</span>
           <span>No pressure. We'll call you within 1 business day.</span>
         </div>
@@ -378,7 +397,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const trades = ['Roofers', 'Plumbers', 'Contractors', 'Handymen', 'Electricians', 'HVAC Pros'];
     const tradeColors = ['#7C3AED', '#2B5CE6', '#22C55E', '#F97316', '#FACC15', '#EF4444'];
     let tradeIndex = 0;
@@ -430,13 +449,27 @@
 
     window.addEventListener('load', () => { document.querySelectorAll('.fade-section').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); });
 
+    /* Cursor glow tracking */
+    (function() {
+      var glow = document.getElementById('cursor-glow');
+      var mx = 0, my = 0, gx = 0, gy = 0;
+      document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; if (!glow.classList.contains('active')) glow.classList.add('active'); });
+      document.addEventListener('mouseleave', function() { glow.classList.remove('active'); });
+      function tick() { gx += (mx - gx) * 0.12; gy += (my - gy) * 0.12; glow.style.left = gx + 'px'; glow.style.top = gy + 'px'; requestAnimationFrame(tick); }
+      tick();
+    })();
+
     (function() {
       var images = ['https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled1.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled2.png','https://raw.githubusercontent.com/Tyler-John-Albrecht/brechtland.com/main/Untitled3.png'];
       var current = 0; var img = document.getElementById('hero-slide-img'); var curtain = document.getElementById('hero-slide-curtain');
       if (!img || !curtain) return;
       images.forEach(function(s) { var i = new Image(); i.src = s; });
-      function swap() { curtain.style.opacity = '1'; setTimeout(function() { current = (current + 1) % images.length; img.src = images[current]; curtain.style.opacity = '0'; }, 2100); }
-      setInterval(swap, 9200);
+      function cycle() {
+        current = (current + 1) % images.length;
+        curtain.style.opacity = '1';
+        setTimeout(function() { img.src = images[current]; curtain.style.opacity = '0'; }, 600);
+      }
+      setInterval(cycle, 5000);
     })();
   </script>
 </body>
