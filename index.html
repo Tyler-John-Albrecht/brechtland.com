@@ -262,6 +262,43 @@
       #template-modal-cta { font-size: 0.75rem; padding: 11px 22px; bottom: 16px; }
     }
 
+    /* ── Contact Popup Modal ──────────────────────────────────────────────── */
+    #contact-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    #contact-modal-overlay.open { display: flex; opacity: 1; }
+    #contact-modal-content {
+      position: relative; width: 90vw; max-width: 560px;
+      max-height: 90vh; overflow-y: auto;
+      background: #130020;
+      border: 1px solid rgba(106,0,255,0.45);
+      border-radius: 16px;
+      box-shadow: 0 0 60px rgba(106,0,255,0.30), 0 0 120px rgba(255,0,200,0.15);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      padding: 32px;
+    }
+    #contact-modal-overlay.open #contact-modal-content { transform: scale(1); }
+    #contact-modal-close-btn {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(106,0,255,0.12); border: 1px solid rgba(106,0,255,0.35);
+      color: #C4AADD; width: 32px; height: 32px; border-radius: 50%;
+      cursor: pointer; font-size: 1.1rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    #contact-modal-close-btn:hover {
+      background: rgba(255,0,200,0.20); border-color: rgba(255,0,200,0.5);
+      color: #fff; box-shadow: 0 0 12px rgba(255,0,200,0.35);
+    }
+    @media (max-width: 640px) {
+      #contact-modal-content { width: 96vw; padding: 24px; border-radius: 10px; }
+    }
+
   </style>
 </head>
 <body>
@@ -410,7 +447,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       </div>
 
       <div class="text-center mt-8">
-        <a href="#contact" class="btn-primary text-base px-8 py-3.5">See What Your Website Would Look Like <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+        <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary text-base px-8 py-3.5">Get Your Free Website Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
       </div>
     </div>
   </section>
@@ -516,7 +553,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
               <div class="text-5xl md:text-6xl font-extrabold text-white mt-2 mb-1" style="filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));">$149</div>
               <span class="text-gray-400 text-sm">/mo · exact pricing on your call</span>
               <p class="text-gray-400 text-sm mt-6 mb-8 max-w-[280px] mx-auto md:mx-0">Every business is different. We'll walk you through options and pricing that make sense for your trade, your area, and your goals.</p>
-              <a href="#contact" class="btn-primary w-full justify-center text-base py-4">See What Your Website Would Look Like <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+              <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary w-full justify-center text-base py-4">Get Your Free Website Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
               <p class="text-gray-500 text-xs mt-4">No obligation · Takes 15 minutes</p>
             </div>
           </div>
@@ -749,6 +786,118 @@ Contractors lose thousands every month from missed calls. Our system captures ev
           var target = document.getElementById('pricing');
           if (target) target.scrollIntoView({ behavior: 'smooth' });
         }, 320);
+      });
+    })();
+  </script>
+
+  <!-- ── Contact Popup Modal ──────────────────────────────────────────────── -->
+  <div id="contact-modal-overlay" role="dialog" aria-modal="true" aria-label="Contact form">
+    <div id="contact-modal-content">
+      <button id="contact-modal-close-btn" aria-label="Close form">✕</button>
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center bg-[rgba(43,92,230,0.15)] border border-[rgba(43,92,230,0.4)] text-blue text-sm font-semibold rounded-full px-5 py-2 mb-6" style="box-shadow: 0 0 15px rgba(43,92,230,0.2);">Book a free 15-minute call</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Get Your Free Website Preview</h2>
+        <p class="text-gray-400 text-sm max-w-md mx-auto font-medium">Leave your details and we'll reach out to schedule a quick call. No pressure.</p>
+      </div>
+      <form id="contact-modal-form" class="max-w-lg mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <input type="text" name="name" placeholder="Your name" required class="form-input" />
+          <input type="text" name="business" placeholder="Business name" class="form-input" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <input type="email" name="email" placeholder="Email address" required class="form-input" />
+          <input type="tel" name="phone" placeholder="Phone number" class="form-input" required />
+        </div>
+        <button type="submit" id="modal-submit-btn" class="btn-primary w-full justify-center text-base py-4">
+          <span id="modal-submit-text">Let's talk</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </button>
+        <div id="modal-form-status" class="mt-4 text-sm font-medium hidden"></div>
+      </form>
+      <div class="text-center mt-6 text-sm text-gray-500">
+        <span>No obligation · Takes 15 minutes</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var contactOverlay = document.getElementById('contact-modal-overlay');
+      var contactContent = document.getElementById('contact-modal-content');
+      var contactCloseBtn = document.getElementById('contact-modal-close-btn');
+      var contactModalForm = document.getElementById('contact-modal-form');
+      var modalSubmitBtn = document.getElementById('modal-submit-btn');
+      var modalSubmitText = document.getElementById('modal-submit-text');
+      var modalFormStatus = document.getElementById('modal-form-status');
+
+      window.openContactModal = function() {
+        contactOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            contactOverlay.classList.add('open');
+          });
+        });
+      };
+
+      function closeContactModal() {
+        contactOverlay.classList.remove('open');
+        contactOverlay.addEventListener('transitionend', function _done(e) {
+          if (e.target !== contactOverlay) return;
+          contactOverlay.style.display = 'none';
+          document.body.style.overflow = '';
+          contactOverlay.removeEventListener('transitionend', _done);
+        });
+      }
+
+      // Close button
+      contactCloseBtn.addEventListener('click', closeContactModal);
+
+      // Click outside modal content to close
+      contactOverlay.addEventListener('click', function(e) {
+        if (e.target === contactOverlay) closeContactModal();
+      });
+
+      // Escape key to close
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && contactOverlay.classList.contains('open')) closeContactModal();
+      });
+
+      // Form submission
+      contactModalForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        modalSubmitBtn.disabled = true;
+        modalSubmitText.textContent = 'Sending...';
+        var formData = {
+          name: contactModalForm.name.value,
+          business: contactModalForm.business.value,
+          email: contactModalForm.email.value,
+          phone: contactModalForm.phone.value,
+          _subject: 'New lead from brechtland.com (popup)'
+        };
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(formData)
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+          modalFormStatus.classList.remove('hidden');
+          modalFormStatus.className = 'mt-4 text-sm text-green font-medium';
+          modalFormStatus.style.filter = 'drop-shadow(0 0 5px rgba(34,197,94,0.5))';
+          modalFormStatus.textContent = "We got your info! We'll be in touch within 1 business day.";
+          contactModalForm.reset();
+          modalSubmitText.textContent = "Let's talk";
+          modalSubmitBtn.disabled = false;
+        })
+        .catch(function(error) {
+          modalFormStatus.classList.remove('hidden');
+          modalFormStatus.className = 'mt-4 text-sm text-red font-medium';
+          modalFormStatus.style.filter = 'drop-shadow(0 0 5px rgba(239,68,68,0.5))';
+          modalFormStatus.textContent = 'Something went wrong. Please try again or email us directly.';
+          modalSubmitText.textContent = "Let's talk";
+          modalSubmitBtn.disabled = false;
+        });
       });
     })();
   </script>
