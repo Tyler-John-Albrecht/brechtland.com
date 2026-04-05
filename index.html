@@ -1487,6 +1487,16 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       if (!t) return;
       window.open(t.url, '_blank');
     };
+
+    // Belt-and-suspenders: wire tabs via addEventListener in addition to onclick attrs
+    document.querySelectorAll('.work-tab:not(.work-tab-soon)').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var idx = parseInt(tab.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) window.switchTemplate(idx);
+      });
+    });
+
+  }());
   </script>
 </body>
 </html>
