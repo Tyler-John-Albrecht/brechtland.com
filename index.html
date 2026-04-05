@@ -329,7 +329,19 @@
     .ai-pricing-card:hover { border-color: rgba(0,229,255,0.6) !important; box-shadow: 0 0 100px rgba(0,229,255,0.15), 0 25px 60px -12px rgba(0,0,0,0.7); }
     .coming-soon-badge { background: rgba(106, 0, 255, 0.2); border: 1px solid rgba(106, 0, 255, 0.4); color: #a78bfa; }
     .live-badge { background: rgba(0,229,255,0.15); border: 1px solid rgba(0,229,255,0.4); color: #00E5FF; box-shadow: 0 0 10px rgba(0,229,255,0.2); }
-  </style>
+  
+    /* ── Work Section: Template Browser ─────────────────────────── */
+    .work-tab { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:9999px; font-size:0.8rem; font-weight:600; font-family:'Exo 2',sans-serif; border:1px solid rgba(61,0,112,0.4); background:rgba(10,14,26,0.6); color:#94A3B8; cursor:pointer; transition:all 0.25s ease; white-space:nowrap; }
+    .work-tab:hover:not(:disabled) { color:#fff; border-color:rgba(106,0,255,0.5); background:rgba(106,0,255,0.12); box-shadow:0 0 12px rgba(106,0,255,0.2); }
+    .active-work-tab { color:#fff !important; border-color:rgba(106,0,255,0.65) !important; background:linear-gradient(135deg,rgba(106,0,255,0.3),rgba(255,0,200,0.18)) !important; box-shadow:0 0 18px rgba(106,0,255,0.3) !important; }
+    .work-tab-soon { opacity:0.35; cursor:not-allowed !important; }
+    .work-cta-ghost { display:inline-flex; align-items:center; gap:7px; font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.8rem; padding:11px 20px; border-radius:9999px; color:#C4AADD; border:1px solid rgba(106,0,255,0.35); background:rgba(8,10,22,0.9); backdrop-filter:blur(8px); cursor:pointer; transition:all 0.25s; }
+    .work-cta-ghost:hover { color:#fff; border-color:rgba(255,0,200,0.5); }
+    .work-cta-primary { display:inline-flex; align-items:center; gap:7px; font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.8rem; padding:11px 20px; border-radius:9999px; color:#fff; background:linear-gradient(135deg,#6A00FF,#FF00C8); border:1px solid rgba(255,255,255,0.15); box-shadow:0 0 20px rgba(106,0,255,0.45),0 0 40px rgba(255,0,200,0.2); backdrop-filter:blur(8px); cursor:pointer; transition:all 0.25s; }
+    .work-cta-primary:hover { box-shadow:0 0 35px rgba(106,0,255,0.7),0 0 60px rgba(255,0,200,0.45); }
+    @media (max-width:768px) { #work-iframe-wrap { height:400px !important; } }
+    @keyframes spin { to { transform:rotate(360deg); } }
+</style>
 </head>
 <body>
 
@@ -906,20 +918,123 @@ Contractors lose thousands every month from missed calls. Our system captures ev
 
   <section id="work" class="py-24 md:py-32 fade-section relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
+
+      <div class="text-center mb-10">
         <span class="section-label text-blue mb-4 block">OUR WORK</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Sites built to convert</h2>
-        <p class="text-gray-400 text-lg">Every site we build is custom-designed for the trade and location — no cookie-cutter templates.</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">11 industries. One agency.</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">Click any industry to preview a live template &#8212; custom-built, conversion-optimized, ready to launch.</p>
+        <div class="inline-flex items-center gap-2 mt-5 px-4 py-1.5 rounded-full text-xs font-semibold" style="background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25); color:#4ADE80;">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#22C55E; box-shadow:0 0 6px #22C55E;"></span>
+          11 live templates &middot; Always growing
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card-border portfolio-roofing rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('/image2.png'); background-size: cover; background-position: center;"><span class="text-xs text-blue font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(43,92,230,0.8));">Roofing · Austin, TX</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Premier Roofing Co.</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Roof Repairs That Last</p><p class="text-gray-300 text-sm mb-6 font-medium">Licensed & Insured · Free Estimates · 10-Year Warranty</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost js-preview-btn" data-template="https://crm.brechtland.com/Roofing-Template/roofing-template.html" data-label="Roofing Template Preview">Our Work</button><span class="stat-badge-red text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(239,68,68,0.2);">+340% calls in 60 days</span></div></div>
-        <div class="card-border portfolio-plumbing rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('/image3.png'); background-size: cover; background-position: center;"><span class="text-xs text-green font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(34,197,94,0.8));">Plumbing · Nashville, TN</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Delta Plumbing</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Same-Day Plumbing Service</p><p class="text-gray-300 text-sm mb-6 font-medium">Emergency Repairs · Water Heaters · Drain Cleaning</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost js-preview-btn" data-template="https://tyler-john-albrecht.github.io/Plumbing/Plumbing%20Template/index.html" data-label="Plumbing Template Preview">Our Work</button><span class="stat-badge-green text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(34,197,94,0.2);">Ranked #1 in local maps</span></div></div>
-        <div class="card-border portfolio-contractor rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('/hvac%20template%20link.png'); background-size: cover; background-position: center;"><span class="text-xs text-orange font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(249,115,22,0.8));">HVAC · Phoenix, AZ</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Precision HVAC</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Heating & Cooling Done Right</p><p class="text-gray-300 text-sm mb-6 font-medium">AC Repair · Furnace Installation · Emergency Service</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button><button class="btn-small btn-small-ghost js-preview-btn" data-template="https://tyler-john-albrecht.github.io/Brechtland-CRM/HVAC-Template.html" data-label="HVAC Template Preview">Our Work</button><span class="stat-badge-orange text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(249,115,22,0.2);">24/7 Emergency Service</span></div></div>
-        <div class="card-border portfolio-electrical rounded-2xl p-7 relative z-10" style="background-image: linear-gradient(160deg, rgba(10,14,26,0.95), rgba(15,22,41,0.75)), url('/real%20estate%20template.png'); background-size: cover; background-position: center;"><span class="text-xs text-purple font-semibold uppercase tracking-wider" style="filter: drop-shadow(0 0 8px rgba(124,58,237,0.8));">REAL ESTATE · Los Angeles, CA</span><h3 class="text-white font-bold text-lg mt-2 mb-3">Summit Realty Group</h3><p class="text-2xl md:text-3xl font-extrabold text-white mb-1">Find Your Dream Home Today</p><p class="text-gray-300 text-sm mb-6 font-medium">Buy · Sell · Property Management</p><div class="flex flex-wrap items-center gap-3"><button class="btn-small btn-small-filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">View Listings</button><button class="btn-small btn-small-ghost js-preview-btn" data-template="https://tyler-john-albrecht.github.io/Brechtland-CRM/realtor-template.html" data-label="Real Estate Template Preview">Our Work</button><span class="stat-badge-purple text-xs font-medium px-3 py-1.5 rounded-full ml-auto" style="box-shadow: 0 0 10px rgba(167,139,250,0.2);">#1 Rated Local Agent</span></div></div>
+
+      <!-- Industry tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button class="work-tab active-work-tab" data-index="0" onclick="switchTemplate(0)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          Landscaping
+        </button>
+        <button class="work-tab" data-index="1" onclick="switchTemplate(1)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Auto Detailing
+        </button>
+        <button class="work-tab" data-index="2" onclick="switchTemplate(2)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+          Epoxy Flooring
+        </button>
+        <button class="work-tab" data-index="3" onclick="switchTemplate(3)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Real Estate
+        </button>
+        <button class="work-tab" data-index="4" onclick="switchTemplate(4)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 21V12h6v9"/></svg>
+          Roofing
+        </button>
+        <button class="work-tab" data-index="5" onclick="switchTemplate(5)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          HVAC
+        </button>
+        <button class="work-tab" data-index="6" onclick="switchTemplate(6)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          Plumbing
+        </button>
+        <button class="work-tab" data-index="7" onclick="switchTemplate(7)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4h16v16H4V4zm4 0v16M12 4v16m4-16v16M4 8h16M4 12h16M4 16h16"/></svg>
+          Window Cleaning
+        </button>
+        <button class="work-tab" data-index="8" onclick="switchTemplate(8)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 12h15M4.5 9H7m10 0h2.5M4.5 15H7m10 0h2.5M7 7.5v9M17 7.5v9"/></svg>
+          Fitness / Gym
+        </button>
+        <button class="work-tab" data-index="9" onclick="switchTemplate(9)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          Restaurant
+        </button>
+        <button class="work-tab" data-index="10" onclick="switchTemplate(10)">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          Dental
+        </button>
+        <button class="work-tab work-tab-soon" disabled title="Coming Soon">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Automotive
+        </button>
+        <button class="work-tab work-tab-soon" disabled title="Coming Soon">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Legal
+        </button>
+        <button class="work-tab work-tab-soon" disabled title="Coming Soon">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Cleaning Services
+        </button>
       </div>
-      <p class="text-center text-gray-500 text-sm mt-8">These are example designs. Your site will be custom-built for your business.</p>
+
+      <!-- Browser mockup -->
+      <div class="relative rounded-2xl overflow-hidden" style="border:1px solid rgba(106,0,255,0.4); box-shadow:0 0 60px rgba(106,0,255,0.15), 0 25px 60px -12px rgba(0,0,0,0.7);">
+
+        <!-- Chrome bar -->
+        <div class="flex items-center gap-3 px-4 py-3" style="background:rgba(8,10,22,0.98); border-bottom:1px solid rgba(106,0,255,0.2);">
+          <div class="flex gap-1.5 flex-shrink-0">
+            <div class="w-3 h-3 rounded-full" style="background:#FF5F56;"></div>
+            <div class="w-3 h-3 rounded-full" style="background:#FFBD2E;"></div>
+            <div class="w-3 h-3 rounded-full" style="background:#27C93F;"></div>
+          </div>
+          <div class="flex-1 rounded-md px-3 py-1.5 text-xs text-center truncate" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:#94A3B8; font-family:Inter,sans-serif;">
+            <span id="work-url-bar">tyler-john-albrecht.github.io / landscaping-template</span>
+          </div>
+          <button onclick="openWorkFullPreview()" class="flex-shrink-0 flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md" style="color:#C4AADD; border:1px solid rgba(106,0,255,0.25); background:rgba(106,0,255,0.08); cursor:pointer; transition:all 0.25s;">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Full Screen
+          </button>
+        </div>
+
+        <!-- iframe container -->
+        <div id="work-iframe-wrap" style="position:relative; height:620px;">
+          <div id="work-loader" style="position:absolute;inset:0;background:#0B001A;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;transition:opacity 0.4s ease;pointer-events:none;">
+            <div style="width:40px;height:40px;border:2px solid rgba(106,0,255,0.2);border-top-color:#6A00FF;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+            <p id="work-loader-label" style="color:#C4AADD;font-size:0.8rem;margin-top:16px;font-family:'Exo 2',sans-serif;">Loading Landscaping template...</p>
+          </div>
+          <iframe id="work-iframe" src="https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html" title="Template Preview" loading="lazy" style="width:100%;height:100%;border:none;display:block;background:#0B001A;" onload="hideWorkLoader()"></iframe>
+        </div>
+
+        <!-- Floating CTAs -->
+        <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:20;white-space:nowrap;">
+          <button onclick="openWorkFullPreview()" class="work-cta-ghost">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            View Full Site
+          </button>
+          <button onclick="openContactModal()" class="work-cta-primary">
+            Get This Build
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-6">These are live templates. Your site will be custom-built for your business name, photos, and location.</p>
     </div>
   </section>
+
 
   <section class="py-24 md:py-32 fade-section relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1321,6 +1436,49 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         });
       }
     })();
+  </script>
+
+  <script>
+  (function() {
+    var templates = [
+      { label:'Landscaping',     url:'https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html',            bar:'tyler-john-albrecht.github.io / landscaping-template' },
+      { label:'Auto Detailing',  url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/Detailing-Template/Detailing-Template.html', bar:'tyler-john-albrecht.github.io / detailing-template' },
+      { label:'Epoxy Flooring',  url:'https://tyler-john-albrecht.github.io/Epoxy-Flooring/Epoxy%20Flooring%20Template/index.html',    bar:'tyler-john-albrecht.github.io / epoxy-flooring-template' },
+      { label:'Real Estate',     url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/realtor-template.html',                     bar:'tyler-john-albrecht.github.io / realtor-template' },
+      { label:'Roofing',         url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/Roofing-Template/roofing-template.html',     bar:'tyler-john-albrecht.github.io / roofing-template' },
+      { label:'HVAC',            url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/HVAC-Template.html',                        bar:'tyler-john-albrecht.github.io / hvac-template' },
+      { label:'Plumbing',        url:'https://tyler-john-albrecht.github.io/Plumbing/Plumbing%20Template/index.html',                  bar:'tyler-john-albrecht.github.io / plumbing-template' },
+      { label:'Window Cleaning', url:'https://tyler-john-albrecht.github.io/Window-Cleaning/index.html',                               bar:'tyler-john-albrecht.github.io / window-cleaning-template' },
+      { label:'Fitness / Gym',   url:'https://tyler-john-albrecht.github.io/Gym-Template/index.html',                                  bar:'tyler-john-albrecht.github.io / gym-template' },
+      { label:'Restaurant',      url:'https://crm.brechtland.com/Restaurant%20Template/hb-bbq.html',                                   bar:'crm.brechtland.com / restaurant-template' },
+      { label:'Dental',          url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/dentistry-landing-page.html',                bar:'tyler-john-albrecht.github.io / dentistry-landing-page' }
+    ];
+    var currentIndex = 0;
+
+    window.switchTemplate = function(index) {
+      if (index === currentIndex) return;
+      currentIndex = index;
+      var t = templates[index];
+      document.querySelectorAll('.work-tab:not(.work-tab-soon)').forEach(function(tab, i) {
+        tab.classList.toggle('active-work-tab', i === index);
+      });
+      var loader = document.getElementById('work-loader');
+      document.getElementById('work-loader-label').textContent = 'Loading ' + t.label + ' template...';
+      loader.style.opacity = '1';
+      document.getElementById('work-url-bar').textContent = t.bar;
+      document.getElementById('work-iframe').src = t.url;
+    };
+
+    window.hideWorkLoader = function() {
+      var l = document.getElementById('work-loader');
+      if (l) l.style.opacity = '0';
+    };
+
+    window.openWorkFullPreview = function() {
+      var t = templates[currentIndex];
+      if (typeof openModal === 'function') openModal(t.url, t.label + ' Template Preview');
+    };
+  })();
   </script>
 
 </body>
