@@ -15,11 +15,11 @@
   <meta property="og:url" content="https://brechtland.com" />
   <meta property="og:title" content="Brechtland — Websites That Win Customers for Local Service Businesses" />
   <meta property="og:description" content="We design, build, host, and maintain your website. Flat monthly subscription starting at $149/mo. No contracts. No tech headaches." />
-  <meta property="og:image" content="https://brechtland.com/Untitled.png" />
+  <meta property="og:image" content="https://brechtland.com/website-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brechtland — Websites That Win Customers" />
   <meta name="twitter:description" content="Custom websites for local service businesses. Starting at $149/mo." />
-  <meta name="twitter:image" content="https://brechtland.com/Untitled.png" />
+  <meta name="twitter:image" content="https://brechtland.com/website-preview.png" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E438XGBPQT"></script>
@@ -158,7 +158,7 @@
     .compare-green:hover { box-shadow: inset 0 0 30px rgba(34, 197, 94, 0.15), 0 0 35px rgba(34, 197, 94, 0.2); border-color: rgba(34, 197, 94, 0.5); }
 
 
-    /* ── Futuristic neon theme overrides ─────────────────────────────────── */
+    /* —— Futuristic neon theme overrides ——————————————————————————————————— */
     h1, h2, h3 { font-family: 'Orbitron', 'Exo 2', sans-serif; letter-spacing: 0.02em; }
     nav a, .btn-primary, .btn-outline, .section-label { font-family: 'Exo 2', sans-serif; }
 
@@ -178,7 +178,7 @@
     /* stat-badge tints updated */
     .stat-badge-purple { color: #D480FF; border-color: rgba(106,0,255,0.45); background: rgba(106,0,255,0.12); }
     .stat-badge-purple:hover { box-shadow: 0 0 15px rgba(106,0,255,0.55); border-color: #6A00FF; }
-    /* ── Template Preview Modal ──────────────────────────────────────────── */
+    /* —— Template Preview Modal ———————————————————————————————————————————— */
     #template-modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 9999;
       background: rgba(0,0,0,0.85);
@@ -263,7 +263,7 @@
       #template-modal-cta { font-size: 0.75rem; padding: 11px 22px; bottom: 16px; }
     }
 
-    /* ── Contact Popup Modal ──────────────────────────────────────────────── */
+    /* —— Contact Popup Modal ———————————————————————————————————————————————— */
     #contact-modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 9999;
       background: rgba(0,0,0,0.85);
@@ -300,6 +300,35 @@
       #contact-modal-content { width: 96vw; padding: 24px; border-radius: 10px; }
     }
 
+
+    /* ===================== AI RECEPTIONIST STYLES ===================== */
+    @keyframes ring-expand { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
+    @keyframes wave-bounce { 0%, 100% { height: 4px; } 50% { height: 28px; } }
+    @keyframes typing-dot { 0%, 100% { opacity: 0.3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+    @keyframes call-ring { 0%,100%{transform:rotate(-8deg);} 50%{transform:rotate(8deg);} }
+    .ring-pulse   { animation: ring-expand 2s ease-out 0s      infinite; }
+    .ring-pulse-2 { animation: ring-expand 2s ease-out 0.66s   infinite; }
+    .ring-pulse-3 { animation: ring-expand 2s ease-out 1.33s   infinite; }
+    .wave-bar-1  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0s    infinite; }
+    .wave-bar-2  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.1s  infinite; }
+    .wave-bar-3  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.2s  infinite; }
+    .wave-bar-4  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.3s  infinite; }
+    .wave-bar-5  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.15s infinite; }
+    .wave-bar-6  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.25s infinite; }
+    .wave-bar-7  { width:3px; border-radius:2px; animation: wave-bounce 0.8s ease-in-out 0.05s infinite; }
+    .typing-dot-1 { width:6px;height:6px;border-radius:50%; animation: typing-dot 1.2s ease-in-out 0s   infinite; }
+    .typing-dot-2 { width:6px;height:6px;border-radius:50%; animation: typing-dot 1.2s ease-in-out 0.2s infinite; }
+    .typing-dot-3 { width:6px;height:6px;border-radius:50%; animation: typing-dot 1.2s ease-in-out 0.4s infinite; }
+    .phone-ring-icon { animation: call-ring 0.5s ease-in-out infinite; transform-origin: bottom center; }
+    .ai-feature-item { display:flex; align-items:flex-start; gap:14px; padding:14px 16px; border-radius:12px; border:1px solid rgba(0,229,255,0.08); transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
+    .ai-feature-item:hover { background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.25); transform: translateX(4px); }
+    .ai-stat-tile { text-align:center; padding:20px 16px; border-radius:14px; border:1px solid rgba(0,229,255,0.12); background:rgba(0,229,255,0.04); transition: background 0.3s, border-color 0.3s, transform 0.3s; }
+    .ai-stat-tile:hover { background:rgba(0,229,255,0.09); border-color:rgba(0,229,255,0.3); transform:translateY(-3px); }
+    .ai-pricing-card { border-color: rgba(0,229,255,0.3) !important; box-shadow: 0 0 60px rgba(0,229,255,0.08), 0 25px 60px -12px rgba(0,0,0,0.6); transition: box-shadow 0.5s ease, border-color 0.5s ease; position:relative; }
+    .ai-pricing-card::before { content:''; position:absolute; top:-1px; left:15%; right:15%; height:2px; background: linear-gradient(90deg, transparent, rgba(0,229,255,0.9), rgba(106,0,255,0.6), transparent); opacity:1; border-radius:2px; z-index:1; }
+    .ai-pricing-card:hover { border-color: rgba(0,229,255,0.6) !important; box-shadow: 0 0 100px rgba(0,229,255,0.15), 0 25px 60px -12px rgba(0,0,0,0.7); }
+    .coming-soon-badge { background: rgba(106, 0, 255, 0.2); border: 1px solid rgba(106, 0, 255, 0.4); color: #a78bfa; }
+    .live-badge { background: rgba(0,229,255,0.15); border: 1px solid rgba(0,229,255,0.4); color: #00E5FF; box-shadow: 0 0 10px rgba(0,229,255,0.2); }
   </style>
 </head>
 <body>
@@ -316,6 +345,7 @@
           <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition-all">Pricing</a>
           <a href="#work" class="text-sm text-gray-400 hover:text-white transition-all">Work</a>
           <a href="#faq" class="text-sm text-gray-400 hover:text-white transition-all">FAQ</a>
+          <a href="#ai-receptionist" class="text-sm font-semibold transition-all" style="color:#00E5FF; text-shadow:0 0 12px rgba(0,229,255,0.5);">AI Receptionist</a>
           <a href="tel:9895011397" class="text-sm text-gray-300 hover:text-white transition-all flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(989) 501-1397</a>
         </div>
         <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white bg-transparent border border-gray-600 hover:border-blue hover:text-blue rounded-full px-5 py-2.5 transition-all duration-300">Get Started</a>
@@ -329,6 +359,7 @@
           <a href="#pricing" class="text-gray-400 hover:text-white transition-colors mobile-link">Pricing</a>
           <a href="#work" class="text-gray-400 hover:text-white transition-colors mobile-link">Work</a>
           <a href="#faq" class="text-gray-400 hover:text-white transition-colors mobile-link">FAQ</a>
+          <a href="#ai-receptionist" class="font-semibold transition-colors mobile-link" style="color:#00E5FF;">AI Receptionist</a>
           <a href="tel:9895011397" class="text-gray-300 hover:text-white transition-colors mobile-link flex items-center gap-2"><svg class="w-4 h-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>(989) 501-1397</a>
           <a href="#contact" class="btn-primary text-center mt-2 mobile-link">Get Started</a>
         </div>
@@ -360,6 +391,7 @@
         <span class="trust-pill">SEO Optimized</span>
         <span class="trust-pill">Lead Capture Forms</span>
         <span class="trust-pill">Domain Included</span>
+        <span class="trust-pill" style="color:#00E5FF; border-color:rgba(0,229,255,0.3); background:rgba(0,229,255,0.06);">24/7 AI Receptionist</span>
       </div>
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-8">
@@ -386,9 +418,73 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16"><span class="section-label text-purple mb-4 block">THE PLATFORM</span><h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Never Miss Another Customer Call</h2><p class="text-gray-400 text-lg max-w-2xl mx-auto">Our AI receptionist answers calls 24/7, qualifies leads, and books jobs automatically.
 Contractors lose thousands every month from missed calls. Our system captures every opportunity.</p></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div class="card-border rounded-2xl p-8"><div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center" style="box-shadow: 0 0 15px rgba(124,58,237,0.2);"><svg class="w-6 h-6 text-purple" style="filter: drop-shadow(0 0 5px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div><span class="coming-soon-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1" style="backdrop-filter: blur(4px);"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Coming Soon</span></div><h3 class="text-xl font-bold text-white mb-3">Reception AI</h3><p class="text-gray-400 text-sm mb-5 leading-relaxed">A virtual receptionist that answers calls, qualifies leads, and books appointments — 24/7, even while you're on the job.</p><div class="space-y-2.5"><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>AI call answering</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Lead qualification</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Appointment booking</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>SMS follow-ups</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Call transcripts</div></div></div>
-        <div class="card-border rounded-2xl p-8"><div class="mb-6"><div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center" style="box-shadow: 0 0 15px rgba(124,58,237,0.2);"><svg class="w-6 h-6 text-purple" style="filter: drop-shadow(0 0 5px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div></div><h3 class="text-xl font-bold text-white mb-3">Email Marketing</h3><p class="text-gray-400 text-sm mb-5 leading-relaxed">Done-for-you email campaigns that keep your business top of mind and turn past customers into repeat revenue.</p><div class="space-y-2.5"><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Monthly campaigns</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Automated sequences</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>List management</div><div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow: 0 0 5px #2B5CE6;"></span>Performance reporting</div></div><div class="mt-6"><a id="email-mktg-cta" href="#pricing" class="js-gsap-scroll block w-full text-center text-white text-xs font-bold uppercase rounded-[10px] py-3.5" style="font-family:'Orbitron',sans-serif; letter-spacing:2px; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3);">View Pricing</a></div></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+        <!-- Website card -->
+        <div class="card-border rounded-2xl p-8 flex flex-col">
+          <div class="mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:rgba(43,92,230,0.1); border:1px solid rgba(43,92,230,0.3); box-shadow:0 0 15px rgba(43,92,230,0.2);">
+              <svg class="w-6 h-6" style="color:#2B5CE6; filter:drop-shadow(0 0 5px rgba(43,92,230,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Website</h3>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed">Custom-built, fully managed, and always optimized to turn visitors into calls.</p>
+          <div class="space-y-2.5 flex-1">
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Custom design</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Domain + hosting + SSL</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Unlimited edits</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Local SEO</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Lead capture forms</div>
+          </div>
+          <div class="mt-6">
+            <a href="#pricing" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#2B5CE6; border:1px solid rgba(43,92,230,0.4); background:rgba(43,92,230,0.08); box-shadow:0 0 20px rgba(43,92,230,0.1);" onmouseover="this.style.background='rgba(43,92,230,0.18)';this.style.boxShadow='0 0 30px rgba(43,92,230,0.25)';" onmouseout="this.style.background='rgba(43,92,230,0.08)';this.style.boxShadow='0 0 20px rgba(43,92,230,0.1)';">View Pricing ↓</a>
+          </div>
+        </div>
+
+        <!-- Reception AI card -->
+        <div class="card-border rounded-2xl p-8 flex flex-col" style="border-color:rgba(0,229,255,0.25); box-shadow:0 0 40px rgba(0,229,255,0.06);">
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.3); box-shadow:0 0 15px rgba(0,229,255,0.2);">
+              <svg class="w-6 h-6" style="color:#00E5FF; filter:drop-shadow(0 0 5px rgba(0,229,255,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <span class="live-badge text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 6px #00E5FF; animation:badge-pulse 2s infinite;"></span>Live Now
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Reception AI</h3>
+          <p class="text-sm mb-5 leading-relaxed" style="color:rgba(0,229,255,0.7);">A virtual receptionist that answers calls, qualifies leads, and books appointments — 24/7, even while you're on the job.</p>
+          <div class="space-y-2.5 flex-1">
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>AI call answering</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>Lead qualification</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>Appointment booking</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>SMS follow-ups</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>Call transcripts</div>
+          </div>
+          <div class="mt-6">
+            <a href="#ai-receptionist" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#00E5FF; border:1px solid rgba(0,229,255,0.4); background:rgba(0,229,255,0.08); box-shadow:0 0 20px rgba(0,229,255,0.1);" onmouseover="this.style.background='rgba(0,229,255,0.18)';this.style.boxShadow='0 0 30px rgba(0,229,255,0.25)';" onmouseout="this.style.background='rgba(0,229,255,0.08)';this.style.boxShadow='0 0 20px rgba(0,229,255,0.1)';">See How It Works ↓</a>
+          </div>
+        </div>
+
+        <!-- Email Marketing card -->
+        <div class="card-border rounded-2xl p-8 flex flex-col">
+          <div class="mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center" style="box-shadow:0 0 15px rgba(124,58,237,0.2);">
+              <svg class="w-6 h-6 text-purple" style="filter:drop-shadow(0 0 5px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Email Marketing</h3>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed">Done-for-you email campaigns that keep your business top of mind and turn past customers into repeat revenue.</p>
+          <div class="space-y-2.5 flex-1">
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow:0 0 5px #2B5CE6;"></span>Monthly campaigns</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow:0 0 5px #2B5CE6;"></span>Automated sequences</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow:0 0 5px #2B5CE6;"></span>List management</div>
+            <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow:0 0 5px #2B5CE6;"></span>Performance reporting</div>
+          </div>
+          <div class="mt-6">
+            <a id="email-mktg-cta" href="#pricing" class="js-gsap-scroll block w-full text-center text-white text-xs font-bold uppercase rounded-[10px] py-3.5" style="font-family:'Orbitron',sans-serif; letter-spacing:2px; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3);">View Pricing</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -448,7 +544,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       </div>
 
       <div class="text-center mt-8">
-        <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary text-base px-8 py-3.5">Get Your Free Website Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+        <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="btn-primary text-base px-8 py-3.5">Never Miss Another Call <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
       </div>
     </div>
   </section>
@@ -476,7 +572,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <span class="absolute -top-2 -right-2 text-xs font-bold text-white bg-purple border border-purple rounded-full w-6 h-6 flex items-center justify-center z-20" style="box-shadow: 0 0 15px rgba(124,58,237,0.6);">02</span>
           </div>
           <h3 class="text-white font-bold text-lg mb-3">We build it</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">A custom-designed website, tailored to your trade and built to convert visitors into calls. Up and live in 7–10 days.</p>
+          <p class="text-gray-400 text-sm leading-relaxed">A custom-designed website, tailored to your trade and built to convert visitors into calls. Up and live in 7—10 days.</p>
         </div>
         <div class="text-center relative step-connector">
           <div class="relative inline-block mb-6">
@@ -516,10 +612,204 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         <div class="card-border rounded-2xl p-6"><div class="feature-icon-box w-11 h-11 rounded-xl bg-[rgba(148,163,184,0.1)] border border-[rgba(148,163,184,0.2)] flex items-center justify-center mb-4"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div><h3 class="text-white font-semibold mb-2">No Tech Headaches</h3><p class="text-gray-400 text-sm leading-relaxed">You'll never touch code, deal with a host, or stress about it.</p></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 rounded-2xl overflow-hidden border border-navy-border" style="box-shadow: 0 15px 30px -15px rgba(0,0,0,0.5);">
-        <div class="compare-red p-8 text-center border-b md:border-b-0 md:border-r border-navy-border bg-[rgba(15,22,41,0.6)]" style="backdrop-filter: blur(10px);"><span class="section-label text-gray-500 block mb-3">TRADITIONAL WEB AGENCY</span><span class="text-2xl md:text-3xl font-extrabold text-red" style="text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);">$3,000–$15,000 upfront</span><p class="text-gray-500 text-sm mt-2">+ ongoing retainer</p></div>
+        <div class="compare-red p-8 text-center border-b md:border-b-0 md:border-r border-navy-border bg-[rgba(15,22,41,0.6)]" style="backdrop-filter: blur(10px);"><span class="section-label text-gray-500 block mb-3">TRADITIONAL WEB AGENCY</span><span class="text-2xl md:text-3xl font-extrabold text-red" style="text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);">$3,000—$15,000 upfront</span><p class="text-gray-500 text-sm mt-2">+ ongoing retainer</p></div>
         <div class="compare-yellow p-8 text-center border-b md:border-b-0 md:border-r border-navy-border bg-[rgba(15,22,41,0.6)]" style="backdrop-filter: blur(10px);"><span class="section-label text-gray-500 block mb-3">DIY WEBSITE BUILDER</span><span class="text-2xl md:text-3xl font-extrabold text-yellow" style="text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);">Cheap but generic</span><p class="text-gray-500 text-sm mt-2">Takes weeks of your time</p></div>
         <div class="compare-green p-8 text-center bg-gradient-to-b from-[rgba(17,24,39,0.9)] to-[rgba(15,22,41,0.9)] border-t-[3px] border-green relative overflow-hidden"><div class="absolute inset-0 bg-green opacity-5 filter blur-2xl"></div><span class="section-label text-gray-500 block mb-3 relative z-10">BRECHTLAND</span><span class="text-2xl md:text-3xl font-extrabold text-green relative z-10" style="text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);">From $149/mo</span><p class="text-gray-400 text-sm mt-2 relative z-10 font-medium">All-inclusive. We do everything.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AI RECEPTIONIST SHOWCASE SECTION
+  ════════════════════════════════════════════════════════════════ -->
+  <section id="ai-receptionist" class="py-24 md:py-32 fade-section relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,229,255,0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 50%, rgba(106,0,255,0.06) 0%, transparent 60%);"></div>
+    <!-- Decorative grid lines -->
+    <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+      <!-- Section header -->
+      <div class="text-center mb-16">
+        <span class="section-label mb-4 block" style="color:#00E5FF; letter-spacing:3px;">AI RECEPTIONIST</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">Your Phone Is Always <span style="color:#00E5FF; text-shadow:0 0 30px rgba(0,229,255,0.4);">Answered</span></h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">While you're on a job, driving, or asleep — your AI receptionist is taking calls, qualifying leads, and booking appointments. Zero missed opportunities.</p>
+      </div>
+
+      <!-- Two-column: phone mockup + features -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+
+        <!-- LEFT: Animated phone mockup -->
+        <div class="flex justify-center">
+          <div class="relative" style="width:280px;">
+            <!-- Pulsing ring effect behind phone -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="top:50px;">
+              <div class="ring-pulse absolute rounded-full" style="width:160px;height:160px;border:1.5px solid rgba(0,229,255,0.5);"></div>
+              <div class="ring-pulse-2 absolute rounded-full" style="width:160px;height:160px;border:1.5px solid rgba(0,229,255,0.4);"></div>
+              <div class="ring-pulse-3 absolute rounded-full" style="width:160px;height:160px;border:1.5px solid rgba(0,229,255,0.3);"></div>
+            </div>
+
+            <!-- Phone shell (glassmorphism) -->
+            <div class="relative rounded-[36px] overflow-hidden" style="border:2px solid rgba(0,229,255,0.35); background:rgba(8,10,22,0.95); box-shadow:0 0 80px rgba(0,229,255,0.12), 0 30px 80px rgba(0,0,0,0.7), inset 0 0 40px rgba(0,229,255,0.05); backdrop-filter:blur(20px);">
+              <!-- Status bar -->
+              <div class="flex items-center justify-between px-6 pt-4 pb-2" style="background:rgba(0,229,255,0.04);">
+                <span class="text-xs text-gray-500">9:41 AM</span>
+                <div class="w-16 h-4 rounded-full" style="background:rgba(0,0,0,0.6);"></div>
+                <div class="flex items-center gap-1">
+                  <div class="w-3.5 h-2 rounded-sm" style="background:rgba(0,229,255,0.5);"></div>
+                </div>
+              </div>
+
+              <!-- Incoming call screen -->
+              <div class="px-6 pt-4 pb-2 text-center" style="border-top:1px solid rgba(0,229,255,0.08);">
+                <div class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:rgba(0,229,255,0.6);">Incoming Call</div>
+                <!-- Caller avatar + ring -->
+                <div class="relative inline-flex items-center justify-center mb-3">
+                  <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,rgba(0,229,255,0.2),rgba(106,0,255,0.3)); border:1.5px solid rgba(0,229,255,0.4);">
+                    <svg class="w-8 h-8 phone-ring-icon" style="color:#00E5FF;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  </div>
+                </div>
+                <div class="text-white font-bold text-base mb-0.5">(555) 892-4401</div>
+                <div class="text-xs mb-4" style="color:rgba(0,229,255,0.5);">New Lead · Answering...</div>
+
+                <!-- Waveform -->
+                <div class="flex items-center justify-center gap-1 mb-5 h-8">
+                  <div class="wave-bar-1" style="background:#00E5FF; opacity:0.9;"></div>
+                  <div class="wave-bar-2" style="background:#00E5FF; opacity:0.8;"></div>
+                  <div class="wave-bar-3" style="background:#00E5FF; opacity:0.9;"></div>
+                  <div class="wave-bar-4" style="background:rgba(0,229,255,0.7);"></div>
+                  <div class="wave-bar-5" style="background:#00E5FF; opacity:0.9;"></div>
+                  <div class="wave-bar-6" style="background:rgba(0,229,255,0.8);"></div>
+                  <div class="wave-bar-7" style="background:#00E5FF; opacity:0.9;"></div>
+                  <div class="wave-bar-1" style="background:rgba(0,229,255,0.7);"></div>
+                  <div class="wave-bar-3" style="background:#00E5FF; opacity:0.8;"></div>
+                </div>
+
+                <!-- Live transcript -->
+                <div class="space-y-2.5 text-left mb-5" style="background:rgba(0,0,0,0.3); border-radius:12px; padding:12px; border:1px solid rgba(0,229,255,0.08);">
+                  <div class="text-xs" style="color:rgba(255,255,255,0.5);">Live Transcript</div>
+                  <div class="flex gap-2 items-start">
+                    <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style="background:rgba(0,229,255,0.15); color:#00E5FF; margin-top:1px;">AI</div>
+                    <div class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.75);">Hi! Thanks for calling. How can I help you today?</div>
+                  </div>
+                  <div class="flex gap-2 items-start justify-end">
+                    <div class="text-xs leading-relaxed text-right" style="color:rgba(255,255,255,0.65);">I need a quote for roof repair...</div>
+                    <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style="background:rgba(255,255,255,0.08); color:#aaa; margin-top:1px;">C</div>
+                  </div>
+                  <div class="flex gap-2 items-start">
+                    <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style="background:rgba(0,229,255,0.15); color:#00E5FF; margin-top:1px;">AI</div>
+                    <div class="flex items-center gap-1">
+                      <div class="typing-dot-1" style="background:#00E5FF;"></div>
+                      <div class="typing-dot-2" style="background:#00E5FF;"></div>
+                      <div class="typing-dot-3" style="background:#00E5FF;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Status chips -->
+                <div class="flex gap-2 justify-center flex-wrap mb-4">
+                  <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(0,229,255,0.1); color:#00E5FF; border:1px solid rgba(0,229,255,0.3);">Qualifying lead</span>
+                  <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background:rgba(34,197,94,0.1); color:#22C55E; border:1px solid rgba(34,197,94,0.3);">Booking slot</span>
+                </div>
+              </div>
+
+              <!-- Bottom bar -->
+              <div class="px-6 py-3 flex justify-center" style="background:rgba(0,0,0,0.3); border-top:1px solid rgba(0,229,255,0.08);">
+                <div class="w-24 h-1 rounded-full" style="background:rgba(255,255,255,0.15);"></div>
+              </div>
+            </div><!-- /phone shell -->
+
+            <!-- Label below phone -->
+            <div class="text-center mt-5">
+              <span class="text-xs font-semibold uppercase tracking-widest" style="color:rgba(0,229,255,0.6);">Live right now — 24/7</span>
+            </div>
+          </div><!-- /phone width wrapper -->
+        </div><!-- /left col -->
+
+        <!-- RIGHT: Feature list -->
+        <div class="space-y-3">
+          <h3 class="text-2xl font-extrabold text-white mb-6">Everything handled.<br/><span style="color:#00E5FF;">While you're on the job.</span></h3>
+
+          <div class="ai-feature-item">
+            <div class="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25);">
+              <svg class="w-5 h-5" style="color:#00E5FF;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm mb-1">Answers every call instantly</div>
+              <div class="text-gray-500 text-xs leading-relaxed">No hold music. No voicemail. Answers within 2 seconds, 24 hours a day.</div>
+            </div>
+          </div>
+
+          <div class="ai-feature-item">
+            <div class="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25);">
+              <svg class="w-5 h-5" style="color:#00E5FF;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm mb-1">Qualifies leads automatically</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Asks the right questions — job type, location, budget — so you only talk to real prospects.</div>
+            </div>
+          </div>
+
+          <div class="ai-feature-item">
+            <div class="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25);">
+              <svg class="w-5 h-5" style="color:#00E5FF;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm mb-1">Books appointments on the spot</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Syncs with your calendar and schedules estimate visits — no back-and-forth needed.</div>
+            </div>
+          </div>
+
+          <div class="ai-feature-item">
+            <div class="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center" style="background:rgba(0,229,255,0.1); border:1px solid rgba(0,229,255,0.25);">
+              <svg class="w-5 h-5" style="color:#00E5FF;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm mb-1">Works while you're on the job</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Name, number, job type, and location logged from every call — your lead list builds itself.</div>
+            </div>
+          </div>
+        </div><!-- /right col -->
+      </div><!-- /two-column grid -->
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+        <div class="ai-stat-tile">
+          <div class="text-3xl font-extrabold mb-1" style="font-family:'Orbitron',sans-serif; color:#00E5FF; text-shadow:0 0 20px rgba(0,229,255,0.4);">0%</div>
+          <div class="text-xs font-medium text-gray-400 uppercase tracking-wider">Missed Calls</div>
+        </div>
+        <div class="ai-stat-tile">
+          <div class="text-3xl font-extrabold mb-1" style="font-family:'Orbitron',sans-serif; color:#00E5FF; text-shadow:0 0 20px rgba(0,229,255,0.4);">24/7</div>
+          <div class="text-xs font-medium text-gray-400 uppercase tracking-wider">Always On</div>
+        </div>
+        <div class="ai-stat-tile">
+          <div class="text-3xl font-extrabold mb-1" style="font-family:'Orbitron',sans-serif; color:#00E5FF; text-shadow:0 0 20px rgba(0,229,255,0.4);">&lt;2s</div>
+          <div class="text-xs font-medium text-gray-400 uppercase tracking-wider">Answer Time</div>
+        </div>
+        <div class="ai-stat-tile">
+          <div class="text-3xl font-extrabold mb-1" style="font-family:'Orbitron',sans-serif; color:#00E5FF; text-shadow:0 0 20px rgba(0,229,255,0.4);">94%</div>
+          <div class="text-xs font-medium text-gray-400 uppercase tracking-wider">Lead Capture</div>
+        </div>
+      </div>
+
+      <!-- CTA box -->
+      <div class="max-w-2xl mx-auto rounded-2xl p-8 md:p-10 text-center relative overflow-hidden" style="background:rgba(8,10,22,0.95); border:1px solid rgba(0,229,255,0.25); box-shadow:0 0 60px rgba(0,229,255,0.07), 0 25px 60px -12px rgba(0,0,0,0.6); backdrop-filter:blur(20px);">
+        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 0%, rgba(0,229,255,0.08) 0%, transparent 60%);"></div>
+        <div class="relative">
+          <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold" style="background:rgba(0,229,255,0.12); border:1px solid rgba(0,229,255,0.35); color:#00E5FF; letter-spacing:1px;">
+            <span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 6px #00E5FF; animation:badge-pulse 2s infinite;"></span>
+            NOW AVAILABLE — $497/mo
+          </div>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Never miss another call.</h3>
+          <p class="text-gray-400 mb-8 text-sm leading-relaxed max-w-lg mx-auto">Setup takes 48 hours. We configure your AI receptionist to sound like your business, know your services, and book your calendar.</p>
+          <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#0A0E1A; background:linear-gradient(135deg,#00E5FF,#00a8c0); box-shadow:0 4px 30px rgba(0,229,255,0.35), 0 0 60px rgba(0,229,255,0.15);" onmouseover="this.style.boxShadow='0 6px 40px rgba(0,229,255,0.55), 0 0 80px rgba(0,229,255,0.25)';" onmouseout="this.style.boxShadow='0 4px 30px rgba(0,229,255,0.35), 0 0 60px rgba(0,229,255,0.15)';">
+            Activate AI Receptionist
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <p class="text-gray-600 text-xs mt-4">48-hour setup · No contracts · Cancel anytime</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -531,8 +821,8 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Simple Pricing. Real Results.</h2>
         <p class="text-gray-400 text-lg max-w-2xl mx-auto">No setup fees. No surprise bills. Pick a website, add email marketing, or bundle both.</p>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <!-- ── Website Pricing ── -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- —— Website Pricing —— -->
         <div class="pricing-glow rounded-3xl p-8 md:p-10 flex flex-col bg-[rgba(10,14,26,0.85)] border border-[rgba(124,58,237,0.3)]" style="backdrop-filter: blur(20px);">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-10 h-10 rounded-lg bg-[rgba(43,92,230,0.12)] border border-[rgba(43,92,230,0.3)] flex items-center justify-center"><svg class="w-5 h-5 text-blue" style="filter: drop-shadow(0 0 4px rgba(43,92,230,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></div>
@@ -557,7 +847,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary w-full justify-center text-sm py-3.5">Get Your Free Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </div>
-        <!-- ── Email Marketing Pricing ── -->
+        <!-- —— Email Marketing Pricing —— -->
         <div class="pricing-glow rounded-3xl p-8 md:p-10 flex flex-col bg-[rgba(10,14,26,0.85)] border border-[rgba(124,58,237,0.3)]" style="backdrop-filter: blur(20px);">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-10 h-10 rounded-lg bg-[rgba(124,58,237,0.12)] border border-[rgba(124,58,237,0.3)] flex items-center justify-center"><svg class="w-5 h-5 text-purple" style="filter: drop-shadow(0 0 4px rgba(124,58,237,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
@@ -580,6 +870,33 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl font-extrabold text-white" style="font-family:'Orbitron',sans-serif; filter: drop-shadow(0 0 15px rgba(255,255,255,0.15));">$67</span><span class="text-gray-400 text-sm">/mo</span></div>
             <p class="text-gray-500 text-xs mb-6">4 tiers available · Scales with your list</p>
             <a id="email-strategy-cta" href="javascript:void(0)" class="block w-full text-center text-white text-sm font-bold uppercase rounded-full py-3.5" style="font-family:'Orbitron',sans-serif; letter-spacing:1px; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3), 0 0 40px rgba(224,64,160,0.15); border:1px solid rgba(255,255,255,0.1);">Initialize Email Strategy <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+          </div>
+        </div>
+        <!-- ——— AI Receptionist Pricing ——— -->
+        <div class="pricing-glow ai-pricing-card rounded-3xl p-8 md:p-10 flex flex-col bg-[rgba(8,10,22,0.95)] border" style="border-color:rgba(0,229,255,0.3); backdrop-filter: blur(20px);">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,229,255,0.12); border:1px solid rgba(0,229,255,0.3);"><svg class="w-5 h-5" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.8));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+            <div class="flex items-center gap-2">
+              <span class="section-label text-[10px]" style="color:#00E5FF; letter-spacing:2px;">AI RECEPTIONIST</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="background:rgba(0,229,255,0.15); color:#00E5FF; border:1px solid rgba(0,229,255,0.35);">New</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1" style="font-family:'Orbitron',sans-serif;">Never Miss a Call</h3>
+          <p class="text-sm mb-6" style="color:rgba(0,229,255,0.6);">AI that answers, qualifies, and books — 24/7.</p>
+          <div class="space-y-3 mb-8 flex-1">
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">24/7 AI call answering</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">Intelligent lead qualification</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">Appointment booking & scheduling</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">Automatic SMS follow-ups</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">Call transcripts & recordings</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">Custom AI voice & script setup</span></div>
+            <div class="flex items-center gap-3"><svg class="w-4 h-4 flex-shrink-0" style="color:#00E5FF; filter:drop-shadow(0 0 4px rgba(0,229,255,0.6));" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span class="text-gray-300 text-sm">48-hour setup & onboarding</span></div>
+          </div>
+          <div class="border-t pt-6" style="border-color:rgba(0,229,255,0.15);">
+            <div class="flex items-baseline gap-1 mb-1"><span class="text-gray-400 text-sm">Starting from</span></div>
+            <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl font-extrabold text-white" style="font-family:'Orbitron',sans-serif; filter:drop-shadow(0 0 15px rgba(0,229,255,0.3));">$497</span><span class="text-gray-400 text-sm">/mo</span></div>
+            <p class="text-gray-500 text-xs mb-6">Cancel anytime</p>
+            <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#0A0E1A; background:linear-gradient(135deg,#00E5FF,#00a8c0); box-shadow:0 4px 25px rgba(0,229,255,0.3), 0 0 50px rgba(0,229,255,0.1);">Activate AI Receptionist <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </div>
       </div>
@@ -608,9 +925,9 @@ Contractors lose thousands every month from missed calls. Our system captures ev
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-16"><span class="section-label text-blue mb-4 block">REVIEWS</span><h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Trades love working with us</h2></div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I had zero web presence. Within two months of launching with Brechtland, I'm getting 4–5 new calls a week. I don't touch anything — they handle it all."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-purple-light flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(43,92,230,0.4);">M</div><div><div class="text-white font-semibold text-sm">Marcus T.</div><div class="text-gray-500 text-xs">Roofing Contractor · Austin, TX</div></div></div></div>
-        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I was skeptical about a monthly fee but it's honestly cheaper than what I was wasting trying to manage my own site. The leads are real and the site looks incredible."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange to-red flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(249,115,22,0.4);">S</div><div><div class="text-white font-semibold text-sm">Sandra R.</div><div class="text-gray-500 text-xs">Plumber · Nashville, TN</div></div></div></div>
-        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));">★★★★★</div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"What sold me was that they do everything. I gave them some photos and my info — two weeks later I had a site ranking in Google. Highly recommend."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-[rgba(30,41,59,0.8)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white font-bold text-sm shadow-inner">J</div><div><div class="text-white font-semibold text-sm">James C.</div><div class="text-gray-500 text-xs">General Contractor · Denver, CO</div></div></div></div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));"><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I had zero web presence. Within two months of launching with Brechtland, I'm getting 4—5 new calls a week. I don't touch anything — they handle it all."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-purple-light flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(43,92,230,0.4);">M</div><div><div class="text-white font-semibold text-sm">Marcus T.</div><div class="text-gray-500 text-xs">Roofing Contractor · Austin, TX</div></div></div></div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));"><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"I was skeptical about a monthly fee but it's honestly cheaper than what I was wasting trying to manage my own site. The leads are real and the site looks incredible."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange to-red flex items-center justify-center text-white font-bold text-sm" style="box-shadow: 0 0 15px rgba(249,115,22,0.4);">S</div><div><div class="text-white font-semibold text-sm">Sandra R.</div><div class="text-gray-500 text-xs">Plumber · Nashville, TN</div></div></div></div>
+        <div class="card-border rounded-2xl p-7"><div class="stars text-lg mb-5" style="filter: drop-shadow(0 0 5px rgba(250,204,21,0.5));"><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="inline w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div><p class="text-gray-300 text-sm leading-relaxed mb-6 font-medium">"What sold me was that they do everything. I gave them some photos and my info — two weeks later I had a site ranking in Google. Highly recommend."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-[rgba(30,41,59,0.8)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white font-bold text-sm shadow-inner">J</div><div><div class="text-white font-semibold text-sm">James C.</div><div class="text-gray-500 text-xs">General Contractor · Denver, CO</div></div></div></div>
       </div>
     </div>
   </section>
@@ -687,9 +1004,9 @@ Contractors lose thousands every month from missed calls. Our system captures ev
 
     const faqData = [
       { q: 'Do I need to have a website already?', a: 'Nope. Most of our clients come to us with no website at all. We build everything from scratch — domain, design, hosting, the works.' },
-      { q: 'What do I have to do to get started?', a: 'Just hop on a quick 15-minute call with us. We\'ll learn about your business, your area, and your goals — then we handle everything from there. You\'ll have a live website in 7–10 days.' },
+      { q: 'What do I have to do to get started?', a: 'Just hop on a quick 15-minute call with us. We\'ll learn about your business, your area, and your goals — then we handle everything from there. You\'ll have a live website in 7—10 days.' },
       { q: 'Can I make changes to my site?', a: 'Absolutely. Unlimited content edits are included in every plan. Need to update pricing, add photos, or change your phone number? Just send us a message and we\'ll take care of it — usually within 24 hours.' },
-      { q: 'How long until my site goes live?', a: 'Most sites are designed, built, and live within 7–10 business days. We work fast because we know every day without a website is a day you\'re missing leads.' },
+      { q: 'How long until my site goes live?', a: 'Most sites are designed, built, and live within 7—10 business days. We work fast because we know every day without a website is a day you\'re missing leads.' },
       { q: 'Do I own the website?', a: 'The website is built and maintained as part of your subscription. While you\'re an active subscriber, the site is yours to use. If you cancel, we can discuss transferring the design assets to you.' },
       { q: 'What if I\'m not happy with the design?', a: 'We work closely with you during the design process and offer revisions until you\'re thrilled with the result. Our goal is a site you\'re proud to show off.' },
       { q: 'Is there a setup fee?', a: 'No setup fees whatsoever. Your monthly subscription covers everything — design, development, hosting, domain, SSL, and ongoing maintenance.' },
@@ -732,15 +1049,15 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       setInterval(cycle, 5000);
     })();
   </script>
-  <!-- ── Template Preview Modal ──────────────────────────────────────────── -->
+  <!-- —— Template Preview Modal ———————————————————————————————————————————— -->
   <div id="template-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="template-modal-title">
     <div id="template-modal-box">
       <div id="template-modal-header">
         <span id="template-modal-title">Template Preview</span>
-        <button id="template-modal-close" aria-label="Close preview">✕</button>
+        <button id="template-modal-close" aria-label="Close preview"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
       </div>
       <div id="template-modal-iframe-wrap">
-        <div id="template-modal-loading">Loading preview…</div>
+        <div id="template-modal-loading">Loading preview—¦</div>
         <iframe id="template-modal-iframe" src="" title="Template Preview" allow="fullscreen"></iframe>
         <a id="template-modal-cta" href="#pricing">Get This Website</a>
       </div>
@@ -780,7 +1097,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         });
       }
 
-      // Event delegation – works with data-template buttons
+      // Event delegation — works with data-template buttons
       document.addEventListener('click', function(e) {
         var btn = e.target.closest('.js-preview-btn');
         if (btn) {
@@ -815,10 +1132,10 @@ Contractors lose thousands every month from missed calls. Our system captures ev
     })();
   </script>
 
-  <!-- ── Contact Popup Modal ──────────────────────────────────────────────── -->
+  <!-- —— Contact Popup Modal ———————————————————————————————————————————————— -->
   <div id="contact-modal-overlay" role="dialog" aria-modal="true" aria-label="Contact form">
     <div id="contact-modal-content">
-      <button id="contact-modal-close-btn" aria-label="Close form">✕</button>
+      <button id="contact-modal-close-btn" aria-label="Close form"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
       <div class="text-center mb-6">
         <div class="inline-flex items-center bg-[rgba(43,92,230,0.15)] border border-[rgba(43,92,230,0.4)] text-blue text-sm font-semibold rounded-full px-5 py-2 mb-6" style="box-shadow: 0 0 15px rgba(43,92,230,0.2);">Book a free 15-minute call</div>
         <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Get Your Free Website Preview</h2>
@@ -866,6 +1183,10 @@ Contractors lose thousands every month from missed calls. Our system captures ev
           modalBadge.textContent = 'Start your email marketing';
           modalTitle.textContent = 'Initialize Email Strategy';
           modalDesc.textContent = "Tell us about your business and we'll design a campaign plan tailored to your customers.";
+        } else if (currentSource === 'receptionist') {
+          modalBadge.textContent = 'Activate your AI receptionist';
+          modalTitle.textContent = 'Never Miss Another Call';
+          modalDesc.textContent = "Tell us about your business and we'll set up your AI receptionist in 48 hours.";
         } else {
           modalBadge.textContent = 'Book a free 15-minute call';
           modalTitle.textContent = 'Get Your Free Website Preview';
@@ -907,8 +1228,9 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         modalSubmitText.textContent = 'Sending...';
 
         var isEmail = currentSource === 'email';
+        var isReceptionist = currentSource === 'receptionist';
         var endpoint = isEmail ? FORM_ENDPOINT_EMAIL : FORM_ENDPOINT;
-        var subject = isEmail ? 'New Email Marketing Lead' : 'New lead from brechtland.com (popup)';
+        var subject = isEmail ? 'New Email Marketing Lead' : isReceptionist ? 'New AI Receptionist Lead' : 'New lead from brechtland.com (popup)';
 
         var formData = {
           name: contactModalForm.name.value,
@@ -948,7 +1270,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
   <!-- GSAP interactions: smooth scroll, hover micro-interactions, email strategy wiring -->
   <script>
     (function() {
-      /* ── Smooth scroll for .js-gsap-scroll anchors ── */
+      /* —— Smooth scroll for .js-gsap-scroll anchors —— */
       document.querySelectorAll('.js-gsap-scroll').forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -974,7 +1296,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         });
       });
 
-      /* ── Hover micro-interaction helper ── */
+      /* —— Hover micro-interaction helper —— */
       function addHoverGlow(el) {
         if (!el) return;
         var initShadow = el.style.boxShadow || '0 4px 20px rgba(124, 58, 237, 0.3)';
@@ -989,7 +1311,8 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       addHoverGlow(document.getElementById('email-mktg-cta'));
       addHoverGlow(document.getElementById('email-strategy-cta'));
 
-      /* ── Wire "Initialize Email Strategy" → modal with email source ── */
+      /* —— Wire "Initialize Email Strategy" — modal with email source —— */
+      /* ——— Wire "Initialize Email Strategy" → modal with email source ——— */
       var strategyCta = document.getElementById('email-strategy-cta');
       if (strategyCta) {
         strategyCta.addEventListener('click', function(e) {
@@ -999,5 +1322,6 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       }
     })();
   </script>
+
 </body>
 </html>
