@@ -1444,7 +1444,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       { label:'Landscaping',     url:'https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html',            bar:'tyler-john-albrecht.github.io / landscaping-template' },
       { label:'Auto Detailing',  url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/Detailing-Template/Detailing-Template.html', bar:'tyler-john-albrecht.github.io / detailing-template' },
       { label:'Epoxy Flooring',  url:'https://tyler-john-albrecht.github.io/Epoxy-Flooring/Epoxy%20Flooring%20Template/index.html',    bar:'tyler-john-albrecht.github.io / epoxy-flooring-template' },
-      { label:'Real Estate',     url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/realtor-template.html',                     bar:'tyler-john-albrecht.github.io / realtor-template' },
+      { label:'Real Estate',     url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/Real%20Estate%202.0/realtor-template.html', bar:'tyler-john-albrecht.github.io / Real Estate 2.0 / realtor-template' },
       { label:'Roofing',         url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/Roofing-Template/roofing-template.html',     bar:'tyler-john-albrecht.github.io / roofing-template' },
       { label:'HVAC',            url:'https://tyler-john-albrecht.github.io/Brechtland-CRM/HVAC-Template.html',                        bar:'tyler-john-albrecht.github.io / hvac-template' },
       { label:'Plumbing',        url:'https://tyler-john-albrecht.github.io/Plumbing/Plumbing%20Template/index.html',                  bar:'tyler-john-albrecht.github.io / plumbing-template' },
@@ -1476,10 +1476,23 @@ Contractors lose thousands every month from missed calls. Our system captures ev
 
     window.openWorkFullPreview = function() {
       var t = templates[currentIndex];
-      if (typeof openModal === 'function') openModal(t.url, t.label + ' Template Preview');
+      if (!t) return;
+      var overlay = document.getElementById('template-modal-overlay');
+      var iframe  = document.getElementById('template-modal-iframe');
+      var titleEl = document.getElementById('template-modal-title');
+      var loading = document.getElementById('template-modal-loading');
+      if (!overlay || !iframe || !titleEl || !loading) return;
+      titleEl.textContent = t.label + ' Template';
+      loading.classList.remove('hidden');
+      iframe.src = '';
+      iframe.onload = function() { loading.classList.add('hidden'); };
+      iframe.src = t.url;
+      document.body.style.overflow = 'hidden';
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { overlay.classList.add('open'); });
+      });
     };
-  })();
   </script>
-
 </body>
 </html>
