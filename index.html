@@ -1010,11 +1010,11 @@ Contractors lose thousands every month from missed calls. Our system captures ev
 
         <!-- iframe container -->
         <div id="work-iframe-wrap" style="position:relative; height:620px;">
-          <div id="work-loader" style="position:absolute;inset:0;background:#0B001A;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;transition:opacity 0.4s ease;pointer-events:none;">
+          <div id="work-loader" style="position:absolute;inset:0;background:#0B001A;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;transition:opacity 0.4s ease;pointer-events:none;opacity:0;">
             <div style="width:40px;height:40px;border:2px solid rgba(106,0,255,0.2);border-top-color:#6A00FF;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
             <p id="work-loader-label" style="color:#C4AADD;font-size:0.8rem;margin-top:16px;font-family:'Exo 2',sans-serif;">Loading Landscaping template...</p>
           </div>
-          <iframe id="work-iframe" src="https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html" title="Template Preview" loading="lazy" style="width:100%;height:100%;border:none;display:block;background:#0B001A;" onload="hideWorkLoader()"></iframe>
+          <iframe id="work-iframe" src="https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html" title="Template Preview" style="width:100%;height:100%;border:none;display:block;background:#0B001A;" onload="hideWorkLoader()"></iframe>
         </div>
 
         <!-- Floating CTAs -->
@@ -1463,13 +1463,21 @@ Contractors lose thousands every month from missed calls. Our system captures ev
         tab.classList.toggle('active-work-tab', i === index);
       });
       var loader = document.getElementById('work-loader');
+      var iframe  = document.getElementById('work-iframe');
       document.getElementById('work-loader-label').textContent = 'Loading ' + t.label + ' template...';
       loader.style.opacity = '1';
+      clearTimeout(window._loaderTimer);
+      window._loaderTimer = setTimeout(function() {
+        var l = document.getElementById('work-loader');
+        if (l) l.style.opacity = '0';
+      }, 5000);
       document.getElementById('work-url-bar').textContent = t.bar;
-      document.getElementById('work-iframe').src = t.url;
+      iframe.onload = function() { window.hideWorkLoader(); };
+      iframe.src = t.url;
     };
 
     window.hideWorkLoader = function() {
+      clearTimeout(window._loaderTimer);
       var l = document.getElementById('work-loader');
       if (l) l.style.opacity = '0';
     };
@@ -1477,21 +1485,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
     window.openWorkFullPreview = function() {
       var t = templates[currentIndex];
       if (!t) return;
-      var overlay = document.getElementById('template-modal-overlay');
-      var iframe  = document.getElementById('template-modal-iframe');
-      var titleEl = document.getElementById('template-modal-title');
-      var loading = document.getElementById('template-modal-loading');
-      if (!overlay || !iframe || !titleEl || !loading) return;
-      titleEl.textContent = t.label + ' Template';
-      loading.classList.remove('hidden');
-      iframe.src = '';
-      iframe.onload = function() { loading.classList.add('hidden'); };
-      iframe.src = t.url;
-      document.body.style.overflow = 'hidden';
-      overlay.style.display = 'flex';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() { overlay.classList.add('open'); });
-      });
+      window.open(t.url, '_blank');
     };
   </script>
 </body>
