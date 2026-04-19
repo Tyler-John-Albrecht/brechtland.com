@@ -341,6 +341,69 @@
     .work-cta-primary:hover { box-shadow:0 0 35px rgba(106,0,255,0.7),0 0 60px rgba(255,0,200,0.45); }
     @media (max-width:768px) { #work-iframe-wrap { height:400px !important; } }
     @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ——— AI Receptionist Hero ——————————————————————————————— */
+    .hero-pain-word { color: #EF4444; text-shadow: 0 0 30px rgba(239, 68, 68, 0.5), 0 0 60px rgba(239, 68, 68, 0.25); position: relative; display: inline-block; }
+    .hero-pain-word::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.8), transparent); opacity: 0.6; border-radius: 2px; }
+
+    .compare-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; }
+    @media (max-width: 767px) { .compare-grid { grid-template-columns: 1fr; gap: 12px; } }
+
+    .compare-card { background: linear-gradient(180deg, rgba(20, 0, 40, 0.7) 0%, rgba(11, 0, 26, 0.95) 100%); border-radius: 20px; padding: 24px 22px; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); text-align: left; transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+    .compare-card-bad { border: 1px solid rgba(239, 68, 68, 0.28); box-shadow: 0 0 40px rgba(239, 68, 68, 0.08), inset 0 0 30px rgba(239, 68, 68, 0.04), 0 20px 40px -20px rgba(0, 0, 0, 0.6); }
+    .compare-card-bad:hover { border-color: rgba(239, 68, 68, 0.5); box-shadow: 0 0 55px rgba(239, 68, 68, 0.15), inset 0 0 30px rgba(239, 68, 68, 0.06), 0 20px 40px -20px rgba(0, 0, 0, 0.7); transform: translateY(-3px); }
+    .compare-card-good { border: 1px solid rgba(0, 229, 255, 0.32); box-shadow: 0 0 45px rgba(0, 229, 255, 0.14), inset 0 0 30px rgba(0, 229, 255, 0.05), 0 20px 40px -20px rgba(0, 0, 0, 0.6); }
+    .compare-card-good:hover { border-color: rgba(0, 229, 255, 0.6); box-shadow: 0 0 65px rgba(0, 229, 255, 0.25), inset 0 0 30px rgba(0, 229, 255, 0.08), 0 20px 40px -20px rgba(0, 0, 0, 0.7); transform: translateY(-3px); }
+
+    .compare-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Orbitron', sans-serif; margin-bottom: 16px; }
+    .compare-tag-bad { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); color: #F87171; }
+    .compare-tag-good { background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.4); color: #00E5FF; text-shadow: 0 0 8px rgba(0, 229, 255, 0.5); }
+
+    .compare-headline { font-family: 'Orbitron', sans-serif; font-weight: 800; letter-spacing: 0.02em; margin-bottom: 14px; line-height: 1; }
+    .compare-headline-bad { color: #EF4444; font-size: 1.75rem; text-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+    .compare-headline-good { color: #00E5FF; font-size: 1.75rem; text-shadow: 0 0 15px rgba(0, 229, 255, 0.5); }
+    .compare-sublabel { font-size: 0.7rem; color: #94A3B8; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; }
+
+    .call-row { display: flex; align-items: center; gap: 10px; padding: 9px 11px; background: rgba(10, 0, 20, 0.55); border-radius: 10px; margin-bottom: 7px; font-size: 0.8125rem; border: 1px solid transparent; transition: border-color 0.3s ease; }
+    .call-row-bad { border-color: rgba(239, 68, 68, 0.15); }
+    .call-row-bad:hover { border-color: rgba(239, 68, 68, 0.35); }
+    .call-row-good { border-color: rgba(34, 197, 94, 0.18); }
+    .call-row-good:hover { border-color: rgba(34, 197, 94, 0.4); }
+    .call-icon { width: 26px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .call-icon-bad { background: rgba(239, 68, 68, 0.15); color: #F87171; }
+    .call-icon-good { background: rgba(34, 197, 94, 0.15); color: #4ADE80; }
+    .call-label { color: #E2E8F0; font-weight: 500; font-size: 0.8125rem; }
+    .call-time { color: #64748B; font-size: 0.75rem; margin-left: auto; }
+    .call-amount { color: #4ADE80; font-weight: 700; font-size: 0.8125rem; margin-left: auto; }
+
+    .compare-footer { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; justify-content: space-between; }
+    .compare-footer-label { font-size: 0.7rem; color: #94A3B8; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+    .compare-footer-value-bad { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #EF4444; font-size: 1rem; text-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+    .compare-footer-value-good { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #4ADE80; font-size: 1rem; text-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
+
+    .vs-wrap { display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 767px) { .vs-wrap { padding: 4px 0; } }
+    .vs-orb { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #1A0030 0%, #0B001A 100%); border: 1px solid rgba(106, 0, 255, 0.55); display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 0.8125rem; color: #B366FF; letter-spacing: 0.1em; box-shadow: 0 0 30px rgba(106, 0, 255, 0.4), inset 0 0 15px rgba(106, 0, 255, 0.2); text-shadow: 0 0 10px rgba(179, 102, 255, 0.6); }
+
+    .stat-chip { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px 10px; background: rgba(20, 0, 40, 0.5); border: 1px solid rgba(106, 0, 255, 0.22); border-radius: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; text-align: center; }
+    .stat-chip:hover { border-color: rgba(0, 229, 255, 0.45); box-shadow: 0 0 25px rgba(0, 229, 255, 0.15); transform: translateY(-2px); }
+    .stat-chip-num { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.375rem; color: #00E5FF; text-shadow: 0 0 15px rgba(0, 229, 255, 0.45); line-height: 1; margin-bottom: 5px; }
+    .stat-chip-label { font-size: 0.65rem; color: #94A3B8; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; line-height: 1.2; }
+
+    .offer-strip { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; padding: 12px 22px; background: rgba(20, 0, 40, 0.6); border: 1px solid rgba(106, 0, 255, 0.35); border-radius: 9999px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 30px rgba(106, 0, 255, 0.15); }
+    .offer-strip-item { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.04em; color: #E2E8F0; white-space: nowrap; }
+    .offer-strip-item strong { color: #00E5FF; text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); font-weight: 800; }
+    .offer-strip-divider { color: rgba(106, 0, 255, 0.4); font-weight: 700; }
+
+    .btn-cyan { background: linear-gradient(135deg, #00E5FF 0%, #00a8c0 100%); color: #0A0E1A; padding: 14px 32px; border-radius: 9999px; font-weight: 800; font-size: 0.9375rem; font-family: 'Orbitron', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 0 30px rgba(0, 229, 255, 0.45), 0 0 60px rgba(0, 229, 255, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.3); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+    .btn-cyan:hover { background: linear-gradient(135deg, #33EDFF 0%, #00c0dd 100%); transform: translateY(-2px); box-shadow: 0 0 45px rgba(0, 229, 255, 0.7), 0 0 80px rgba(0, 229, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4); }
+
+    .service-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 9999px; font-size: 0.8125rem; font-weight: 500; color: #C4AADD; background: rgba(20, 0, 40, 0.5); border: 1px solid rgba(106, 0, 255, 0.22); text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+    .service-pill:hover { color: #fff; border-color: rgba(255, 0, 200, 0.45); background: rgba(61, 0, 112, 0.4); box-shadow: 0 0 18px rgba(255, 0, 200, 0.2); }
+    .service-pill strong { color: #fff; font-weight: 700; }
+
+    @keyframes missed-pulse { 0%, 100% { opacity: 0.7; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); } 50% { opacity: 1; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); } }
+    .missed-dot { animation: missed-pulse 2s infinite; }
 </style>
 </head>
 <body>
@@ -381,47 +444,169 @@
 
   <section class="hero-gradient pt-36 pb-16 md:pt-44 md:pb-24">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-      <div class="trust-pill inline-flex items-center gap-2 bg-navy/50 backdrop-blur-md border border-navy-border rounded-full px-5 py-2 mb-10 cursor-default" style="box-shadow: 0 0 20px rgba(34,197,94,0.1);">
-        <span class="w-2 h-2 bg-green rounded-full" style="box-shadow: 0 0 10px #22C55E;"></span>
-        <span class="text-sm text-gray-300 font-medium">Built exclusively for local service businesses</span>
+
+      <!-- Trust pill -->
+      <div class="trust-pill inline-flex items-center gap-2 bg-navy/50 backdrop-blur-md rounded-full px-5 py-2 mb-8 cursor-default" style="border: 1px solid rgba(0, 229, 255, 0.3); box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);">
+        <span class="w-2 h-2 rounded-full" style="background:#00E5FF; box-shadow: 0 0 10px #00E5FF;"></span>
+        <span class="text-sm font-medium" style="color:#00E5FF; letter-spacing:0.05em;">AI RECEPTIONIST · BUILT FOR TRADE CONTRACTORS</span>
       </div>
+
+      <!-- Pain hook headline -->
       <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-        A website that wins<br />customers for <span id="trade-rotate" class="trade-text text-purple" style="text-shadow: 0 0 25px rgba(124, 58, 237, 0.6);">Roofers</span>
+        Every Missed Call Is<br /><span class="hero-pain-word">Money Gone.</span>
       </h1>
-      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-        We design, build, host, and maintain your site — you just answer the calls.<br class="hidden sm:block" />
-        Flat monthly subscription. No contracts required. No tech headaches.
+
+      <!-- Solution sub-headline with rotating trade -->
+      <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+        Your AI Receptionist answers every call, books the job, and never calls in sick.<br class="hidden sm:block" />
+        Built for <span id="trade-rotate" class="trade-text" style="color:#00E5FF; text-shadow: 0 0 20px rgba(0, 229, 255, 0.5); font-weight: 700;">Roofers</span>.
       </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-        <a href="#pricing" class="btn-primary text-base px-8 py-3.5">See pricing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
-        <a href="#work" class="btn-outline text-base">View example sites</a>
+
+      <!-- Primary & secondary CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="btn-cyan">
+          Get a Free Demo
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#pricing" class="btn-outline text-base">See Pricing</a>
       </div>
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16 md:mb-24">
-        <span class="trust-pill">Custom Design</span>
-        <span class="trust-pill">Hosting Included</span>
-        <span class="trust-pill">Unlimited Edits</span>
-        <span class="trust-pill">SEO Optimized</span>
-        <span class="trust-pill">Lead Capture Forms</span>
-        <span class="trust-pill">Domain Included</span>
-        <span class="trust-pill" style="color:#00E5FF; border-color:rgba(0,229,255,0.3); background:rgba(0,229,255,0.06);">24/7 AI Receptionist</span>
-      </div>
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-8">
-          <span class="section-label text-purple mb-4 block">OUR WORK</span>
-          <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Website Template Examples</h2>
-          <p class="text-gray-400 mt-3 text-base md:text-lg">Every site is custom-built for your trade and location — this is what we deliver.</p>
+
+      <!-- Offer anchor strip (matches the ad's bottom bar) -->
+      <div class="flex justify-center mb-14">
+        <div class="offer-strip">
+          <span class="offer-strip-item"><strong>$497</strong>/mo</span>
+          <span class="offer-strip-divider">·</span>
+          <span class="offer-strip-item"><strong>$0</strong> Setup</span>
+          <span class="offer-strip-divider">·</span>
+          <span class="offer-strip-item">Live in <strong>48 Hours</strong></span>
+          <span class="offer-strip-divider hidden sm:inline">·</span>
+          <span class="offer-strip-item hidden sm:inline">Cancel Anytime</span>
         </div>
-        <div class="mockup-container rounded-2xl overflow-hidden bg-navy-card" style="cursor:pointer; position:relative;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          <div style="position:relative; overflow:hidden; background:#0A0E1A; aspect-ratio: 16/9;">
-            <img id="hero-slide-img" src="/Untitled.png" alt="Example website" style="display:block; width:100%; height:auto; transition:opacity 2s ease;" />
-            <div id="hero-slide-curtain" style="position:absolute;top:0;left:0;right:0;bottom:0;background:#0A0E1A;opacity:0;transition:opacity 2s ease;pointer-events:none;"></div>
-            <button class="mockup-cta-badge" onclick="event.stopPropagation(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-              Get a Quote
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </button>
+      </div>
+
+      <!-- Before/After visual (mirrors the ad) -->
+      <div class="max-w-5xl mx-auto mb-10">
+        <div class="compare-grid">
+
+          <!-- Without Brechtland -->
+          <div class="compare-card compare-card-bad">
+            <div class="compare-tag compare-tag-bad">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              Without Brechtland
+            </div>
+            <div class="compare-headline compare-headline-bad">7 MISSED<br/>CALLS</div>
+            <div class="compare-sublabel mb-4">Last night · 10pm — 12am</div>
+            <div>
+              <div class="call-row call-row-bad">
+                <div class="call-icon call-icon-bad missed-dot"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21 15.46l-5.27-.61-2.52 2.52a15.05 15.05 0 01-6.59-6.58l2.53-2.54L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg></div>
+                <span class="call-label">Missed Call</span>
+                <span class="call-time">10:42 PM</span>
+              </div>
+              <div class="call-row call-row-bad">
+                <div class="call-icon call-icon-bad missed-dot"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21 15.46l-5.27-.61-2.52 2.52a15.05 15.05 0 01-6.59-6.58l2.53-2.54L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg></div>
+                <span class="call-label">Missed Call</span>
+                <span class="call-time">10:58 PM</span>
+              </div>
+              <div class="call-row call-row-bad">
+                <div class="call-icon call-icon-bad missed-dot"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21 15.46l-5.27-.61-2.52 2.52a15.05 15.05 0 01-6.59-6.58l2.53-2.54L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg></div>
+                <span class="call-label">Missed Call</span>
+                <span class="call-time">11:14 PM</span>
+              </div>
+              <div class="call-row call-row-bad">
+                <div class="call-icon call-icon-bad missed-dot"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21 15.46l-5.27-.61-2.52 2.52a15.05 15.05 0 01-6.59-6.58l2.53-2.54L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg></div>
+                <span class="call-label">Missed Call</span>
+                <span class="call-time">11:31 PM</span>
+              </div>
+              <div class="text-xs pt-1" style="color:#64748B; padding-left: 4px;">+3 more missed calls</div>
+            </div>
+            <div class="compare-footer">
+              <span class="compare-footer-label">Revenue Lost</span>
+              <span class="compare-footer-value-bad">~ $4,320</span>
+            </div>
           </div>
+
+          <!-- VS divider -->
+          <div class="vs-wrap">
+            <div class="vs-orb">VS</div>
+          </div>
+
+          <!-- With Brechtland AI -->
+          <div class="compare-card compare-card-good">
+            <div class="compare-tag compare-tag-good">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              With Brechtland AI
+            </div>
+            <div class="compare-headline compare-headline-good">5 JOBS<br/>BOOKED</div>
+            <div class="compare-sublabel mb-4">While you slept · 10pm — 12am</div>
+            <div>
+              <div class="call-row call-row-good">
+                <div class="call-icon call-icon-good"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <span class="call-label">Roof inspection</span>
+                <span class="call-amount">$650</span>
+              </div>
+              <div class="call-row call-row-good">
+                <div class="call-icon call-icon-good"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <span class="call-label">AC tune-up</span>
+                <span class="call-amount">$220</span>
+              </div>
+              <div class="call-row call-row-good">
+                <div class="call-icon call-icon-good"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <span class="call-label">Emergency leak</span>
+                <span class="call-amount">$850</span>
+              </div>
+              <div class="call-row call-row-good">
+                <div class="call-icon call-icon-good"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <span class="call-label">HVAC install</span>
+                <span class="call-amount">$3,200</span>
+              </div>
+              <div class="call-row call-row-good">
+                <div class="call-icon call-icon-good"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <span class="call-label">Electrical panel</span>
+                <span class="call-amount">$1,200</span>
+              </div>
+            </div>
+            <div class="compare-footer">
+              <span class="compare-footer-label">Revenue Booked</span>
+              <span class="compare-footer-value-good">$6,120</span>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <!-- Stat strip (proof) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-3xl mx-auto mb-10">
+        <div class="stat-chip">
+          <span class="stat-chip-num">391%</span>
+          <span class="stat-chip-label">More Sales<br/>Responding in 60s</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-chip-num">24/7</span>
+          <span class="stat-chip-label">Always<br/>Answering</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-chip-num">48h</span>
+          <span class="stat-chip-label">Live &amp;<br/>Taking Calls</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-chip-num">0%</span>
+          <span class="stat-chip-label">Missed<br/>Calls</span>
+        </div>
+      </div>
+
+      <!-- Other services breadcrumb -->
+      <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+        <span class="text-gray-500 font-medium">Also offering:</span>
+        <a href="#pricing" class="service-pill">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          <span><strong>Website Design</strong> · from $149/mo</span>
+        </a>
+        <a href="#pricing" class="service-pill">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span><strong>Email Marketing</strong> · from $79/mo</span>
+        </a>
+      </div>
+
     </div>
   </section>
 
