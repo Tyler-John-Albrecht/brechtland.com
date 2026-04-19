@@ -481,9 +481,7 @@ form.addEventListener('submit', async function(e) {
     });
 
     if (res.ok) {
-      document.getElementById('form-area').style.display = 'none';
-      document.getElementById('success').style.display   = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.location.href = '/thank-you.html';
     } else {
       btn.disabled    = false;
       btn.textContent = 'Book My Free Demo →';
