@@ -132,6 +132,33 @@
     .btn-primary { background: linear-gradient(135deg, #6A00FF, #FF00C8); color: #fff; padding: 12px 28px; border-radius: 9999px; font-weight: 700; font-size: 0.9375rem; font-family: 'Exo 2', sans-serif; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 0 20px rgba(106, 0, 255, 0.45), 0 0 40px rgba(255, 0, 200, 0.20), inset 0 1px 1px rgba(255, 255, 255, 0.25); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: inline-flex; align-items: center; gap: 8px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
     .btn-primary:hover { background: linear-gradient(135deg, #8A20FF, #FF30D8); transform: translateY(-2px); box-shadow: 0 0 35px rgba(106, 0, 255, 0.70), 0 0 60px rgba(255, 0, 200, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35); border-color: rgba(255, 0, 200, 0.5); }
     .btn-primary svg { filter: drop-shadow(0 0 2px rgba(255,255,255,0.5)); }
+
+    /* Unified pricing card CTA — matches hero btn-cyan typography so all three buttons read as siblings */
+    .pricing-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .pricing-cta:hover {
+      transform: translateY(-2px);
+    }
+    .pricing-cta svg {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 6px;
+      margin-top: -2px;
+    }
     .btn-outline { color: #D4AAFF; padding: 12px 28px; border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; font-family: 'Exo 2', sans-serif; letter-spacing: 0.02em; transition: all 0.3s ease; text-decoration: none; border: 1px solid rgba(106, 0, 255, 0.35); background: rgba(106, 0, 255, 0.06); }
     .btn-outline:hover { color: #fff; background: rgba(106, 0, 255, 0.18); border-color: rgba(255, 0, 200, 0.5); box-shadow: 0 0 25px rgba(106, 0, 255, 0.30), 0 0 50px rgba(255, 0, 200, 0.15); }
     .btn-small { padding: 8px 18px; border-radius: 9999px; font-size: 0.8125rem; font-weight: 500; transition: all 0.3s ease; }
@@ -432,6 +459,32 @@
       border-color: rgba(0, 229, 255, 0.4);
       background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(20, 0, 40, 0.5));
       box-shadow: 0 0 40px rgba(0, 229, 255, 0.12);
+    }
+    .comparison-weak:hover {
+      opacity: 1;
+      border-color: rgba(255, 0, 200, 0.5);
+      box-shadow: 0 0 40px rgba(255, 0, 200, 0.18), 0 0 90px rgba(255, 0, 200, 0.08);
+      transform: translateY(-4px);
+    }
+    .comparison-strong:hover {
+      border-color: rgba(0, 229, 255, 0.7);
+      box-shadow: 0 0 50px rgba(0, 229, 255, 0.28), 0 0 110px rgba(0, 229, 255, 0.14);
+      transform: translateY(-4px);
+    }
+    .savings-highlight {
+      color: #00E5FF;
+      text-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+      display: inline-block;
+      transition: text-shadow 0.45s ease, transform 0.45s ease;
+      cursor: default;
+    }
+    .savings-highlight:hover {
+      text-shadow:
+        0 0 10px rgba(0, 229, 255, 0.95),
+        0 0 25px rgba(0, 229, 255, 0.75),
+        0 0 55px rgba(0, 229, 255, 0.55),
+        0 0 95px rgba(0, 229, 255, 0.35);
+      transform: scale(1.04);
     }
     .comparison-label {
       font-family: 'Exo 2', sans-serif;
@@ -912,7 +965,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#2B5CE6; box-shadow:0 0 5px rgba(43,92,230,0.8);"></span>Lead capture forms</div>
           </div>
           <div class="mt-6">
-            <a href="#pricing" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#2B5CE6; border:1px solid rgba(43,92,230,0.4); background:rgba(43,92,230,0.08); box-shadow:0 0 20px rgba(43,92,230,0.1);" onmouseover="this.style.background='rgba(43,92,230,0.18)';this.style.boxShadow='0 0 30px rgba(43,92,230,0.25)';" onmouseout="this.style.background='rgba(43,92,230,0.08)';this.style.boxShadow='0 0 20px rgba(43,92,230,0.1)';">View Pricing ↓</a>
+            <a href="#pricing" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#2B5CE6; border:1px solid rgba(43,92,230,0.4); background:rgba(43,92,230,0.08); box-shadow:0 0 20px rgba(43,92,230,0.1);" onmouseover="this.style.background='rgba(43,92,230,0.18)';this.style.boxShadow='0 0 30px rgba(43,92,230,0.25)';" onmouseout="this.style.background='rgba(43,92,230,0.08)';this.style.boxShadow='0 0 20px rgba(43,92,230,0.1)';">View Pricing <svg class="w-3.5 h-3.5 inline-block ml-1.5 -mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
           </div>
         </div>
 
@@ -936,7 +989,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full" style="background:#00E5FF; box-shadow:0 0 5px rgba(0,229,255,0.8);"></span>Call transcripts</div>
           </div>
           <div class="mt-6">
-            <a href="#ai-receptionist" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#00E5FF; border:1px solid rgba(0,229,255,0.4); background:rgba(0,229,255,0.08); box-shadow:0 0 20px rgba(0,229,255,0.1);" onmouseover="this.style.background='rgba(0,229,255,0.18)';this.style.boxShadow='0 0 30px rgba(0,229,255,0.25)';" onmouseout="this.style.background='rgba(0,229,255,0.08)';this.style.boxShadow='0 0 20px rgba(0,229,255,0.1)';">See How It Works ↓</a>
+            <a href="#ai-receptionist" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#00E5FF; border:1px solid rgba(0,229,255,0.4); background:rgba(0,229,255,0.08); box-shadow:0 0 20px rgba(0,229,255,0.1);" onmouseover="this.style.background='rgba(0,229,255,0.18)';this.style.boxShadow='0 0 30px rgba(0,229,255,0.25)';" onmouseout="this.style.background='rgba(0,229,255,0.08)';this.style.boxShadow='0 0 20px rgba(0,229,255,0.1)';">See How It Works <svg class="w-3.5 h-3.5 inline-block ml-1.5 -mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
           </div>
         </div>
 
@@ -956,7 +1009,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-center gap-2 text-sm text-gray-300"><span class="w-1.5 h-1.5 rounded-full bg-blue" style="box-shadow:0 0 5px #2B5CE6;"></span>Performance reporting</div>
           </div>
           <div class="mt-6">
-            <a id="email-mktg-cta" href="#pricing" class="js-gsap-scroll block w-full text-center text-white text-xs font-bold uppercase rounded-[10px] py-3.5" style="font-family:'Orbitron',sans-serif; letter-spacing:2px; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3);">View Pricing</a>
+            <a id="email-mktg-cta" href="#pricing" class="js-gsap-scroll block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#a78bfa; border:1px solid rgba(124,58,237,0.4); background:rgba(124,58,237,0.08); box-shadow:0 0 20px rgba(124,58,237,0.1);" onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.boxShadow='0 0 30px rgba(124,58,237,0.25)';" onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.boxShadow='0 0 20px rgba(124,58,237,0.1)';">View Pricing <svg class="w-3.5 h-3.5 inline-block ml-1.5 -mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
           </div>
         </div>
 
@@ -1341,7 +1394,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       <!-- Savings callout -->
       <div class="text-center mt-14">
         <p class="text-2xl md:text-3xl font-extrabold text-white leading-tight">
-          You save <span style="color:#00E5FF; text-shadow:0 0 25px rgba(0,229,255,0.4);">$32,436 per year</span>.<br class="hidden sm:block" />
+          You save <span class="savings-highlight">$32,436 per year</span>.<br class="hidden sm:block" />
           <span class="text-gray-400 font-semibold text-xl md:text-2xl">And you never miss another call.</span>
         </p>
       </div>
@@ -1380,7 +1433,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-baseline gap-1 mb-1"><span class="text-gray-400 text-sm">Starting from</span></div>
             <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl font-extrabold text-white" style="font-family:'Orbitron',sans-serif; filter: drop-shadow(0 0 15px rgba(255,255,255,0.15));">$149</span><span class="text-gray-400 text-sm">/mo</span></div>
             <p class="text-gray-500 text-xs mb-6">Exact pricing on your call</p>
-            <a href="javascript:void(0)" onclick="openContactModal()" class="btn-primary w-full justify-center text-sm py-3.5">Get Your Free Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+            <a href="javascript:void(0)" onclick="openContactModal()" class="pricing-cta" style="color:#fff; background:linear-gradient(135deg,#6A00FF,#FF00C8); box-shadow:0 4px 20px rgba(106,0,255,0.35), 0 0 40px rgba(255,0,200,0.15);">Get Your Free Preview <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </div>
         <!-- —— Email Marketing Pricing —— -->
@@ -1405,7 +1458,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-baseline gap-1 mb-1"><span class="text-gray-400 text-sm">Starting from</span></div>
             <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl font-extrabold text-white" style="font-family:'Orbitron',sans-serif; filter: drop-shadow(0 0 15px rgba(255,255,255,0.15));">$67</span><span class="text-gray-400 text-sm">/mo</span></div>
             <p class="text-gray-500 text-xs mb-6">4 tiers available · Scales with your list</p>
-            <a id="email-strategy-cta" href="javascript:void(0)" class="block w-full text-center text-white text-sm font-bold uppercase rounded-full py-3.5" style="font-family:'Orbitron',sans-serif; letter-spacing:1px; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3), 0 0 40px rgba(224,64,160,0.15); border:1px solid rgba(255,255,255,0.1);">Initialize Email Strategy <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+            <a id="email-strategy-cta" href="javascript:void(0)" class="pricing-cta" style="color:#fff; background:linear-gradient(135deg,#7c3aed,#e040a0); box-shadow:0 4px 20px rgba(124,58,237,0.3), 0 0 40px rgba(224,64,160,0.15);">Initialize Email Strategy <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </div>
         <!-- ——— AI Receptionist Pricing ——— -->
@@ -1432,7 +1485,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             <div class="flex items-baseline gap-1 mb-1"><span class="text-gray-400 text-sm">Starting from</span></div>
             <div class="flex items-baseline gap-2 mb-1"><span class="text-4xl font-extrabold text-white" style="font-family:'Orbitron',sans-serif; filter:drop-shadow(0 0 15px rgba(0,229,255,0.3));">$497</span><span class="text-gray-400 text-sm">/mo</span></div>
             <p class="text-gray-500 text-xs mb-6">Cancel anytime</p>
-            <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="block w-full text-center font-bold text-sm py-3.5 rounded-full transition-all" style="font-family:'Orbitron',sans-serif; letter-spacing:1.5px; color:#0A0E1A; background:linear-gradient(135deg,#00E5FF,#00a8c0); box-shadow:0 4px 25px rgba(0,229,255,0.3), 0 0 50px rgba(0,229,255,0.1);">Activate AI Receptionist <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+            <a href="javascript:void(0)" onclick="openContactModal('receptionist')" class="pricing-cta" style="color:#0A0E1A; background:linear-gradient(135deg,#00E5FF,#00a8c0); box-shadow:0 4px 25px rgba(0,229,255,0.3), 0 0 50px rgba(0,229,255,0.1);">Activate AI Receptionist <svg class="w-4 h-4 inline-block ml-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </div>
       </div>
