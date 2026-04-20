@@ -405,6 +405,144 @@
     @keyframes missed-pulse { 0%, 100% { opacity: 0.7; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); } 50% { opacity: 1; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); } }
     .missed-dot { animation: missed-pulse 2s infinite; }
 
+    /* ===== Price Comparison Grid ===== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: stretch;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .comparison-card {
+      padding: 32px 28px;
+      border-radius: 20px;
+      background: rgba(20, 0, 40, 0.5);
+      border: 1px solid rgba(106, 0, 255, 0.22);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .comparison-weak {
+      opacity: 0.78;
+    }
+    .comparison-strong {
+      border-color: rgba(0, 229, 255, 0.4);
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(20, 0, 40, 0.5));
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.12);
+    }
+    .comparison-label {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      margin-bottom: 16px;
+    }
+    .comparison-price {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .comparison-price span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: 0.05em;
+      margin-left: 2px;
+    }
+    .comparison-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+    }
+    .comparison-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.9rem;
+      color: #CBD5E1;
+      padding: 9px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .comparison-list li:first-child {
+      border-top: none;
+    }
+    .comparison-neg::before {
+      content: "✕";
+      color: #EF4444;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+    .comparison-pos::before {
+      content: "✓";
+      color: #00E5FF;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+      text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+    }
+    .comparison-vs {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #C4AADD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 20px rgba(106, 0, 255, 0.5);
+    }
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .comparison-vs {
+        padding: 4px 0;
+        font-size: 1.15rem;
+      }
+      .comparison-card {
+        padding: 26px 22px;
+      }
+      .comparison-price {
+        font-size: 2.5rem;
+      }
+    }
+    /* ===== End Price Comparison Grid ===== */
+
+    /* ===== Hero Damaging Admission ===== */
+    .hero-admission {
+      font-family: 'Exo 2', sans-serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #94A3B8;
+      max-width: 640px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+      opacity: 0.92;
+    }
+    @media (max-width: 640px) {
+      .hero-admission { font-size: 0.85rem; margin-bottom: 2rem; max-width: 420px; }
+    }
+    /* ===== End Hero Damaging Admission ===== */
+
     /* ===== Industries Ticker Pill (in hero) ===== */
     .hero-ticker {
       display: flex;
@@ -561,9 +699,14 @@
       </h1>
 
       <!-- Solution sub-headline with rotating trade -->
-      <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+      <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed font-medium">
         Your AI Receptionist answers every call, books the job, and never calls in sick.<br class="hidden sm:block" />
         Built for <span id="trade-rotate" class="trade-text" style="color:#00E5FF; text-shadow: 0 0 20px rgba(0, 229, 255, 0.5); font-weight: 700;">Roofers</span>.
+      </p>
+
+      <!-- Damaging admission (disarms "AI = bad" objection before CTA) -->
+      <p class="hero-admission">
+        Yes, it's AI. That's exactly why it answers every call — during work, after work, on weekends, and at 2 AM.
       </p>
 
       <!-- Primary & secondary CTAs -->
@@ -1140,6 +1283,67 @@ Contractors lose thousands every month from missed calls. Our system captures ev
           </a>
           <p class="text-gray-600 text-xs mt-4">48-hour setup · No contracts · Cancel anytime</p>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Price Anchor: Human Receptionist vs Brechtland AI -->
+  <section id="price-comparison" class="py-20 md:py-24 fade-section relative">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(106,0,255,0.05) 0%, transparent 60%);"></div>
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
+
+      <!-- Section header -->
+      <div class="text-center mb-12">
+        <span class="section-label mb-4 block" style="color:#00E5FF; text-shadow:0 0 12px rgba(0,229,255,0.4);">WHY $497?</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight">
+          A Full-Time Receptionist Costs <span style="color:#EF4444; text-shadow:0 0 20px rgba(239,68,68,0.35);">$3,200/mo</span>.
+        </h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          And they still sleep, take lunch, and go home at 5.
+        </p>
+      </div>
+
+      <!-- Comparison grid -->
+      <div class="comparison-grid">
+
+        <!-- Human receptionist (dimmer/weaker visual) -->
+        <div class="comparison-card comparison-weak">
+          <div class="comparison-label">Human Receptionist</div>
+          <div class="comparison-price">$3,200<span>/mo</span></div>
+          <ul class="comparison-list">
+            <li class="comparison-neg">Works 40 hrs/week</li>
+            <li class="comparison-neg">Sick days, vacation, lunch breaks</li>
+            <li class="comparison-neg">Misses nights, weekends, holidays</li>
+            <li class="comparison-neg">One call at a time</li>
+            <li class="comparison-neg">$38,400/year</li>
+          </ul>
+        </div>
+
+        <!-- VS divider -->
+        <div class="comparison-vs">VS</div>
+
+        <!-- Brechtland AI (glowing/winner visual) -->
+        <div class="comparison-card comparison-strong">
+          <div class="comparison-label" style="color:#00E5FF;">Brechtland AI</div>
+          <div class="comparison-price" style="color:#00E5FF; text-shadow:0 0 25px rgba(0,229,255,0.4);">$497<span style="color:#94A3B8; text-shadow:none;">/mo</span></div>
+          <ul class="comparison-list">
+            <li class="comparison-pos">Works 168 hrs/week (24/7)</li>
+            <li class="comparison-pos">Never sick, never out</li>
+            <li class="comparison-pos">Covers nights, weekends, holidays</li>
+            <li class="comparison-pos">Handles multiple calls at once</li>
+            <li class="comparison-pos">$5,964/year</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Savings callout -->
+      <div class="text-center mt-14">
+        <p class="text-2xl md:text-3xl font-extrabold text-white leading-tight">
+          You save <span style="color:#00E5FF; text-shadow:0 0 25px rgba(0,229,255,0.4);">$32,436 per year</span>.<br class="hidden sm:block" />
+          <span class="text-gray-400 font-semibold text-xl md:text-2xl">And you never miss another call.</span>
+        </p>
       </div>
 
     </div>
