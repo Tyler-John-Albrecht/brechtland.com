@@ -404,6 +404,110 @@
 
     @keyframes missed-pulse { 0%, 100% { opacity: 0.7; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); } 50% { opacity: 1; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); } }
     .missed-dot { animation: missed-pulse 2s infinite; }
+
+    /* ===== Industries Ticker Pill (in hero) ===== */
+    .hero-ticker {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 6px 10px 18px;
+      background: rgba(20, 0, 40, 0.5);
+      border: 1px solid rgba(106, 0, 255, 0.22);
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      max-width: 860px;
+      width: 100%;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero-ticker:hover {
+      border-color: rgba(0, 229, 255, 0.4);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.15);
+    }
+    .hero-ticker-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0;
+      z-index: 2;
+      position: relative;
+    }
+    .hero-ticker-label::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: -16px;
+      bottom: -10px;
+      width: 16px;
+      background: linear-gradient(90deg, rgba(20, 0, 40, 1) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-ticker-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #00E5FF;
+      box-shadow: 0 0 7px #00E5FF;
+      animation: ticker-dot-pulse 2s ease-in-out infinite;
+    }
+    @keyframes ticker-dot-pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 7px #00E5FF; }
+      50% { opacity: 0.5; box-shadow: 0 0 4px #00E5FF; }
+    }
+    .hero-ticker-label-text {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #00E5FF;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(0,229,255,0.4);
+      white-space: nowrap;
+    }
+    .hero-ticker-mask {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 94%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 94%, transparent 100%);
+    }
+    .hero-ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      animation: ticker-scroll 50s linear infinite;
+      white-space: nowrap;
+      padding-left: 22px;
+    }
+    .hero-ticker:hover .hero-ticker-track {
+      animation-play-state: paused;
+    }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .hero-ticker-item {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #E2E8F0;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .hero-ticker-sep {
+      color: #00E5FF;
+      font-size: 0.55rem;
+      opacity: 0.7;
+      text-shadow: 0 0 6px rgba(0,229,255,0.4);
+    }
+    @media (max-width: 640px) {
+      .hero-ticker { padding: 8px 4px 8px 14px; gap: 10px; }
+      .hero-ticker-label-text { font-size: 0.55rem; letter-spacing: 0.1em; }
+      .hero-ticker-item { font-size: 0.78rem; }
+      .hero-ticker-track { gap: 16px; padding-left: 16px; }
+    }
+    /* ===== End Industries Ticker Pill ===== */
 </style>
 </head>
 <body>
@@ -594,17 +698,48 @@
         </div>
       </div>
 
-      <!-- Other services breadcrumb -->
-      <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
-        <span class="text-gray-500 font-medium">Also offering:</span>
-        <a href="#pricing" class="service-pill">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          <span><strong>Website Design</strong> · from $149/mo</span>
-        </a>
-        <a href="#pricing" class="service-pill">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span><strong>Email Marketing</strong> · from $79/mo</span>
-        </a>
+      <!-- Industries Ticker Pill (replaces "Also offering:" breadcrumb) -->
+      <div class="flex justify-center">
+        <div class="hero-ticker" aria-label="Industries we serve">
+          <div class="hero-ticker-label">
+            <span class="hero-ticker-dot"></span>
+            <span class="hero-ticker-label-text">Built For</span>
+          </div>
+          <div class="hero-ticker-mask">
+            <div class="hero-ticker-track">
+              <!-- First loop -->
+              <span class="hero-ticker-item">Roofing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Plumbing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">HVAC</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Landscaping</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Auto Detailing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Epoxy Flooring</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Window Cleaning</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Cleaning Services</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Restaurants</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Fitness &amp; Gyms</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Real Estate</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Automotive</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Dental</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Legal</span><span class="hero-ticker-sep">●</span>
+              <!-- Duplicate for seamless infinite loop -->
+              <span class="hero-ticker-item">Roofing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Plumbing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">HVAC</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Landscaping</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Auto Detailing</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Epoxy Flooring</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Window Cleaning</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Cleaning Services</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Restaurants</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Fitness &amp; Gyms</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Real Estate</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Automotive</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Dental</span><span class="hero-ticker-sep">●</span>
+              <span class="hero-ticker-item">Legal</span><span class="hero-ticker-sep">●</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
