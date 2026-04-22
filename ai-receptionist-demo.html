@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Receptionist Demo — Brechtland</title>
+<title>Free Missed-Call Audit — Brechtland</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -334,11 +334,11 @@ footer{
     <div class="hero-right">
       <div class="form-card">
         <div id="form-area">
-          <div class="form-card-title">Book Your Free Demo</div>
-          <div class="form-card-sub">We'll call you within <span>2 business days</span> to show you exactly how it works.</div>
+          <div class="form-card-title">Get Your Free Missed-Call Audit</div>
+          <div class="form-card-sub">We'll call you within <span>2 business days</span> and show you exactly how much revenue your missed calls are costing you.</div>
 
           <form id="demo-form" action="https://formspree.io/f/meelwrne" method="POST">
-            <input type="hidden" name="_subject" value="New AI Receptionist Demo Request — Brechtland Ad">
+            <input type="hidden" name="_subject" value="New Missed-Call Audit Request — Brechtland Ad">
 
             <div class="form-group">
               <label class="form-label">Your Name</label>
@@ -365,8 +365,20 @@ footer{
               <input class="form-input" type="text" name="industry" placeholder="e.g. Roofing, HVAC, Plumbing..." required>
             </div>
 
+            <div class="form-group">
+              <label class="form-label">Calls Per Month (Estimate)</label>
+              <select class="form-input" name="monthly_call_volume" required>
+                <option value="" disabled selected>Select a range...</option>
+                <option value="0-25">0–25 calls/month</option>
+                <option value="26-75">26–75 calls/month</option>
+                <option value="76-150">76–150 calls/month</option>
+                <option value="151-300">151–300 calls/month</option>
+                <option value="300+">300+ calls/month</option>
+              </select>
+            </div>
+
             <button class="form-submit" type="submit" id="submit-btn">
-              Book My Free Demo →
+              Get My Free Audit →
             </button>
           </form>
 
@@ -419,8 +431,8 @@ footer{
       <div class="step">
         <div class="step-num">01</div>
         <div class="step-content">
-          <div class="step-title">Book your free demo</div>
-          <div class="step-desc">We call you, show you a live demo of the AI on a real contractor call, and answer every question you have. No pressure, no commitment.</div>
+          <div class="step-title">Get your free missed-call audit</div>
+          <div class="step-desc">We review your call volume, show you exactly how much revenue missed calls are costing you, and demo the AI live on a real contractor call. No pressure, no commitment.</div>
         </div>
       </div>
       <div class="step">
@@ -451,9 +463,9 @@ footer{
 <!-- BOTTOM CTA -->
 <div class="cta-section">
   <div class="cta-title">READY TO STOP MISSING JOBS?</div>
-  <div class="cta-sub">Book a free demo today — we'll call you within 2 business days.</div>
+  <div class="cta-sub">Get your free missed-call audit today — we'll call you within 2 business days.</div>
   <a href="#" class="cta-btn" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-    Get My Free Demo →
+    Get My Free Audit →
   </a>
 </div>
 
@@ -484,12 +496,12 @@ form.addEventListener('submit', async function(e) {
       window.location.href = '/thank-you.html';
     } else {
       btn.disabled    = false;
-      btn.textContent = 'Book My Free Demo →';
+      btn.textContent = 'Get My Free Audit →';
       alert('Something went wrong. Please call us directly at 972-833-6364.');
     }
   } catch(err) {
     btn.disabled    = false;
-    btn.textContent = 'Book My Free Demo →';
+    btn.textContent = 'Get My Free Audit →';
     alert('Something went wrong. Please call us directly at 972-833-6364.');
   }
 });
