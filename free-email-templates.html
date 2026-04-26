@@ -622,11 +622,6 @@
           </div>
 
           <div>
-            <label>Phone Number</label>
-            <input type="tel" name="phone" placeholder="(555) 867-5309" autocomplete="tel">
-          </div>
-
-          <div>
             <label>Your Industry</label>
             <div class="select-wrap">
               <select name="industry" required>
@@ -644,6 +639,11 @@
                 <option value="Dental">🦷 Dental</option>
               </select>
             </div>
+          </div>
+
+          <div>
+            <label>Google Business URL <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray3);font-size:11px;">(optional — goes on your review button)</span></label>
+            <input type="url" name="googleUrl" placeholder="https://g.page/your-business/review" autocomplete="off">
           </div>
         </div>
 
@@ -767,8 +767,9 @@
     const firstName    = form.firstName.value.trim();
     const businessName = form.businessName.value.trim();
     const email        = form.email.value.trim();
-    const phone        = form.phone.value.trim();
+    const phone        = form.phone ? form.phone.value.trim() : '';
     const industry     = form.industry.value;
+    const googleUrl    = form.googleUrl ? form.googleUrl.value.trim() : '';
 
     if (!firstName || !businessName || !email || !industry) {
       showError('Please fill out all fields.');
@@ -790,7 +791,7 @@
       const res = await fetch('https://brechtland-receptionist-production.up.railway.app/api/v1/email/lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, businessName, email, phone, industry })
+        body: JSON.stringify({ firstName, businessName, email, phone, industry, googleUrl })
       });
 
       const data = await res.json();
