@@ -1103,7 +1103,7 @@ Contractors lose thousands every month from missed calls. Our system captures ev
             </label>
             <span id="calc-value-value" class="text-2xl font-extrabold" style="color:#00E5FF; font-family:'Orbitron',sans-serif; text-shadow:0 0 15px rgba(0,229,255,0.5); min-width:90px; text-align:right;">$500</span>
           </div>
-          <input id="calc-value" type="range" min="50" max="25000" step="50" value="500" class="calc-slider" />
+          <input id="calc-value" type="range" min="0" max="1000" step="1" value="371" class="calc-slider" />
         </div>
 
         <!-- ── Period Toggle ── -->
@@ -1827,7 +1827,13 @@ Contractors lose thousands every month from missed calls. Our system captures ev
       function update() {
         const calls = parseFloat(callsEl.value) || 0;
         const close = parseFloat(closeEl.value) || 0;
-        const value = parseFloat(valueEl.value) || 0;
+        // Exponential curve: slider 0-1000 maps to $50-$25,000.
+        // First 60% of slider covers $50-$2,000 (where 80% of trades live);
+        // last 40% covers $2,000-$25,000 (commercial whales). This gives
+        // thumb-precision in the realistic range without sacrificing ceiling.
+        const valuePos = parseFloat(valueEl.value) || 0;
+        const valueRaw = 50 * Math.pow(500, valuePos / 1000);
+        const value = Math.round(valueRaw / 50) * 50; // snap to $50 increments
         const cfg   = periodMap[period];
 
         // Live label updates
