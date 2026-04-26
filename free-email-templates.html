@@ -611,9 +611,14 @@
               <input type="text" name="firstName" placeholder="Tyler" required autocomplete="given-name">
             </div>
             <div>
-              <label>Business Name</label>
-              <input type="text" name="businessName" placeholder="Acme Roofing Co." required>
+              <label>Last Name</label>
+              <input type="text" name="lastName" placeholder="Albrecht" required autocomplete="family-name">
             </div>
+          </div>
+
+          <div>
+            <label>Business Name</label>
+            <input type="text" name="businessName" placeholder="Acme Roofing Co." required>
           </div>
 
           <div>
@@ -765,13 +770,14 @@
 
     // Basic validation
     const firstName    = form.firstName.value.trim();
+    const lastName     = form.lastName ? form.lastName.value.trim() : '';
     const businessName = form.businessName.value.trim();
     const email        = form.email.value.trim();
     const phone        = form.phone ? form.phone.value.trim() : '';
     const industry     = form.industry.value;
     const googleUrl    = form.googleUrl ? form.googleUrl.value.trim() : '';
 
-    if (!firstName || !businessName || !email || !industry) {
+    if (!firstName || !lastName || !businessName || !email || !industry) {
       showError('Please fill out all fields.');
       return;
     }
@@ -791,7 +797,7 @@
       const res = await fetch('https://brechtland-receptionist-production.up.railway.app/api/v1/email/lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, businessName, email, phone, industry, googleUrl })
+        body: JSON.stringify({ firstName, lastName, businessName, email, phone, industry, googleUrl })
       });
 
       const data = await res.json();
