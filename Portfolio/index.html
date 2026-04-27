@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brechtland — Web Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #060609;
+    --bg2:      #0d0d13;
+    --bg3:      #13131c;
+    --border:   rgba(255,255,255,0.07);
+    --border-h: rgba(255,255,255,0.15);
+    --text:     #f0eee8;
+    --muted:    #6b6878;
+    --accent:   #c8a96e;
+    --accent2:  #7b6fa0;
+    --white:    #ffffff;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── GRID LINES ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 0 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    background: rgba(6,6,9,0.85);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  nav a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #0a0800 !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    letter-spacing: 0.06em;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: #d9bb82 !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    z-index: 2;
+    padding: 140px 60px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    max-width: 820px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .meta-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-stat strong {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .meta-stat span {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .meta-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px;
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .section-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding-bottom: 4px;
+  }
+
+  /* ── GRID ── */
+  .grid-wrap {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    position: relative;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: block;
+    aspect-ratio: 4/3;
+  }
+
+  .card:hover {
+    border-color: var(--border-h);
+    z-index: 3;
+  }
+
+  /* Browser chrome bar */
+  .card-chrome {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 32px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 6px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .dot-r { background: #ff5f57; }
+  .dot-y { background: #febc2e; }
+  .dot-g { background: #28c840; }
+
+  .chrome-url {
+    margin-left: 10px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 80px);
+  }
+
+  /* IFRAME */
+  .card-iframe-wrap {
+    position: absolute;
+    top: 32px; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    background: #1a1a2e;
+  }
+
+  .card-iframe-wrap iframe {
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: top left;
+    border: none;
+    pointer-events: none;
+  }
+
+  /* Fallback gradient bg when iframe blocked */
+  .card-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-fallback-icon {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  /* Overlay on hover */
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(6,6,9,0.97) 0%,
+      rgba(6,6,9,0.6) 50%,
+      rgba(6,6,9,0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    pointer-events: none;
+  }
+
+  .card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .card-industry {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    margin-bottom: 6px;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: rgba(240,238,232,0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .card-link-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .card-link-label::after {
+    content: '→';
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .card:hover .card-link-label::after {
+    transform: translateX(4px);
+  }
+
+  /* Bottom label (always visible) */
+  .card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 14px 20px;
+    background: linear-gradient(to top, rgba(6,6,9,0.9), transparent);
+    z-index: 3;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover .card-label {
+    opacity: 0;
+  }
+
+  .card-label-text {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.01em;
+  }
+
+  /* Numbered badge */
+  .card-num {
+    position: absolute;
+    top: 40px;
+    left: 14px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    z-index: 5;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── GRADIENT OVERLAYS PER CARD ── */
+  .card-bg {
+    position: absolute;
+    top: 32px; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+  .card:hover .card-bg { opacity: 0.3; }
+
+  .bg-dental   { background: linear-gradient(135deg, #0c1a3a 0%, #1a3a5c 50%, #0d2240 100%); }
+  .bg-resto    { background: linear-gradient(135deg, #2a0e00 0%, #4a1800 50%, #1f0a00 100%); }
+  .bg-gym      { background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #12122a 100%); }
+  .bg-window   { background: linear-gradient(135deg, #001f3d 0%, #003560 50%, #001828 100%); }
+  .bg-plumbing { background: linear-gradient(135deg, #001a33 0%, #002952 50%, #001225 100%); }
+  .bg-hvac     { background: linear-gradient(135deg, #0a0a1e 0%, #14143a 50%, #08082a 100%); }
+  .bg-roofing  { background: linear-gradient(135deg, #1a0a00 0%, #2e1200 50%, #120800 100%); }
+  .bg-realestate { background: linear-gradient(135deg, #0d1a0d 0%, #1a2e1a 50%, #0a150a 100%); }
+  .bg-epoxy    { background: linear-gradient(135deg, #1a0d2e 0%, #2e1a4a 50%, #140a24 100%); }
+  .bg-detailing { background: linear-gradient(135deg, #1a1a0d 0%, #2e2e14 50%, #141408 100%); }
+  .bg-landscape { background: linear-gradient(135deg, #0a1a0a 0%, #12281a 50%, #081408 100%); }
+  .bg-kaiju     { background: linear-gradient(135deg, #1a0a00 0%, #3d1500 50%, #2a0800 100%); }
+
+  /* ── PROCESS STRIP ── */
+  .process-strip {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 60px;
+    max-width: 100%;
+    background: var(--bg2);
+    margin-bottom: 120px;
+  }
+
+  .process-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .process-left h2 {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+  }
+
+  .process-left h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .process-left p {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .step {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px 160px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-inner {
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-inner::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(200,169,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(123,111,160,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .cta-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .cta-inner h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .cta-inner p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: #080600;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: #d9bb82;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    border: 1px solid var(--border-h);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 18px;
+  }
+
+  .footer-right {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-right a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+  .hero h1   { animation: fadeUp 0.7s ease both; animation-delay: 0.22s; }
+  .hero-sub  { animation: fadeUp 0.7s ease both; animation-delay: 0.34s; }
+  .hero-meta { animation: fadeUp 0.7s ease both; animation-delay: 0.46s; }
+
+  .card {
+    animation: fadeUp 0.5s ease both;
+  }
+  .card:nth-child(1)  { animation-delay: 0.05s; }
+  .card:nth-child(2)  { animation-delay: 0.10s; }
+  .card:nth-child(3)  { animation-delay: 0.15s; }
+  .card:nth-child(4)  { animation-delay: 0.20s; }
+  .card:nth-child(5)  { animation-delay: 0.25s; }
+  .card:nth-child(6)  { animation-delay: 0.30s; }
+  .card:nth-child(7)  { animation-delay: 0.35s; }
+  .card:nth-child(8)  { animation-delay: 0.40s; }
+  .card:nth-child(9)  { animation-delay: 0.45s; }
+  .card:nth-child(10) { animation-delay: 0.50s; }
+  .card:nth-child(11) { animation-delay: 0.55s; }
+  .card:nth-child(12) { animation-delay: 0.60s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    header { padding: 0 32px; }
+    .hero { padding: 100px 32px 80px; }
+    .section-header, .grid-wrap, .cta-section { padding-left: 32px; padding-right: 32px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-inner { grid-template-columns: 1fr; gap: 48px; }
+    .process-strip { padding: 60px 32px; }
+    nav { gap: 20px; }
+    nav a:not(.nav-cta) { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 0 20px; height: 64px; }
+    .hero { padding: 72px 20px 60px; }
+    .section-header, .grid-wrap, .cta-section { padding-left: 20px; padding-right: 20px; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 1px; }
+    .hero-meta { gap: 24px; }
+    .meta-stat strong { font-size: 28px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .cta-inner { padding: 60px 24px; }
+    .cta-buttons { flex-direction: column; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">BRECHT<span>LAND</span></a>
+  <nav>
+    <a href="#portfolio">Work</a>
+    <a href="https://brechtland.com" target="_blank">brechtland.com</a>
+    <a href="mailto:tyler@brechtland.com" class="nav-cta">Start a Project</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Web Design Portfolio</div>
+  <h1>Websites that<br><em>convert visitors</em><br>into customers.</h1>
+  <p class="hero-sub">Twelve industries. One standard — every site purpose-built for the business it represents.</p>
+  <div class="hero-meta">
+    <div class="meta-stat">
+      <strong>12</strong>
+      <span>Live Sites</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-stat">
+      <strong>11</strong>
+      <span>Industries</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-stat">
+      <strong>FL</strong>
+      <span>Based</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION HEADER -->
+<div class="section-header" id="portfolio">
+  <div>
+    <div class="section-label">Selected Work</div>
+    <div class="section-title">Industry Templates</div>
+  </div>
+  <div class="section-count">01 — 12</div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="portfolio-grid">
+
+    <!-- 01 Dentistry -->
+    <a class="card" href="https://crm.brechtland.com/dentistry-landing-page.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / dentistry-landing-page</div>
+      </div>
+      <div class="card-bg bg-dental"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/dentistry-landing-page.html" loading="lazy" title="Dentistry Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">01</div>
+      <div class="card-label"><div class="card-label-text">Dentistry</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Dentistry</div>
+        <div class="card-desc">Healthcare / Medical</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 02 Restaurant -->
+    <a class="card" href="https://crm.brechtland.com/Restaurant%20Template/hb-bbq.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / restaurant / hb-bbq</div>
+      </div>
+      <div class="card-bg bg-resto"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/Restaurant%20Template/hb-bbq.html" loading="lazy" title="Restaurant Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">02</div>
+      <div class="card-label"><div class="card-label-text">Restaurant</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Restaurant</div>
+        <div class="card-desc">Food & Hospitality</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 03 Gym -->
+    <a class="card" href="https://tyler-john-albrecht.github.io/Gym-Template/index.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">github.io / Gym-Template</div>
+      </div>
+      <div class="card-bg bg-gym"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://tyler-john-albrecht.github.io/Gym-Template/index.html" loading="lazy" title="Gym Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">03</div>
+      <div class="card-label"><div class="card-label-text">Fitness & Gym</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Fitness & Gym</div>
+        <div class="card-desc">Health & Wellness</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 04 Window Cleaning -->
+    <a class="card" href="https://tyler-john-albrecht.github.io/Window-Cleaning/index.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">github.io / Window-Cleaning</div>
+      </div>
+      <div class="card-bg bg-window"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://tyler-john-albrecht.github.io/Window-Cleaning/index.html" loading="lazy" title="Window Cleaning Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">04</div>
+      <div class="card-label"><div class="card-label-text">Window Cleaning</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Window Cleaning</div>
+        <div class="card-desc">Home Services</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 05 Plumbing -->
+    <a class="card" href="https://tyler-john-albrecht.github.io/Plumbing/Plumbing%20Template/index.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">github.io / Plumbing / Template</div>
+      </div>
+      <div class="card-bg bg-plumbing"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://tyler-john-albrecht.github.io/Plumbing/Plumbing%20Template/index.html" loading="lazy" title="Plumbing Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">05</div>
+      <div class="card-label"><div class="card-label-text">Plumbing</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Plumbing</div>
+        <div class="card-desc">Trade Contractor</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 06 HVAC -->
+    <a class="card" href="https://crm.brechtland.com/HVAC-Template.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / HVAC-Template</div>
+      </div>
+      <div class="card-bg bg-hvac"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/HVAC-Template.html" loading="lazy" title="HVAC Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">06</div>
+      <div class="card-label"><div class="card-label-text">HVAC</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">HVAC</div>
+        <div class="card-desc">Trade Contractor</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 07 Roofing -->
+    <a class="card" href="https://crm.brechtland.com/Roofing-Template/roofing-template.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / Roofing-Template</div>
+      </div>
+      <div class="card-bg bg-roofing"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/Roofing-Template/roofing-template.html" loading="lazy" title="Roofing Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">07</div>
+      <div class="card-label"><div class="card-label-text">Roofing</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Roofing</div>
+        <div class="card-desc">Trade Contractor</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 08 Real Estate -->
+    <a class="card" href="https://crm.brechtland.com/Real%20Estate%202.0/realtor-template.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / Real-Estate-2.0</div>
+      </div>
+      <div class="card-bg bg-realestate"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/Real%20Estate%202.0/realtor-template.html" loading="lazy" title="Real Estate Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">08</div>
+      <div class="card-label"><div class="card-label-text">Real Estate</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Real Estate</div>
+        <div class="card-desc">Property & Realtor</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 09 Epoxy Flooring -->
+    <a class="card" href="https://tyler-john-albrecht.github.io/Epoxy-Flooring/Epoxy%20Flooring%20Template/index.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">github.io / Epoxy-Flooring</div>
+      </div>
+      <div class="card-bg bg-epoxy"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://tyler-john-albrecht.github.io/Epoxy-Flooring/Epoxy%20Flooring%20Template/index.html" loading="lazy" title="Epoxy Flooring Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">09</div>
+      <div class="card-label"><div class="card-label-text">Epoxy Flooring</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Epoxy Flooring</div>
+        <div class="card-desc">Home Services</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 10 Auto Detailing -->
+    <a class="card" href="https://crm.brechtland.com/Detailing-Template/Detailing-Template.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">brechtland.com / Detailing-Template</div>
+      </div>
+      <div class="card-bg bg-detailing"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://crm.brechtland.com/Detailing-Template/Detailing-Template.html" loading="lazy" title="Auto Detailing Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">10</div>
+      <div class="card-label"><div class="card-label-text">Auto Detailing</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Auto Detailing</div>
+        <div class="card-desc">Automotive Services</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+    <!-- 12 Kaiju Kiln -->
+    <a class="card" href="https://kaijukiln.com/" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">kaijukiln.com</div>
+      </div>
+      <div class="card-bg bg-kaiju"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://kaijukiln.com/" loading="lazy" title="Kaiju Kiln" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">12</div>
+      <div class="card-label"><div class="card-label-text">Kaiju Kiln</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Kaiju Kiln</div>
+        <div class="card-desc">E-Commerce / Artisan</div>
+        <div class="card-link-label">View Live Site</div>
+      </div>
+    </a>
+
+    <!-- 11 Landscaping -->
+    <a class="card" href="https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html" target="_blank" rel="noopener">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="chrome-url">github.io / Landscaping / Template</div>
+      </div>
+      <div class="card-bg bg-landscape"></div>
+      <div class="card-iframe-wrap">
+        <iframe src="https://tyler-john-albrecht.github.io/Landscaping/Landscaping%20Template/index.html" loading="lazy" title="Landscaping Template" scrolling="no"></iframe>
+      </div>
+      <div class="card-num">11</div>
+      <div class="card-label"><div class="card-label-text">Landscaping</div></div>
+      <div class="card-overlay">
+        <div class="card-industry">Landscaping</div>
+        <div class="card-desc">Outdoor Services</div>
+        <div class="card-link-label">View Live Template</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-tag">Get in touch</div>
+    <h2>Let's build something<br><em>worth clicking.</em></h2>
+    <p>Have a project in mind? Let's talk.</p>
+    <div class="cta-buttons">
+      <a href="mailto:tyler@brechtland.com?subject=Website%20Design%20Inquiry" class="btn-primary">Start My Project</a>
+      <a href="https://brechtland.com" target="_blank" class="btn-secondary">Visit Brechtland.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://brechtland.com" class="logo">BRECHT<span>LAND</span></a>
+  <div class="footer-right">
+    <a href="mailto:tyler@brechtland.com">tyler@brechtland.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;brechtland.com&nbsp;&nbsp;·&nbsp;&nbsp;© 2025 Brechtland LLC
+  </div>
+</footer>
+
+</body>
+</html>
